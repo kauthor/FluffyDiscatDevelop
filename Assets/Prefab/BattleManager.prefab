@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7124927646451718989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5402080939078051445}
+  - component: {fileID: 8772098841571244578}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5402080939078051445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124927646451718989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8772098841571244578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124927646451718989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d4391ce4914208bae947212ee6947c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTestPrefab:
+  - {fileID: 1276136860833439340, guid: 8c0aaa4678ed5ac47b3b4c76c3f88dc3, type: 3}
+  - {fileID: 4885915685434268517, guid: ce93dadf9d3b3544988b1584508a516d, type: 3}
+  - {fileID: 2066919087465421869, guid: 95ee546e591362c47bf5c4d892e69c7f, type: 3}
+  enemyTestPrefab:
+  - {fileID: 6700611773804220875, guid: ccdbcce6280850c48af20b89b224e390, type: 3}
+  - {fileID: 6700611773804220875, guid: ccdbcce6280850c48af20b89b224e390, type: 3}
+  - {fileID: 6700611773804220875, guid: ccdbcce6280850c48af20b89b224e390, type: 3}
+  playerPosition:
+    position:
+    - {x: -5, y: 2, z: 0}
+    - {x: -5, y: 0, z: 0}
+    - {x: -5, y: -2, z: 0}
+    - {x: -3.5, y: 2, z: 0}
+    - {x: -3.5, y: 0, z: 0}
+    - {x: -3.5, y: -2, z: 0}
+    - {x: -2, y: 2, z: 0}
+    - {x: -2, y: 0, z: 0}
+    - {x: -2, y: -2, z: 0}
+  enemyPosition:
+    position:
+    - {x: 5, y: 2, z: 0}
+    - {x: 5, y: 1, z: 0}
+    - {x: 5, y: 0, z: 0}
+    - {x: 5, y: -1, z: 0}

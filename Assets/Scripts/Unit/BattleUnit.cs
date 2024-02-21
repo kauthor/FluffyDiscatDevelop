@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tables.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,12 +31,12 @@ namespace FluffyDisket
         [SerializeField] private Job CharacterClass;
         [SerializeField] private Transform hpBar;
         [SerializeField] private bool CanUseSkillFirst;
-
+        [SerializeField] private PlayerSubTable table;
         [SerializeField] private CharacterStat characterAbility;
 
         private float skillCoolTimeRegain;
         public float SkillCoolRegain => skillCoolTimeRegain;
-        public CharacterStat CharacterAbility => characterAbility;
+        public CharacterStat CharacterAbility => table? table.stat: characterAbility;
         private TeamInfo OurTeam;
         public TeamInfo Team => OurTeam;
         public Job CharacterClassPublic => CharacterClass;
@@ -44,7 +45,7 @@ namespace FluffyDisket
 
         private bool hasSkill = false;
 
-        public float MaxHp => HPMax;
+        public float MaxHp => table!=null? table.stat.HpMax: HPMax;
 
         public event Action<BattleUnit> onOwnerUpdate;
         public event Action<float> onHpUpdate;
@@ -70,7 +71,7 @@ namespace FluffyDisket
                 }
                 else
                 {
-                    onHpUpdate?.Invoke(_currentHp/HPMax);
+                    onHpUpdate?.Invoke(_currentHp/MaxHp);
                 }
             }
         }
@@ -93,7 +94,7 @@ namespace FluffyDisket
 
         public void SetHpPercent(float per)
         {
-            currentHp = HPMax * per;
+            currentHp = MaxHp * per;
         }
 
         protected virtual void OnDead()
@@ -108,7 +109,7 @@ namespace FluffyDisket
             if (IsDead)
                 return false;
             if (GameManager.GetInstance().IsAuto || !OurTeam.IsPlayer || getInput)
-                return skillCoolTimeRegain >= characterAbility.SkillCoolTIme;
+                return skillCoolTimeRegain >= CharacterAbility.SkillCoolTIme;
 
             return false;
         }
@@ -122,7 +123,7 @@ namespace FluffyDisket
 
         private void Awake()
         {
-            currentHp = HPMax;
+            currentHp = MaxHp;
             onOwnerUpdate = null;
             FiniteStateMachineDic = new Dictionary<State, BattleState>();
             if (inspectorStates.Length > 0)
@@ -143,7 +144,7 @@ namespace FluffyDisket
             hasSkill = FiniteStateMachineDic.ContainsKey(State.Skill);
             skillCoolTimeRegain = 0;
             if (CanUseSkillFirst)
-                skillCoolTimeRegain = characterAbility.SkillCoolTIme;
+                skillCoolTimeRegain = CharacterAbility.SkillCoolTIme;
         }
 
         public void ChangeState(State nextState, StateParam param =null)

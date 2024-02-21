@@ -223,6 +223,23 @@ namespace FluffyDisket
             
         }
 
+        public void EndBattleScene()
+        {
+            currentPlayerCondition = null;
+            foreach (var mem in PlayerTeam.members)
+            {  
+                Destroy(mem.gameObject);
+            }
+
+            foreach (var enemy in EnemyTeam.members)
+            {
+                Destroy(enemy.gameObject);
+            }
+
+            EnemyTeam = null;
+            PlayerTeam = null;
+        }
+
         public void StartBattle()
         {
             StartCoroutine(TestImpl());

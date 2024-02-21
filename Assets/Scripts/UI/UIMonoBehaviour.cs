@@ -8,7 +8,8 @@ namespace FluffyDisket.UI
         None=-1,
         Battle=0,
         Formation=1,
-        MapSelect=2
+        MapSelect=2,
+        LobbyTeamSelect=3,
     }
 
     public class UIViewParam

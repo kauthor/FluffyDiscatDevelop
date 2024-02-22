@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace FluffyDisket.UI
@@ -22,6 +23,7 @@ namespace FluffyDisket.UI
         [SerializeField] private UIHpBar hpbarPrefab;
         [SerializeField] private Transform hpBarArea;
         [SerializeField] private Button btnMap;
+        [SerializeField] private Button btnBackToLobby;
 
         private List<UIHpBar> bars;
         private Queue<UIHpBar> barPool;
@@ -31,6 +33,8 @@ namespace FluffyDisket.UI
         {
             btnMap.onClick.RemoveAllListeners();
             btnMap.onClick.AddListener(OnClickOpenButton);
+            btnBackToLobby.onClick.RemoveAllListeners();
+            btnBackToLobby.onClick.AddListener(GoLobby);
         }
 
         public override void Init(UIViewParam param)
@@ -47,6 +51,7 @@ namespace FluffyDisket.UI
             //autoOn.gameObject.SetActive(GameManager.GetInstance().IsAuto);
             
             btnMap.gameObject.SetActive(false);
+            btnBackToLobby.gameObject.SetActive(false);
             var battleP = param as BattleViewParam;
             if (battleP == null)
             {
@@ -141,8 +146,16 @@ namespace FluffyDisket.UI
                 {
                     btnMap.gameObject.SetActive(true);
                 }
+                else if (curst != null && curst.StageType == StageType.Boss)
+                {
+                    btnBackToLobby.gameObject.SetActive(true);
+                }
             }
-            else Defeat();
+            else
+            {
+                Defeat();
+                btnBackToLobby.gameObject.SetActive(true);
+            }
         }
 
         protected override void Dispose()
@@ -155,6 +168,11 @@ namespace FluffyDisket.UI
                 barPool.Enqueue(bar);
             }
             //AutoButton.onClick.RemoveAllListeners();
+        }
+
+        private void GoLobby()
+        {
+            SceneManager.LoadSceneAsync("Scenes/SelectScene");
         }
     }
 }

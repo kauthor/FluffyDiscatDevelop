@@ -36,9 +36,12 @@ namespace FluffyDisket.UI
 
             foreach (var pair in playerDat.playerFormationDic)
             {
+                if(BattleManager.GetInstance().CurrentPlayerCondition.currentHpDatas[pair.Key].retired)
+                    continue;
                 var img = Instantiate(playerIcon);
                 var color = Color.red;
-                switch (pair.Key)
+                int playerNum = AccountManager.GetInstance().CurrentBattleMember[pair.Key];
+                switch (playerNum)
                 {
                     case 0:
                         color=Color.red;

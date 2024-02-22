@@ -19,6 +19,8 @@ namespace FluffyDisket
         public PlayerCurrent[] currentHpDatas;
         public Dictionary<int, int> playerFormationDic;
 
+        public int deadCount = 0;
+        
         public PlayerBattleCurrentData(int length)
         {
             var newPlayer = new PlayerCurrent();
@@ -32,6 +34,8 @@ namespace FluffyDisket
                 currentHpDatas[i] = newPlayer;
                 playerFormationDic.Add(i,i);
             }
+
+            deadCount = 0;
         }
     }
 
@@ -65,6 +69,11 @@ namespace FluffyDisket
 
         protected void Start()
         {
+            
+        }
+
+        public void TryStartBattle()
+        {
             StageManager.GetInstance().TryEnterFirstStage(() =>
             {
                 StartCoroutine(TestImpl());
@@ -82,12 +91,17 @@ namespace FluffyDisket
         private IEnumerator TestImpl()
         {
             var playerList = new List<BattleUnit>();
-            foreach (var pl in playerTestPrefab)
+            foreach (var mem in AccountManager.GetInstance().CurrentBattleMember)
             {
-                playerList.Add(Instantiate(pl));
-                pl.gameObject.SetActive(false);
+                if (mem<playerTestPrefab.Length)
+                {
+                    var pl = playerTestPrefab[mem];
+                    playerList.Add(Instantiate(pl));
+                    pl.gameObject.SetActive(false);
+                }
+                
             }
-            
+
             var enemyList = new List<BattleUnit>();
             var stageData = StageManager.GetInstance().CurrentStage;
             if (stageData != null && stageData.monsterDatas != null)
@@ -120,7 +134,7 @@ namespace FluffyDisket
         
         public void Initialize(BattleUnit[] players, BattleUnit[] enemies, Action onEnd=null)
         {
-            PlayerTeam = new TeamInfo(players, true);
+            PlayerTeam = new TeamInfo(players, true, currentPlayerCondition?.deadCount ?? 0);
             EnemyTeam = new TeamInfo(enemies, false);
             OnBattleEnd = null;
             onEnd?.Invoke();
@@ -206,9 +220,12 @@ namespace FluffyDisket
             foreach (var mem in PlayerTeam.members)
             {
                 currentPlayerCondition.currentHpDatas[i].retired = mem.IsDead;
+                currentPlayerCondition.deadCount += mem.IsDead ? 1 : 0;
                 currentPlayerCondition.currentHpDatas[i].remainHpPer = mem.IsDead ? 0: mem.currentHp / mem.MaxHp;
                 i++;
             }
+            
+            EndBattleScene();
             /*if (EnemyTeam.IsDefeated)
             {
                 var stageM = StageManager.GetInstance();
@@ -226,15 +243,6 @@ namespace FluffyDisket
         public void EndBattleScene()
         {
             currentPlayerCondition = null;
-            foreach (var mem in PlayerTeam.members)
-            {  
-                Destroy(mem.gameObject);
-            }
-
-            foreach (var enemy in EnemyTeam.members)
-            {
-                Destroy(enemy.gameObject);
-            }
 
             EnemyTeam = null;
             PlayerTeam = null;

@@ -13,7 +13,7 @@ namespace FluffyDisket
 
         public bool IsDefeated => deadCount >= memberCount && memberCount > 0;
 
-        public TeamInfo(BattleUnit[] mem, bool isPlayer)
+        public TeamInfo(BattleUnit[] mem, bool isPlayer, int dead=0)
         {
             members = mem;
             foreach (var m in members)
@@ -22,7 +22,7 @@ namespace FluffyDisket
             }
 
             memberCount = members.Length;
-            deadCount = 0;
+            deadCount = dead;
             IsPlayer = isPlayer;
         }
 

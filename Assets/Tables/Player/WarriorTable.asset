@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WarriorTable
   m_EditorClassIdentifier: 
   stat:
-    HpMax: 0
-    MoveSpeed: 0
-    Range: 0
-    SkillCoolTIme: 0
-    AttackCoolTime: 0
+    HpMax: 150
+    MoveSpeed: 1
+    Range: 2
+    SkillCoolTIme: 15
+    AttackCoolTime: 3

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ThiefTable
   m_EditorClassIdentifier: 
   stat:
-    HpMax: 0
-    MoveSpeed: 0
-    Range: 0
-    SkillCoolTIme: 0
-    AttackCoolTime: 0
+    HpMax: 85
+    MoveSpeed: 1.5
+    Range: 2
+    SkillCoolTIme: 12
+    AttackCoolTime: 3

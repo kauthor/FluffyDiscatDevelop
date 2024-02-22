@@ -58,6 +58,7 @@ MonoBehaviour:
   CharacterClass: 1
   hpBar: {fileID: 7833410055138495987}
   CanUseSkillFirst: 0
+  table: {fileID: 11400000, guid: be3533cb0530ef941bfecbb5a50af44f, type: 2}
   characterAbility:
     HpMax: 90
     MoveSpeed: 1

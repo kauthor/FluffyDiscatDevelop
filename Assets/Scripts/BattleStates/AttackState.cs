@@ -1,4 +1,5 @@
 ﻿using System;
+using FluffyDisket.UI;
 using UnityEngine;
 
 namespace FluffyDisket
@@ -27,6 +28,8 @@ namespace FluffyDisket
             if (coolRegain >= owner.CharacterAbility.AttackCoolTime)
             {
                 receivedParam.target.SetHp(-damage);
+                BattleManager.GetInstance().currentView.ReceiveLog(
+                    $"{owner.CharacterClassPublic}가 {receivedParam.target.CharacterClassPublic}에게 공격! {damage} 데미지");
                 coolRegain = 0;
                 
                 var tr = owner.transform;

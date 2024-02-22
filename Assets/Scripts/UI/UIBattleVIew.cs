@@ -24,9 +24,12 @@ namespace FluffyDisket.UI
         [SerializeField] private Transform hpBarArea;
         [SerializeField] private Button btnMap;
         [SerializeField] private Button btnBackToLobby;
+        [SerializeField] private Transform logArea;
+        [SerializeField] private UILogSentence logPrefab;
 
         private List<UIHpBar> bars;
         private Queue<UIHpBar> barPool;
+        private List<UILogSentence> managedLog;
         public override UIType type => UIType.Battle;
 
         private void Awake()
@@ -35,6 +38,7 @@ namespace FluffyDisket.UI
             btnMap.onClick.AddListener(OnClickOpenButton);
             btnBackToLobby.onClick.RemoveAllListeners();
             btnBackToLobby.onClick.AddListener(GoLobby);
+            managedLog = new List<UILogSentence>();
         }
 
         public override void Init(UIViewParam param)
@@ -162,6 +166,11 @@ namespace FluffyDisket.UI
         {
             base.Dispose();
             BattleManager.OnBattleEnd -= OnBattleEnd;
+            for (int i = 0; i < managedLog.Count; i++)
+            {
+                Destroy(managedLog[i].gameObject);
+            }
+            managedLog.Clear();
             foreach (var bar in bars)
             {
                 bar.gameObject.SetActive(false);
@@ -172,7 +181,14 @@ namespace FluffyDisket.UI
 
         private void GoLobby()
         {
+            BattleManager.GetInstance().EndBattleScene();
             SceneManager.LoadSceneAsync("Scenes/SelectScene");
+        }
+
+        public void ReceiveLog(string txt)
+        {
+            var log = Instantiate(logPrefab, logArea, true);
+            log.SetLog(txt);
         }
     }
 }

@@ -10,7 +10,8 @@ namespace FluffyDisket
     {
         Warrior=0,
         Archor =1,
-        Thief =2
+        Thief =2,
+        Monster=100
     }
 
     [Serializable]
@@ -39,7 +40,7 @@ namespace FluffyDisket
         public CharacterStat CharacterAbility => table? table.stat: characterAbility;
         private TeamInfo OurTeam;
         public TeamInfo Team => OurTeam;
-        public Job CharacterClassPublic => CharacterClass;
+        public Job CharacterClassPublic => isPlayer? CharacterClass : Job.Monster;
         private Action OnDeadCb;
         public bool isPlayer => OurTeam.IsPlayer;
 
@@ -99,6 +100,8 @@ namespace FluffyDisket
 
         protected virtual void OnDead()
         {
+            BattleManager.GetInstance().currentView.ReceiveLog(
+                $"{CharacterClassPublic}가 쓰러졌다! 1972년 11월 21일...");
             OnDeadCb?.Invoke();
         }
 

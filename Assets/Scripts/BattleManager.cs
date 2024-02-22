@@ -61,6 +61,8 @@ namespace FluffyDisket
 
         public static event Action<bool> OnBattleEnd;
 
+        public UIBattleVIew currentView;
+
         public bool InBattle
         {
             get;
@@ -194,6 +196,7 @@ namespace FluffyDisket
             PlayerTeam.StartBattle();
             EnemyTeam.StartBattle();
             var view = UIManager.GetInstance().ChangeView(UIType.Battle);
+            currentView = view as UIBattleVIew;
             view.Init(new BattleViewParam()
             {
                 players = PlayerTeam.members,
@@ -225,7 +228,7 @@ namespace FluffyDisket
                 i++;
             }
             
-            EndBattleScene();
+           
             /*if (EnemyTeam.IsDefeated)
             {
                 var stageM = StageManager.GetInstance();

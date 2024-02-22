@@ -14,6 +14,8 @@ namespace FluffyDisket
                 owner.transform.position =
                     enemy.transform.position + new Vector3(owner.CharacterAbility.Range / 2.0f, 0, 0);
                 enemy.SetHp(-damage);
+                BattleManager.GetInstance().currentView.ReceiveLog(
+                    $"{owner.CharacterClassPublic}가 {enemy.CharacterClassPublic}에게 스킬 공격! {damage} 데미지");
             }
             
             if(enemy.IsDead)

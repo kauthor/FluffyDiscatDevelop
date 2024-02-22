@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tables.Player;
 using UnityEngine;
 
 namespace FluffyDisket
@@ -7,6 +8,9 @@ namespace FluffyDisket
     public class AccountManager:CustomSingleton<AccountManager>
     {
         private Dictionary<int, bool> characterOwned;
+
+        [SerializeField] private PlayerSubTable[] playerTables;
+        //이것은 추후 엑셀 매니저로 분기하자.
 
         public Dictionary<int, bool> CharacterOwned => characterOwned;
 

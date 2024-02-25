@@ -223,6 +223,7 @@ namespace FluffyDisket
             foreach (var mem in PlayerTeam.members)
             {
                 currentPlayerCondition.currentHpDatas[i].retired = mem.IsDead;
+                AccountManager.GetInstance().AddOrLoseCharacter(mem.CharacterClassPublic, !mem.IsDead);
                 currentPlayerCondition.deadCount += mem.IsDead ? 1 : 0;
                 currentPlayerCondition.currentHpDatas[i].remainHpPer = mem.IsDead ? 0: mem.currentHp / mem.MaxHp;
                 i++;

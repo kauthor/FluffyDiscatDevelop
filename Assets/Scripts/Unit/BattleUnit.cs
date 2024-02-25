@@ -22,6 +22,21 @@ namespace FluffyDisket
         public float Range;
         public float SkillCoolTIme;
         public float AttackCoolTime;
+        public float Atk;
+        public float phyDef;
+        public float magDef;
+
+        public int hpRegen;
+        public float hpAbsolve;
+        public float crit;
+        public float critDam;
+        public float atkSpeed;
+        public int dodge;
+        public int moveSpeedNew;
+        public float atkIncrease;
+        public float damageDecrease;
+        public float AOEArea;
+        public float accuracy;
     }
     
     public class BattleUnit : IUnit

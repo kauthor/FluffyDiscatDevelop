@@ -42,5 +42,13 @@ namespace FluffyDisket
                 currentBattlePlayers.Add(pl);
             }
         }
+
+
+        public void AddOrLoseCharacter(Job type, bool get = true)
+        {
+            if (characterOwned.ContainsKey((int) type))
+                characterOwned[(int) type] = get;
+            else characterOwned.Add((int)type, get);
+        }
     }
 }

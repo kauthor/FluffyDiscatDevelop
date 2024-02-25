@@ -34,6 +34,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Text heroDec;
         [SerializeField] private Text heroAOE;
         [SerializeField] private Text heroAcc;
+        [SerializeField] private Text heroAtk;
 
         public void Init(Job job, PlayerSubTable table)
         {
@@ -66,6 +67,7 @@ namespace FluffyDisket.UI
             heroDec.text = table.stat.damageDecrease.ToString();
             heroAOE.text = table.stat.AOEArea.ToString();
             heroAcc.text = table.stat.accuracy.ToString();
+            heroAtk.text = table.stat.Atk.ToString();
         }
     }
 }

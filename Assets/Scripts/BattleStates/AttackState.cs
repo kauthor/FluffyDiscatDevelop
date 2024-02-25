@@ -24,12 +24,14 @@ namespace FluffyDisket
                 TryEndState(State.Idle);
             }
 
+            float dam = owner.atkDamage > 0 ? owner.atkDamage : damage;
+            
             coolRegain += Time.deltaTime;
             if (coolRegain >= owner.CharacterAbility.AttackCoolTime)
             {
-                receivedParam.target.SetHp(-damage);
+                receivedParam.target.SetHp(-dam);
                 BattleManager.GetInstance().currentView.ReceiveLog(
-                    $"{owner.CharacterClassPublic}가 {receivedParam.target.CharacterClassPublic}에게 공격! {damage} 데미지");
+                    $"{owner.CharacterClassPublic}가 {receivedParam.target.CharacterClassPublic}에게 공격! {dam} 데미지");
                 coolRegain = 0;
                 
                 var tr = owner.transform;

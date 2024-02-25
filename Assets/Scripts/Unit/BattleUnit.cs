@@ -61,6 +61,8 @@ namespace FluffyDisket
 
         private bool hasSkill = false;
 
+        public float atkDamage => table !=null ? table.stat.Atk : 0;
+
         public float MaxHp => table!=null? table.stat.HpMax: HPMax;
 
         public event Action<BattleUnit> onOwnerUpdate;

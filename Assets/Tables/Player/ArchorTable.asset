@@ -18,3 +18,17 @@ MonoBehaviour:
     Range: 6
     SkillCoolTIme: 20
     AttackCoolTime: 3
+    Atk: 25
+    phyDef: 0
+    magDef: 0
+    hpRegen: 0
+    hpAbsolve: 0
+    crit: 0
+    critDam: 0
+    atkSpeed: 0
+    dodge: 0
+    moveSpeedNew: 0
+    atkIncrease: 0
+    damageDecrease: 0
+    AOEArea: 0
+    accuracy: 0

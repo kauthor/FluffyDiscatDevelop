@@ -1,0 +1,340 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb6d4e795d34fe9b42f81c9481de43b, type: 3}
+  m_Name: BaseTable
+  m_EditorClassIdentifier: 
+  baseDatas:
+  - id: 1
+    unit: 1
+    data: 4
+  - id: 2
+    unit: 1
+    data: 3
+  - id: 3
+    unit: 1
+    data: 2
+  - id: 4
+    unit: 1
+    data: 1
+  - id: 5
+    unit: 1
+    data: 0
+  - id: 6
+    unit: 4
+    data: 4750
+  - id: 7
+    unit: 4
+    data: 4750
+  - id: 8
+    unit: 4
+    data: 500
+  - id: 9
+    unit: 1
+    data: 99
+  expDatas:
+  - level: 1
+    heroCount: 5
+    reqExp: 0
+  - level: 2
+    heroCount: 5
+    reqExp: 0
+  - level: 3
+    heroCount: 5
+    reqExp: 0
+  - level: 4
+    heroCount: 5
+    reqExp: 0
+  - level: 5
+    heroCount: 5
+    reqExp: 0
+  - level: 6
+    heroCount: 5
+    reqExp: 0
+  - level: 7
+    heroCount: 5
+    reqExp: 0
+  - level: 8
+    heroCount: 5
+    reqExp: 0
+  - level: 9
+    heroCount: 5
+    reqExp: 0
+  - level: 10
+    heroCount: 5
+    reqExp: 0
+  - level: 11
+    heroCount: 5
+    reqExp: 0
+  - level: 12
+    heroCount: 5
+    reqExp: 0
+  - level: 13
+    heroCount: 5
+    reqExp: 0
+  - level: 14
+    heroCount: 5
+    reqExp: 0
+  - level: 15
+    heroCount: 5
+    reqExp: 0
+  - level: 16
+    heroCount: 5
+    reqExp: 0
+  - level: 17
+    heroCount: 5
+    reqExp: 0
+  - level: 18
+    heroCount: 5
+    reqExp: 0
+  - level: 19
+    heroCount: 5
+    reqExp: 0
+  - level: 20
+    heroCount: 5
+    reqExp: 0
+  - level: 21
+    heroCount: 5
+    reqExp: 0
+  - level: 22
+    heroCount: 5
+    reqExp: 0
+  - level: 23
+    heroCount: 5
+    reqExp: 0
+  - level: 24
+    heroCount: 5
+    reqExp: 0
+  - level: 25
+    heroCount: 5
+    reqExp: 0
+  - level: 26
+    heroCount: 5
+    reqExp: 0
+  - level: 27
+    heroCount: 5
+    reqExp: 0
+  - level: 28
+    heroCount: 5
+    reqExp: 0
+  - level: 29
+    heroCount: 5
+    reqExp: 0
+  - level: 30
+    heroCount: 5
+    reqExp: 0
+  - level: 31
+    heroCount: 5
+    reqExp: 0
+  - level: 32
+    heroCount: 5
+    reqExp: 0
+  - level: 33
+    heroCount: 5
+    reqExp: 0
+  - level: 34
+    heroCount: 5
+    reqExp: 0
+  - level: 35
+    heroCount: 5
+    reqExp: 0
+  - level: 36
+    heroCount: 5
+    reqExp: 0
+  - level: 37
+    heroCount: 5
+    reqExp: 0
+  - level: 38
+    heroCount: 5
+    reqExp: 0
+  - level: 39
+    heroCount: 5
+    reqExp: 0
+  - level: 40
+    heroCount: 5
+    reqExp: 0
+  - level: 41
+    heroCount: 5
+    reqExp: 0
+  - level: 42
+    heroCount: 5
+    reqExp: 0
+  - level: 43
+    heroCount: 5
+    reqExp: 0
+  - level: 44
+    heroCount: 5
+    reqExp: 0
+  - level: 45
+    heroCount: 5
+    reqExp: 0
+  - level: 46
+    heroCount: 5
+    reqExp: 0
+  - level: 47
+    heroCount: 5
+    reqExp: 0
+  - level: 48
+    heroCount: 5
+    reqExp: 0
+  - level: 49
+    heroCount: 5
+    reqExp: 0
+  - level: 50
+    heroCount: 5
+    reqExp: 0
+  - level: 51
+    heroCount: 5
+    reqExp: 0
+  - level: 52
+    heroCount: 5
+    reqExp: 0
+  - level: 53
+    heroCount: 5
+    reqExp: 0
+  - level: 54
+    heroCount: 5
+    reqExp: 0
+  - level: 55
+    heroCount: 5
+    reqExp: 0
+  - level: 56
+    heroCount: 5
+    reqExp: 0
+  - level: 57
+    heroCount: 5
+    reqExp: 0
+  - level: 58
+    heroCount: 5
+    reqExp: 0
+  - level: 59
+    heroCount: 5
+    reqExp: 0
+  - level: 60
+    heroCount: 5
+    reqExp: 0
+  - level: 61
+    heroCount: 5
+    reqExp: 0
+  - level: 62
+    heroCount: 5
+    reqExp: 0
+  - level: 63
+    heroCount: 5
+    reqExp: 0
+  - level: 64
+    heroCount: 5
+    reqExp: 0
+  - level: 65
+    heroCount: 5
+    reqExp: 0
+  - level: 66
+    heroCount: 5
+    reqExp: 0
+  - level: 67
+    heroCount: 5
+    reqExp: 0
+  - level: 68
+    heroCount: 5
+    reqExp: 0
+  - level: 69
+    heroCount: 5
+    reqExp: 0
+  - level: 70
+    heroCount: 5
+    reqExp: 0
+  - level: 71
+    heroCount: 5
+    reqExp: 0
+  - level: 72
+    heroCount: 5
+    reqExp: 0
+  - level: 73
+    heroCount: 5
+    reqExp: 0
+  - level: 74
+    heroCount: 5
+    reqExp: 0
+  - level: 75
+    heroCount: 5
+    reqExp: 0
+  - level: 76
+    heroCount: 5
+    reqExp: 0
+  - level: 77
+    heroCount: 5
+    reqExp: 0
+  - level: 78
+    heroCount: 5
+    reqExp: 0
+  - level: 79
+    heroCount: 5
+    reqExp: 0
+  - level: 80
+    heroCount: 5
+    reqExp: 0
+  - level: 81
+    heroCount: 5
+    reqExp: 0
+  - level: 82
+    heroCount: 5
+    reqExp: 0
+  - level: 83
+    heroCount: 5
+    reqExp: 0
+  - level: 84
+    heroCount: 5
+    reqExp: 0
+  - level: 85
+    heroCount: 5
+    reqExp: 0
+  - level: 86
+    heroCount: 5
+    reqExp: 0
+  - level: 87
+    heroCount: 5
+    reqExp: 0
+  - level: 88
+    heroCount: 5
+    reqExp: 0
+  - level: 89
+    heroCount: 5
+    reqExp: 0
+  - level: 90
+    heroCount: 5
+    reqExp: 0
+  - level: 91
+    heroCount: 5
+    reqExp: 0
+  - level: 92
+    heroCount: 5
+    reqExp: 0
+  - level: 93
+    heroCount: 5
+    reqExp: 0
+  - level: 94
+    heroCount: 5
+    reqExp: 0
+  - level: 95
+    heroCount: 5
+    reqExp: 0
+  - level: 96
+    heroCount: 5
+    reqExp: 0
+  - level: 97
+    heroCount: 5
+    reqExp: 0
+  - level: 98
+    heroCount: 5
+    reqExp: 0
+  - level: 99
+    heroCount: 0
+    reqExp: 0

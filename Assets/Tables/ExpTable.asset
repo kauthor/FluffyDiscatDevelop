@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effc5e2f028d43b782e9ba6b9d3f9e87, type: 3}
+  m_Name: ExpTable
+  m_EditorClassIdentifier: 
+  expDatas:
+  - level: 1
+    reqExp: 5
+  - level: 2
+    reqExp: 5
+  - level: 3
+    reqExp: 5
+  - level: 4
+    reqExp: 5
+  - level: 5
+    reqExp: 5
+  - level: 6
+    reqExp: 5
+  - level: 7
+    reqExp: 5
+  - level: 8
+    reqExp: 5
+  - level: 9
+    reqExp: 5
+  - level: 10
+    reqExp: 5
+  - level: 11
+    reqExp: 5
+  - level: 12
+    reqExp: 5
+  - level: 13
+    reqExp: 5
+  - level: 14
+    reqExp: 5
+  - level: 15
+    reqExp: 5
+  - level: 16
+    reqExp: 5
+  - level: 17
+    reqExp: 5
+  - level: 18
+    reqExp: 5
+  - level: 19
+    reqExp: 5
+  - level: 20
+    reqExp: 5
+  - level: 21
+    reqExp: 5
+  - level: 22
+    reqExp: 5
+  - level: 23
+    reqExp: 5
+  - level: 24
+    reqExp: 5
+  - level: 25
+    reqExp: 5
+  - level: 26
+    reqExp: 5
+  - level: 27
+    reqExp: 5
+  - level: 28
+    reqExp: 5
+  - level: 29
+    reqExp: 5
+  - level: 30
+    reqExp: 5
+  - level: 31
+    reqExp: 5
+  - level: 32
+    reqExp: 5
+  - level: 33
+    reqExp: 5
+  - level: 34
+    reqExp: 5
+  - level: 35
+    reqExp: 5
+  - level: 36
+    reqExp: 5
+  - level: 37
+    reqExp: 5
+  - level: 38
+    reqExp: 5
+  - level: 39
+    reqExp: 5
+  - level: 40
+    reqExp: 5
+  - level: 41
+    reqExp: 5
+  - level: 42
+    reqExp: 5
+  - level: 43
+    reqExp: 5
+  - level: 44
+    reqExp: 5
+  - level: 45
+    reqExp: 5
+  - level: 46
+    reqExp: 5
+  - level: 47
+    reqExp: 5
+  - level: 48
+    reqExp: 5
+  - level: 49
+    reqExp: 5
+  - level: 50
+    reqExp: 5
+  - level: 51
+    reqExp: 5
+  - level: 52
+    reqExp: 5
+  - level: 53
+    reqExp: 5
+  - level: 54
+    reqExp: 5
+  - level: 55
+    reqExp: 5
+  - level: 56
+    reqExp: 5
+  - level: 57
+    reqExp: 5
+  - level: 58
+    reqExp: 5
+  - level: 59
+    reqExp: 5
+  - level: 60
+    reqExp: 5
+  - level: 61
+    reqExp: 5
+  - level: 62
+    reqExp: 5
+  - level: 63
+    reqExp: 5
+  - level: 64
+    reqExp: 5
+  - level: 65
+    reqExp: 5
+  - level: 66
+    reqExp: 5
+  - level: 67
+    reqExp: 5
+  - level: 68
+    reqExp: 5
+  - level: 69
+    reqExp: 5
+  - level: 70
+    reqExp: 5
+  - level: 71
+    reqExp: 5
+  - level: 72
+    reqExp: 5
+  - level: 73
+    reqExp: 5
+  - level: 74
+    reqExp: 5
+  - level: 75
+    reqExp: 5
+  - level: 76
+    reqExp: 5
+  - level: 77
+    reqExp: 5
+  - level: 78
+    reqExp: 5
+  - level: 79
+    reqExp: 5
+  - level: 80
+    reqExp: 5
+  - level: 81
+    reqExp: 5
+  - level: 82
+    reqExp: 5
+  - level: 83
+    reqExp: 5
+  - level: 84
+    reqExp: 5
+  - level: 85
+    reqExp: 5
+  - level: 86
+    reqExp: 5
+  - level: 87
+    reqExp: 5
+  - level: 88
+    reqExp: 5
+  - level: 89
+    reqExp: 5
+  - level: 90
+    reqExp: 5
+  - level: 91
+    reqExp: 5
+  - level: 92
+    reqExp: 5
+  - level: 93
+    reqExp: 5
+  - level: 94
+    reqExp: 5
+  - level: 95
+    reqExp: 5
+  - level: 96
+    reqExp: 5
+  - level: 97
+    reqExp: 5
+  - level: 98
+    reqExp: 5
+  - level: 99
+    reqExp: 0

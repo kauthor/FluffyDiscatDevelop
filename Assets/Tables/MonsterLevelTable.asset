@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1847f402cefb4a37aa37cfd7ece903e5, type: 3}
+  m_Name: MonsterLevelTable
+  m_EditorClassIdentifier: 
+  monsterLevelDatas:
+  - stageLv: 1
+    monsterBaseStat: 8
+    nextStageLvCount: 2
+  - stageLv: 2
+    monsterBaseStat: 10
+    nextStageLvCount: 2
+  - stageLv: 3
+    monsterBaseStat: 12
+    nextStageLvCount: 2
+  - stageLv: 4
+    monsterBaseStat: 15
+    nextStageLvCount: 2
+  - stageLv: 5
+    monsterBaseStat: 18
+    nextStageLvCount: 2
+  - stageLv: 6
+    monsterBaseStat: 21
+    nextStageLvCount: 2
+  - stageLv: 7
+    monsterBaseStat: 25
+    nextStageLvCount: 2
+  - stageLv: 8
+    monsterBaseStat: 29
+    nextStageLvCount: 2
+  - stageLv: 9
+    monsterBaseStat: 33
+    nextStageLvCount: 2
+  - stageLv: 10
+    monsterBaseStat: 37
+    nextStageLvCount: 2
+  - stageLv: 11
+    monsterBaseStat: 41
+    nextStageLvCount: 2
+  - stageLv: 12
+    monsterBaseStat: 45
+    nextStageLvCount: 2
+  - stageLv: 13
+    monsterBaseStat: 50
+    nextStageLvCount: 2
+  - stageLv: 14
+    monsterBaseStat: 55
+    nextStageLvCount: 2
+  - stageLv: 15
+    monsterBaseStat: 60
+    nextStageLvCount: 2
+  - stageLv: 16
+    monsterBaseStat: 65
+    nextStageLvCount: 2
+  - stageLv: 17
+    monsterBaseStat: 70
+    nextStageLvCount: 2
+  - stageLv: 18
+    monsterBaseStat: 75
+    nextStageLvCount: 2
+  - stageLv: 19
+    monsterBaseStat: 80
+    nextStageLvCount: 2
+  - stageLv: 20
+    monsterBaseStat: 85
+    nextStageLvCount: 2
+  - stageLv: 21
+    monsterBaseStat: 90
+    nextStageLvCount: 2
+  - stageLv: 22
+    monsterBaseStat: 95
+    nextStageLvCount: 2
+  - stageLv: 23
+    monsterBaseStat: 100
+    nextStageLvCount: 2
+  - stageLv: 24
+    monsterBaseStat: 105
+    nextStageLvCount: 2
+  - stageLv: 25
+    monsterBaseStat: 110
+    nextStageLvCount: 2
+  - stageLv: 26
+    monsterBaseStat: 115
+    nextStageLvCount: 2
+  - stageLv: 27
+    monsterBaseStat: 120
+    nextStageLvCount: 2
+  - stageLv: 28
+    monsterBaseStat: 125
+    nextStageLvCount: 2
+  - stageLv: 29
+    monsterBaseStat: 130
+    nextStageLvCount: 2
+  - stageLv: 30
+    monsterBaseStat: 135
+    nextStageLvCount: 2
+  - stageLv: 31
+    monsterBaseStat: 140
+    nextStageLvCount: 2
+  - stageLv: 32
+    monsterBaseStat: 145
+    nextStageLvCount: 2
+  - stageLv: 33
+    monsterBaseStat: 150
+    nextStageLvCount: 2
+  - stageLv: 34
+    monsterBaseStat: 155
+    nextStageLvCount: 2
+  - stageLv: 35
+    monsterBaseStat: 160
+    nextStageLvCount: 2
+  - stageLv: 36
+    monsterBaseStat: 165
+    nextStageLvCount: 2
+  - stageLv: 37
+    monsterBaseStat: 170
+    nextStageLvCount: 2
+  - stageLv: 38
+    monsterBaseStat: 175
+    nextStageLvCount: 2
+  - stageLv: 39
+    monsterBaseStat: 180
+    nextStageLvCount: 2
+  - stageLv: 40
+    monsterBaseStat: 185
+    nextStageLvCount: 2
+  - stageLv: 41
+    monsterBaseStat: 190
+    nextStageLvCount: 2
+  - stageLv: 42
+    monsterBaseStat: 195
+    nextStageLvCount: 2
+  - stageLv: 43
+    monsterBaseStat: 200
+    nextStageLvCount: 2
+  - stageLv: 44
+    monsterBaseStat: 205
+    nextStageLvCount: 2
+  - stageLv: 45
+    monsterBaseStat: 210
+    nextStageLvCount: 2
+  - stageLv: 46
+    monsterBaseStat: 215
+    nextStageLvCount: 2
+  - stageLv: 47
+    monsterBaseStat: 220
+    nextStageLvCount: 2
+  - stageLv: 48
+    monsterBaseStat: 225
+    nextStageLvCount: 2
+  - stageLv: 49
+    monsterBaseStat: 230
+    nextStageLvCount: 2
+  - stageLv: 50
+    monsterBaseStat: 235
+    nextStageLvCount: 2
+  - stageLv: 51
+    monsterBaseStat: 240
+    nextStageLvCount: 2
+  - stageLv: 52
+    monsterBaseStat: 245
+    nextStageLvCount: 2
+  - stageLv: 53
+    monsterBaseStat: 250
+    nextStageLvCount: 2
+  - stageLv: 54
+    monsterBaseStat: 255
+    nextStageLvCount: 2
+  - stageLv: 55
+    monsterBaseStat: 260
+    nextStageLvCount: 2
+  - stageLv: 56
+    monsterBaseStat: 265
+    nextStageLvCount: 2
+  - stageLv: 57
+    monsterBaseStat: 270
+    nextStageLvCount: 2
+  - stageLv: 58
+    monsterBaseStat: 275
+    nextStageLvCount: 2
+  - stageLv: 59
+    monsterBaseStat: 280
+    nextStageLvCount: 2
+  - stageLv: 60
+    monsterBaseStat: 285
+    nextStageLvCount: 2
+  - stageLv: 61
+    monsterBaseStat: 290
+    nextStageLvCount: 2
+  - stageLv: 62
+    monsterBaseStat: 295
+    nextStageLvCount: 2
+  - stageLv: 63
+    monsterBaseStat: 300
+    nextStageLvCount: 2
+  - stageLv: 64
+    monsterBaseStat: 305
+    nextStageLvCount: 2
+  - stageLv: 65
+    monsterBaseStat: 310
+    nextStageLvCount: 2
+  - stageLv: 66
+    monsterBaseStat: 315
+    nextStageLvCount: 2
+  - stageLv: 67
+    monsterBaseStat: 320
+    nextStageLvCount: 2
+  - stageLv: 68
+    monsterBaseStat: 325
+    nextStageLvCount: 2
+  - stageLv: 69
+    monsterBaseStat: 330
+    nextStageLvCount: 2
+  - stageLv: 70
+    monsterBaseStat: 335
+    nextStageLvCount: 2
+  - stageLv: 71
+    monsterBaseStat: 340
+    nextStageLvCount: 2
+  - stageLv: 72
+    monsterBaseStat: 345
+    nextStageLvCount: 2
+  - stageLv: 73
+    monsterBaseStat: 350
+    nextStageLvCount: 2
+  - stageLv: 74
+    monsterBaseStat: 355
+    nextStageLvCount: 2
+  - stageLv: 75
+    monsterBaseStat: 360
+    nextStageLvCount: 2
+  - stageLv: 76
+    monsterBaseStat: 365
+    nextStageLvCount: 2
+  - stageLv: 77
+    monsterBaseStat: 370
+    nextStageLvCount: 2
+  - stageLv: 78
+    monsterBaseStat: 375
+    nextStageLvCount: 2
+  - stageLv: 79
+    monsterBaseStat: 380
+    nextStageLvCount: 2
+  - stageLv: 80
+    monsterBaseStat: 385
+    nextStageLvCount: 2
+  - stageLv: 81
+    monsterBaseStat: 390
+    nextStageLvCount: 2
+  - stageLv: 82
+    monsterBaseStat: 395
+    nextStageLvCount: 2
+  - stageLv: 83
+    monsterBaseStat: 400
+    nextStageLvCount: 2
+  - stageLv: 84
+    monsterBaseStat: 405
+    nextStageLvCount: 2
+  - stageLv: 85
+    monsterBaseStat: 410
+    nextStageLvCount: 2
+  - stageLv: 86
+    monsterBaseStat: 415
+    nextStageLvCount: 2
+  - stageLv: 87
+    monsterBaseStat: 420
+    nextStageLvCount: 2
+  - stageLv: 88
+    monsterBaseStat: 425
+    nextStageLvCount: 2
+  - stageLv: 89
+    monsterBaseStat: 430
+    nextStageLvCount: 2
+  - stageLv: 90
+    monsterBaseStat: 435
+    nextStageLvCount: 2
+  - stageLv: 91
+    monsterBaseStat: 440
+    nextStageLvCount: 2
+  - stageLv: 92
+    monsterBaseStat: 445
+    nextStageLvCount: 2
+  - stageLv: 93
+    monsterBaseStat: 450
+    nextStageLvCount: 2
+  - stageLv: 94
+    monsterBaseStat: 455
+    nextStageLvCount: 2
+  - stageLv: 95
+    monsterBaseStat: 460
+    nextStageLvCount: 2
+  - stageLv: 96
+    monsterBaseStat: 465
+    nextStageLvCount: 2
+  - stageLv: 97
+    monsterBaseStat: 470
+    nextStageLvCount: 2
+  - stageLv: 98
+    monsterBaseStat: 475
+    nextStageLvCount: 2
+  - stageLv: 99
+    monsterBaseStat: 480
+    nextStageLvCount: 999

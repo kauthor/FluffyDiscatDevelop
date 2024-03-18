@@ -15,7 +15,7 @@ namespace Tables
     public struct ExpData
     {
         public int level;
-        public int heroCount;
+        //public int heroCount;
         public int reqExp;
     }
     
@@ -24,9 +24,9 @@ namespace Tables
     public class BaseTable:ScriptableObject
     {
         [SerializeField] private BaseData[] baseDatas;
-        [SerializeField] private ExpData[] expDatas;
+        
 
         public void SetBaseData(BaseData[] arr) => baseDatas = arr;
-        public void SetExpData(ExpData[] arr) => expDatas = arr;
+        
     }
 }

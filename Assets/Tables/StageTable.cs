@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Tables
 {
+    [Serializable]
     public struct StageData
     {
         public int mapType;
@@ -25,5 +27,12 @@ namespace Tables
         [SerializeField] private StageData[] stageDatas;
 
         public void SetStageData(StageData[] arr) => stageDatas = arr;
+
+        public StageData GetStageData(int i)
+        {
+            if (i >= stageDatas.Length)
+                return new StageData();
+            return stageDatas[i];
+        }
     }
 }

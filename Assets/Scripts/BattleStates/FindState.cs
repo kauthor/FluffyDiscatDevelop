@@ -21,9 +21,9 @@ namespace FluffyDisket
             var targetTr = receivedParam.target.transform;
 
             var dist = tr.position - targetTr.position;
-            if (Vector3.SqrMagnitude(dist) >= owner.CharacterAbility.Range * owner.CharacterAbility.Range)
+            if (Vector3.SqrMagnitude(dist) >= owner.CharacterAbility.Range * owner.CharacterAbility.Range*0.03f*0.03f)
             {
-                var speedDelta = (-dist).normalized * owner.CharacterAbility.MoveSpeed * Time.deltaTime;
+                var speedDelta = (-dist).normalized * owner.CharacterAbility.MoveSpeed * Time.deltaTime*0.01f;
                 tr.position += speedDelta;
             }
             else

@@ -17,5 +17,12 @@ namespace Tables.Player
         [SerializeField] private CharNameData[] charDatas;
 
         public void SetCharData(CharNameData[] arr) => charDatas = arr;
+        public CharNameData GetCharNameData(int index)
+        {
+            if (index >= charDatas.Length)
+                return new CharNameData();
+
+            return charDatas[index];
+        }
     }
 }

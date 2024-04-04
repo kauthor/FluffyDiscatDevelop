@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9237e9a9dcd042ef94b5fed2fabf774a, type: 3}
   m_Name: StageTable
   m_EditorClassIdentifier: 
+  stageDatas:
+  - mapType: 1
+    stageType: 1
+    minStage: 5
+    maxStage: 20
+    remainder: 4
+    firstStageType: 2
+    firstStageMonsterType: 1
+    normalMonsterGroup: 0200000003000000040000000500000006000000
+    eventMapGroup: 1
+    bossMapGroup: 7
+    normalPer: d0070000d0070000d0070000d0070000d0070000
+    eventPer: 0

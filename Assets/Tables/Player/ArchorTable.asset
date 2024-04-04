@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ArchorTable
   m_EditorClassIdentifier: 
   stat:
-    HpMax: 90
-    MoveSpeed: 0.65
-    Range: 6
+    HpMax: 2700
+    MoveSpeed: 65
+    Range: 150
     SkillCoolTIme: 20
     AttackCoolTime: 3
-    Atk: 25
+    Atk: 2500
     phyDef: 0
     magDef: 0
     hpRegen: 0

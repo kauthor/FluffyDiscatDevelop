@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using Tables;
+using Random = UnityEngine.Random;
 
 namespace FluffyDisket
 {
@@ -102,7 +105,7 @@ namespace FluffyDisket
             MakeStage(onEnd);
         }
             
-        private void MakeStage(Action onEndCb)
+        private void MakeStage(Action onEndCb, int stageNumber=0)
         {
             if (stageTree != null)
                 stageTree.Clear();
@@ -110,24 +113,28 @@ namespace FluffyDisket
             
             
             //임시 데이터
-            var monsterdat = new MonsterData();
-            monsterdat.Stat = new CharacterStat()
+            var excel = ExcelManager.GetInstance();
+            var stageT = excel.StageT.GetStageData(stageNumber);
+            var monsterGT = excel.MonsterGroupT;
+            var monsterT = excel.MonsterT;
+
+            var startMonsters = monsterGT.GetMonsterGroupData(stageT.normalMonsterGroup[0]);
+            var monList = new List<MonsterData>();
+
+            foreach (var par in startMonsters.parties)
             {
-                HpMax = 100,
-                AttackCoolTime = 0.8f,
-                MoveSpeed = 2,
-                Range = 5,
-                SkillCoolTIme = 0
-            };
-            var monsterPool = new MonsterData[3]
-            {
-                monsterdat, monsterdat, monsterdat
-            };
-            var startStage = new StageNode(StageType.Battle, monsterPool);
+                for (int i = 0; i < par.monsterCount; i++)
+                {
+                    var monData = monsterT.GetMonsterData(par.monsterId);
+                    monList.Add(monData);
+                }
+            }
+            
+            var startStage = new StageNode(StageType.Battle, monList.ToArray());
 
             var bossData = new MonsterData();
-            int bossDepth = 5;
-            bossData.Stat = new CharacterStat()
+            int bossDepth = Random.Range(4,8);
+            bossData.statData = new CharacterStat()
             {
                 HpMax = 400,
                 AttackCoolTime = 0.8f,
@@ -146,6 +153,19 @@ namespace FluffyDisket
             stageTree.Add(startStage);
             for (int i = 0; i < bossDepth; i++)
             {
+                var currentMonsters = monsterGT.GetMonsterGroupData(stageT.normalMonsterGroup[0]);
+                var CurMonList = new List<MonsterData>();
+
+                foreach (var par in currentMonsters.parties)
+                {
+                    for (int j = 0; j < par.monsterCount; j++)
+                    {
+                        var monData = monsterT.GetMonsterData(par.monsterId);
+                        CurMonList.Add(monData);
+                    }
+                }
+
+                var monsterPool = CurMonList.ToArray();
                 if (i == 0)
                 {
                     prev = startStage;

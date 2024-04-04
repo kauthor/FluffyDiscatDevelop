@@ -114,7 +114,7 @@ namespace FluffyDisket
                     enemyList.Add(mon);
                     enemyTestPrefab[0].gameObject.SetActive(false);
                     mon.gameObject.SetActive(false);
-                    mon.SetStat(m.Stat);
+                    mon.SetStat(m.statData);
                 }
             }
             else

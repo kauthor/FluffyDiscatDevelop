@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &874643227770941335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9079881835739781069}
+  - component: {fileID: 838865004184959474}
+  m_Layer: 0
+  m_Name: ExcelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9079881835739781069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874643227770941335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838865004184959474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874643227770941335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62bf88278e34a599ab175e71a4ec5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseTable: {fileID: 11400000, guid: 446b0f226be106c40a79e87f76574629, type: 2}
+  _charTable: {fileID: 11400000, guid: 1eb50229ca78aeb45ac223009a842d6d, type: 2}
+  _charNameTable: {fileID: 11400000, guid: 036f993e176811149bfb16b0a4658518, type: 2}
+  _expTable: {fileID: 11400000, guid: 7d8ad2d2bf2225d4da84a3c4818e246b, type: 2}
+  _monsterGroupTable: {fileID: 11400000, guid: 248e28aea111ec8469e65eb6902ed5e5, type: 2}
+  _monsterLevelTable: {fileID: 11400000, guid: 147feefaf201ac54eb8edf0d1235979e, type: 2}
+  _monsterTable: {fileID: 11400000, guid: ae768d6dabc45cd4a87d4efcc33894ac, type: 2}
+  _stageTable: {fileID: 11400000, guid: 5ef12b042059bda41af286ee31f73351, type: 2}

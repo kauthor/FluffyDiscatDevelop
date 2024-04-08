@@ -484,7 +484,7 @@ namespace Editor
                                         hpAbsolve = data17Parse,
                                         crit = data18Parse,
                                         critDam = data19Parse,
-                                        atkSpeed = data20Parse,
+                                        AttackCoolTime = data20Parse,
                                         accuracy = data21Parse,
                                         dodge = data22Parse,
                                         Range = data23Parse,

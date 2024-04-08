@@ -65,6 +65,20 @@ MonoBehaviour:
     Range: 6
     SkillCoolTIme: 20
     AttackCoolTime: 3
+    Atk: 0
+    phyDef: 0
+    magDef: 0
+    hpRegen: 0
+    hpAbsolve: 0
+    crit: 0
+    critDam: 0
+    atkSpeed: 0
+    dodge: 0
+    moveSpeedNew: 0
+    atkIncrease: 0
+    damageDecrease: 0
+    AOEArea: 0
+    accuracy: 0
 --- !u!114 &6945243904341065373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   castTime: 1
-  damage: 50
+  damage: 700
 --- !u!114 &2692830750054053425
 MonoBehaviour:
   m_ObjectHideFlags: 0

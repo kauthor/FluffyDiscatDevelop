@@ -27,6 +27,14 @@ namespace Tables
         
 
         public void SetBaseData(BaseData[] arr) => baseDatas = arr;
+
+        public BaseData GetBaseDataByIndex(int i)
+        {
+            if (i >= baseDatas.Length)
+                return new BaseData();
+
+            return baseDatas[i];
+        }
         
     }
 }

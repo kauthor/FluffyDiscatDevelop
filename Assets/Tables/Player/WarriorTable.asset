@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: WarriorTable
   m_EditorClassIdentifier: 
   stat:
-    HpMax: 150
-    MoveSpeed: 1
-    Range: 2
+    HpMax: 3500
+    MoveSpeed: 100
+    Range: 70
     SkillCoolTIme: 15
-    AttackCoolTime: 3
-    Atk: 20
+    AttackCoolTime: 100
+    Atk: 3000
     phyDef: 0
     magDef: 0
     hpRegen: 0

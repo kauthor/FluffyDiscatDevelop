@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Tables
 {
 
+    [Serializable]
     public struct MonsterData
     {
         public int id;
@@ -28,5 +29,13 @@ namespace Tables
         [SerializeField] private MonsterData[] monDatas;
 
         public void SetMonData(MonsterData[] arr) => monDatas = arr;
+        
+        public MonsterData GetMonsterData(int index)
+        {
+            if (index >= monDatas.Length)
+                return new MonsterData();
+
+            return monDatas[index];
+        }
     }
 }

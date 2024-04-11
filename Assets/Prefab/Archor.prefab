@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1396795613683099769}
   - component: {fileID: 4885915685434268517}
-  - component: {fileID: 6945243904341065373}
   - component: {fileID: 2692830750054053425}
   - component: {fileID: 4223689980479670448}
   - component: {fileID: 7784789426580376306}
@@ -50,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorStates:
-  - {fileID: 6945243904341065373}
+  - {fileID: 0}
   - {fileID: 2692830750054053425}
   - {fileID: 4223689980479670448}
   - {fileID: 7784789426580376306}
@@ -79,21 +78,6 @@ MonoBehaviour:
     damageDecrease: 0
     AOEArea: 0
     accuracy: 0
---- !u!114 &6945243904341065373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3360970548163415324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f84471496e0b4962a93cce600234135e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  castTime: 1
-  damage: 700
 --- !u!114 &2692830750054053425
 MonoBehaviour:
   m_ObjectHideFlags: 0

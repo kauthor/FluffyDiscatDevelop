@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 8808956022618075513}
   - component: {fileID: 7349001789499658232}
   - component: {fileID: 3704291114719776186}
-  - component: {fileID: 1265717805320319388}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Untagged
@@ -161,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorStates:
-  - {fileID: 1265717805320319388}
+  - {fileID: 0}
   - {fileID: 8808956022618075513}
   - {fileID: 7349001789499658232}
   - {fileID: 3704291114719776186}
@@ -176,6 +175,20 @@ MonoBehaviour:
     Range: 2
     SkillCoolTIme: 12
     AttackCoolTime: 3
+    Atk: 0
+    phyDef: 0
+    magDef: 0
+    hpRegen: 0
+    hpAbsolve: 0
+    crit: 0
+    critDam: 0
+    atkSpeed: 0
+    dodge: 0
+    moveSpeedNew: 0
+    atkIncrease: 0
+    damageDecrease: 0
+    AOEArea: 0
+    accuracy: 0
 --- !u!114 &8808956022618075513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,18 +229,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
---- !u!114 &1265717805320319388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198232957821700692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01920d83612648299c77a183b417d677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  castTime: 1
-  damage: 40

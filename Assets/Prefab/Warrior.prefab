@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1356204837335736561}
   - component: {fileID: 640744567883530116}
   - component: {fileID: 3138126350774073186}
-  - component: {fileID: 3850489017009532714}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -53,11 +52,11 @@ MonoBehaviour:
   - {fileID: 1356204837335736561}
   - {fileID: 640744567883530116}
   - {fileID: 3138126350774073186}
-  - {fileID: 3850489017009532714}
+  - {fileID: 0}
   HPMax: 150
   CharacterClass: 0
   hpBar: {fileID: 2615390016843759745}
-  CanUseSkillFirst: 1
+  CanUseSkillFirst: 0
   table: {fileID: 11400000, guid: bc2c8d871a8abcd4fa00753fe1849d14, type: 2}
   characterAbility:
     HpMax: 150
@@ -119,21 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
---- !u!114 &3850489017009532714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2372329107060617179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f943921c364408ba3aec3ee623bfce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  castTime: 1
-  damage: 0
 --- !u!1 &7340891962917370431
 GameObject:
   m_ObjectHideFlags: 0

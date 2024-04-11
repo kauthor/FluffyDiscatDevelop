@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tables;
 using Tables.Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +38,41 @@ namespace FluffyDisket
         public float damageDecrease;
         public float AOEArea;
         public float accuracy;
+    }
+
+    public class LevelAdditionalStat
+    {
+        public int level;
+        public float HpMax;
+        public float Atk;
+        public float phyDef;
+        public float magDef;
+
+        /// <summary>
+        /// Initialize Player Level Data
+        /// </summary>
+        public LevelAdditionalStat(float hpMax,float atk, float pD, float mD, int lv = 1)
+        {
+            level = lv;
+            HpMax = hpMax;
+            Atk = atk;
+            phyDef = pD;
+            magDef = mD;
+        }
+
+        /// <summary>
+        /// Initialize Monster Level Data
+        /// </summary>
+        public LevelAdditionalStat(int monsterID, float hpMax, float atk, float pd, float md)
+        {
+            var monData = ExcelManager.GetInstance().MonsterT.GetMonsterData(monsterID);
+            level = AccountManager.GetInstance().CurrentMonsterLevel;
+            var levelData = AccountManager.GetInstance().CurrentMonsterLevelData;
+            HpMax = hpMax * (float)levelData.monsterBaseStat / 10000.0f;
+            Atk = atk * (float)levelData.monsterBaseStat / 10000.0f;
+            phyDef = pd * (float)levelData.monsterBaseStat / 10000.0f;
+            magDef = md * (float)levelData.monsterBaseStat / 10000.0f;
+        }
     }
     
     public class BattleUnit : IUnit

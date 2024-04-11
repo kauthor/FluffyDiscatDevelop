@@ -78,6 +78,7 @@ namespace FluffyDisket
 
         public void CallStageCleared()
         {
+            AccountManager.GetInstance().CallStageClearToAccount();
             currentStage.CallCleared();
         }
         
@@ -117,8 +118,10 @@ namespace FluffyDisket
             var stageT = excel.StageT.GetStageData(stageNumber);
             var monsterGT = excel.MonsterGroupT;
             var monsterT = excel.MonsterT;
-
-            var startMonsters = monsterGT.GetMonsterGroupData(stageT.normalMonsterGroup[0]);
+            
+            var useFixedFirstStage = stageT.firstStageType == 2;
+            var startMonsters = monsterGT.GetMonsterGroupData(stageT.GetMonsterGroupByRatio(true));
+            
             var monList = new List<MonsterData>();
 
             foreach (var par in startMonsters.parties)
@@ -153,7 +156,7 @@ namespace FluffyDisket
             stageTree.Add(startStage);
             for (int i = 0; i < bossDepth; i++)
             {
-                var currentMonsters = monsterGT.GetMonsterGroupData(stageT.normalMonsterGroup[0]);
+                var currentMonsters = monsterGT.GetMonsterGroupData(stageT.GetMonsterGroupByRatio());
                 var CurMonList = new List<MonsterData>();
 
                 foreach (var par in currentMonsters.parties)

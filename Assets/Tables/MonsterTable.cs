@@ -32,10 +32,10 @@ namespace Tables
         
         public MonsterData GetMonsterData(int index)
         {
-            if (index >= monDatas.Length)
+            if (index-1 >= monDatas.Length || index <=0)
                 return new MonsterData();
 
-            return monDatas[index];
+            return monDatas[index-1];
         }
     }
 }

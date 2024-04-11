@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tables;
 using Tables.Player;
 using UnityEngine;
 
@@ -17,6 +18,42 @@ namespace FluffyDisket
         private List<int> currentBattlePlayers;
 
         public List<int> CurrentBattleMember => currentBattlePlayers;
+
+        private int currentStageClearedStacked = 0;
+
+        private int currentMonsterLevel = 1;
+
+        public int CurrentMonsterLevel
+        {
+            get
+            {
+                if (currentMonsterLevel<=0)
+                {
+                    currentMonsterLevel = 1;
+                }
+
+                return currentMonsterLevel;
+            }
+        }
+
+        private MonsterLevelData? currentMonsterLevelData;
+
+        public MonsterLevelData CurrentMonsterLevelData
+        {
+            get
+            {
+                if (currentMonsterLevelData == null)
+                {
+                    currentMonsterLevelData =
+                        ExcelManager.GetInstance().MonsterLevelT.GetMonsterLevelData(CurrentMonsterLevel - 1);
+                }
+
+                return currentMonsterLevelData.Value;
+            }
+        }
+
+        private bool monsterLevelInit = false;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -49,6 +86,29 @@ namespace FluffyDisket
             if (characterOwned.ContainsKey((int) type))
                 characterOwned[(int) type] = get;
             else characterOwned.Add((int)type, get);
+        }
+
+        public void CallStageClearToAccount()
+        {
+            if (currentMonsterLevel <= 0)
+                currentMonsterLevel = 1;
+
+            //추후 싱글톤 및 매니저 초기화 구조를 정비하면서 위치를 변경하자.
+            
+            if (!monsterLevelInit || currentMonsterLevelData==null)
+            {
+                monsterLevelInit = true;
+                currentMonsterLevelData = 
+                    ExcelManager.GetInstance().MonsterLevelT.GetMonsterLevelData(currentMonsterLevel-1);
+            }
+            currentStageClearedStacked++;
+            if (currentStageClearedStacked >= currentMonsterLevelData.Value.nextStageLvCount)
+            {
+                currentStageClearedStacked = 0;
+                currentMonsterLevel++;
+                currentMonsterLevelData = 
+                    ExcelManager.GetInstance().MonsterLevelT.GetMonsterLevelData(currentMonsterLevel-1);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Tables
 {
@@ -19,6 +20,29 @@ namespace Tables
         public int[] normalPer;
         public int eventPer;
 
+        public int GetMonsterGroupByRatio(bool firstStage=false)
+        {
+            if (firstStageType >= 2 && firstStage)
+                return firstStageMonsterType;
+
+            int rand = Random.Range(0, 10000);
+            int useGroup = 0;
+
+            for (int i=0; i< normalPer.Length; i++)
+            {
+                rand -= normalPer[i];
+                if (rand <= 0)
+                {
+                    useGroup = i;
+                    break;
+                }
+            }
+
+            if (useGroup >= normalMonsterGroup.Length)
+                return 1;
+
+            return normalMonsterGroup[useGroup];
+        }
     }
     
     [CreateAssetMenu]

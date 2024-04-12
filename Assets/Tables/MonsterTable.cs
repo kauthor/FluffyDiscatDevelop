@@ -20,7 +20,6 @@ namespace Tables
         public int itemDropW;
         public int itemDropE;
         public CharacterStat statData;
-
     }
     
     [CreateAssetMenu]

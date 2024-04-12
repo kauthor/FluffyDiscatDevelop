@@ -24,11 +24,11 @@ namespace FluffyDisket
                 TryEndState(State.Idle);
             }
 
-            float dam = owner.CharacterAbility.Atk > 0 ? owner.CharacterAbility.Atk : damage;
+            float dam = owner.AbilityDatas.Atk > 0 ? owner.AbilityDatas.Atk : damage;
             dam /= 10.0f;
             
             coolRegain += Time.deltaTime;
-            if (coolRegain >= owner.CharacterAbility.AttackCoolTime*0.03f)
+            if (coolRegain >= owner.AbilityDatas.atkSpeed*0.03f)
             {
                 receivedParam.target.SetHp(-dam);
                 BattleManager.GetInstance().currentView.ReceiveLog(
@@ -39,7 +39,7 @@ namespace FluffyDisket
                 var targetTr = receivedParam.target.transform;
 
                 var dist = tr.position - targetTr.position;
-                if (Vector3.SqrMagnitude(dist) >= owner.CharacterAbility.Range * owner.CharacterAbility.Range)
+                if (Vector3.SqrMagnitude(dist) >= owner.AbilityDatas.Range * owner.AbilityDatas.Range)
                 {
                     owner.ChangeState(State.Find, receivedParam);
                 }

@@ -33,7 +33,7 @@ namespace FluffyDisket.UI
 
         private void OnOwnerUpdate(BattleUnit unit)
         {
-            gauge.fillAmount = unit.SkillCoolRegain / unit.CharacterAbility.SkillCoolTIme;
+            //gauge.fillAmount = unit.SkillCoolRegain / unit.CharacterAbility.SkillCoolTIme;
         }
 
         public void Dispose()

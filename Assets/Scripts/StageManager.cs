@@ -143,7 +143,7 @@ namespace FluffyDisket
                 AttackCoolTime = 0.8f,
                 MoveSpeed = 2,
                 Range = 5,
-                SkillCoolTIme = 0
+                //SkillCoolTIme = 0
             };
             var bossPool = new MonsterData[1]
             {

@@ -476,10 +476,10 @@ namespace Editor
                                     itemDropE = data11Parse,
                                     statData = new CharacterStat()
                                     {
-                                        HpMax = data12Parse,
-                                        Atk = data13Parse,
-                                        phyDef = data14Parse,
-                                        magDef = data15Parse,
+                                        levelHp = data12Parse,
+                                        levelAtk = data13Parse,
+                                        levelpd = data14Parse,
+                                        levelmd = data15Parse,
                                         hpRegen = data16Parse,
                                         hpAbsolve = data17Parse,
                                         crit = data18Parse,

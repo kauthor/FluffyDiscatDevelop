@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using FluffyDisket.UI;
+using Tables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -100,6 +101,9 @@ namespace FluffyDisket
                     var pl = playerTestPrefab[mem];
                     playerList.Add(Instantiate(pl));
                     pl.gameObject.SetActive(false);
+                    var baseStat = ExcelManager.GetInstance().CharT.GetCharData(0).GetCharacterDataAsStat();
+                    var levelData = new LevelAdditionalStat(0.0f, 0, 0, 0, 1);
+                    pl.SetStat(baseStat, levelData);
                 }
                 
             }
@@ -114,7 +118,9 @@ namespace FluffyDisket
                     enemyList.Add(mon);
                     enemyTestPrefab[0].gameObject.SetActive(false);
                     mon.gameObject.SetActive(false);
-                    mon.SetStat(m.statData);
+                    var levData = new LevelAdditionalStat(m.id, m.statData.levelHp, m.statData.levelAtk,
+                        m.statData.levelpd, m.statData.levelmd);
+                    mon.SetStat(m.statData, levData);
                 }
             }
             else

@@ -25,25 +25,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2000
-      phyDef: 2750
-      magDef: 2750
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2000
+      levelHp: 2500
+      levelpd: 2750
+      levelmd: 2750
   - id: 2
     nameId: 1
     traitId1: 0
@@ -56,25 +57,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2500
-      phyDef: 2500
-      magDef: 2500
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 10
       critDam: 125
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2500
+      levelHp: 2500
+      levelpd: 2500
+      levelmd: 2500
   - id: 3
     nameId: 1
     traitId1: 0
@@ -87,25 +89,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2000
+      HpMax: 0
       MoveSpeed: 110
       Range: 240
-      SkillCoolTIme: 0
       AttackCoolTime: 75
-      Atk: 3500
-      phyDef: 2250
-      magDef: 2250
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 3500
+      levelHp: 2000
+      levelpd: 2250
+      levelmd: 2250
   - id: 4
     nameId: 1
     traitId1: 22
@@ -118,25 +121,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2000
-      phyDef: 2750
-      magDef: 2750
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2000
+      levelHp: 2500
+      levelpd: 2750
+      levelmd: 2750
   - id: 5
     nameId: 1
     traitId1: 34
@@ -149,25 +153,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2000
-      phyDef: 2750
-      magDef: 2750
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2000
+      levelHp: 2500
+      levelpd: 2750
+      levelmd: 2750
   - id: 6
     nameId: 1
     traitId1: 28
@@ -180,25 +185,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2000
-      phyDef: 2750
-      magDef: 2750
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2000
+      levelHp: 2500
+      levelpd: 2750
+      levelmd: 2750
   - id: 7
     nameId: 1
     traitId1: 40
@@ -211,25 +217,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2000
-      phyDef: 2750
-      magDef: 2750
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2000
+      levelHp: 2500
+      levelpd: 2750
+      levelmd: 2750
   - id: 8
     nameId: 1
     traitId1: 22
@@ -242,25 +249,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2500
-      phyDef: 2500
-      magDef: 2500
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 10
       critDam: 125
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2500
+      levelHp: 2500
+      levelpd: 2500
+      levelmd: 2500
   - id: 9
     nameId: 1
     traitId1: 34
@@ -273,25 +281,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2500
-      phyDef: 2500
-      magDef: 2500
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 10
       critDam: 125
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2500
+      levelHp: 2500
+      levelpd: 2500
+      levelmd: 2500
   - id: 10
     nameId: 1
     traitId1: 28
@@ -304,25 +313,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2500
-      phyDef: 2500
-      magDef: 2500
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 10
       critDam: 125
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2500
+      levelHp: 2500
+      levelpd: 2500
+      levelmd: 2500
   - id: 11
     nameId: 1
     traitId1: 40
@@ -335,25 +345,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2500
+      HpMax: 0
       MoveSpeed: 110
       Range: 80
-      SkillCoolTIme: 0
       AttackCoolTime: 100
-      Atk: 2500
-      phyDef: 2500
-      magDef: 2500
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 10
       critDam: 125
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 2500
+      levelHp: 2500
+      levelpd: 2500
+      levelmd: 2500
   - id: 12
     nameId: 1
     traitId1: 22
@@ -366,25 +377,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2000
+      HpMax: 0
       MoveSpeed: 110
       Range: 240
-      SkillCoolTIme: 0
       AttackCoolTime: 75
-      Atk: 3500
-      phyDef: 2250
-      magDef: 2250
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 3500
+      levelHp: 2000
+      levelpd: 2250
+      levelmd: 2250
   - id: 13
     nameId: 1
     traitId1: 34
@@ -397,25 +409,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2000
+      HpMax: 0
       MoveSpeed: 110
       Range: 240
-      SkillCoolTIme: 0
       AttackCoolTime: 75
-      Atk: 3500
-      phyDef: 2250
-      magDef: 2250
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 3500
+      levelHp: 2000
+      levelpd: 2250
+      levelmd: 2250
   - id: 14
     nameId: 1
     traitId1: 28
@@ -428,25 +441,26 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2000
+      HpMax: 0
       MoveSpeed: 110
       Range: 240
-      SkillCoolTIme: 0
       AttackCoolTime: 75
-      Atk: 3500
-      phyDef: 2250
-      magDef: 2250
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 3500
+      levelHp: 2000
+      levelpd: 2250
+      levelmd: 2250
   - id: 15
     nameId: 1
     traitId1: 40
@@ -459,22 +473,23 @@ MonoBehaviour:
     itemDropW: 0
     itemDropE: 0
     statData:
-      HpMax: 2000
+      HpMax: 0
       MoveSpeed: 110
       Range: 240
-      SkillCoolTIme: 0
       AttackCoolTime: 75
-      Atk: 3500
-      phyDef: 2250
-      magDef: 2250
+      Atk: 0
+      phyDef: 0
+      magDef: 0
       hpRegen: 0
       hpAbsolve: 0
       crit: 5
       critDam: 120
-      atkSpeed: 0
       dodge: 1
-      moveSpeedNew: 0
       atkIncrease: 0
       damageDecrease: 0
       AOEArea: 0
       accuracy: 1
+      levelAtk: 3500
+      levelHp: 2000
+      levelpd: 2250
+      levelmd: 2250

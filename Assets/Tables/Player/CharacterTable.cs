@@ -49,6 +49,7 @@ namespace Tables.Player
     public class CharacterTable:ScriptableObject
     {
         [SerializeField] private CharacterData[] charDatas;
+        public int characterAmounts => charDatas.Length;
         
         public void SetBaseData(CharacterData[] arr) => charDatas = arr;
 

@@ -96,6 +96,7 @@ namespace FluffyDisket
             var playerList = new List<BattleUnit>();
             foreach (var mem in AccountManager.GetInstance().CurrentBattleMember)
             {
+                //이것은 문제가 있다. 추후 리소스 관리용 Addressable 등을 사용하게 되면 픽스해야한다.
                 if (mem<playerTestPrefab.Length)
                 {
                     var pl = Instantiate(playerTestPrefab[mem]);

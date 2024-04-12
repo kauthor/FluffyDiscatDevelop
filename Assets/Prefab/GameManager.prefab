@@ -43,3 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f0cef8105666746a440d095055a70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accountManager: {fileID: 4944567584412629621, guid: cda6396441f555e4cbc141dd4604f3a8,
+    type: 3}
+  _uiManager: {fileID: 2891543961707630996, guid: b5ee029e19488a748bec302a6822439f,
+    type: 3}
+  _popupManager: {fileID: 769292987022915645, guid: 19eea2e197e0f834abd4ba3f3988440d,
+    type: 3}
+  _excelManager: {fileID: 838865004184959474, guid: 305f3516aafb1ce45b30354cc7411071,
+    type: 3}

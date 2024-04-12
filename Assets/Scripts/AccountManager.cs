@@ -57,12 +57,18 @@ namespace FluffyDisket
         protected override void Awake()
         {
             base.Awake();
+            
+        }
+
+        private void Start()
+        {
             characterOwned = new Dictionary<int, bool>();
             currentBattlePlayers = new List<int>();
+            var chars = ExcelManager.GetInstance().CharT.characterAmounts;
             
             //차후 계정 정보를 본격적으로 받아오면, 그때  제대로 초기화한다.
 
-            for(int i=0; i<3; i++)
+            for(int i=0; i<chars; i++)
             {
                 characterOwned.Add(i,true);
             }

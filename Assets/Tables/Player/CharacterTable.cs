@@ -22,25 +22,25 @@ namespace Tables.Player
             return new CharacterStat()
             {
                 HpMax = maxHp,
-                MoveSpeed = def.GetBaseDataByIndex(17).data,
+                MoveSpeed = def.GetBaseDataByIndex(15).data,
                 Range = def.GetBaseDataByIndex(16).data,
                 //SkillCoolTIme = 0,
-                AttackCoolTime = def.GetBaseDataByIndex(14).data,
+                AttackCoolTime = def.GetBaseDataByIndex(13).data*100,
                 Atk = atk,
                 phyDef = armor,
                 magDef = magicArmor,
 
-                hpRegen = def.GetBaseDataByIndex(10).data,
-                hpAbsolve = def.GetBaseDataByIndex(11).data,
-                crit = def.GetBaseDataByIndex(12).data,
-                critDam = def.GetBaseDataByIndex(13).data,
+                hpRegen = def.GetBaseDataByIndex(9).data,
+                hpAbsolve = def.GetBaseDataByIndex(10).data,
+                crit = def.GetBaseDataByIndex(11).data,
+                critDam = def.GetBaseDataByIndex(12).data,
                 //atkSpeed = ,
-                dodge = def.GetBaseDataByIndex(15).data,
+                dodge = def.GetBaseDataByIndex(14).data,
                 //moveSpeedNew = 0,
-                atkIncrease = def.GetBaseDataByIndex(18).data,
-                damageDecrease = def.GetBaseDataByIndex(19).data,
-                AOEArea = def.GetBaseDataByIndex(20).data,
-                accuracy = def.GetBaseDataByIndex(21).data
+                atkIncrease = def.GetBaseDataByIndex(17).data,
+                damageDecrease = def.GetBaseDataByIndex(18).data,
+                AOEArea = def.GetBaseDataByIndex(19).data,
+                accuracy = def.GetBaseDataByIndex(20).data
             };
         }
     }

@@ -267,7 +267,7 @@ namespace FluffyDisket
     {
 
         [SerializeField] private BattleState[] inspectorStates;
-        [SerializeField] private float HPMax=100;
+        //[SerializeField] private float HPMax=100;
         [SerializeField] private Job CharacterClass;
         [SerializeField] private Transform hpBar;
         [SerializeField] private bool CanUseSkillFirst;
@@ -292,11 +292,11 @@ namespace FluffyDisket
         private Action OnDeadCb;
         public bool isPlayer => OurTeam.IsPlayer;
 
-        private bool hasSkill = false;
+        //private bool hasSkill = false;
 
         //public float atkDamage => table !=null ? table.stat.Atk : 0;
 
-        public float MaxHp => abilityDatas?.HpMax??HPMax;
+        public float MaxHp => abilityDatas?.HpMax??10;
 
         public event Action<BattleUnit> onOwnerUpdate;
         public event Action<float> onHpUpdate;
@@ -332,7 +332,7 @@ namespace FluffyDisket
             //characterAbility = s;
             //HPMax = s.HpMax;
             SetAbilityData(s,lev);
-            currentHp = HPMax;
+            currentHp = MaxHp;
         }
 
         public void SetHp(float delta)
@@ -395,7 +395,7 @@ namespace FluffyDisket
 
             currentState = State.Idle;
             ChangeState(State.Idle);
-            hasSkill = FiniteStateMachineDic.ContainsKey(State.Skill);
+            //hasSkill = FiniteStateMachineDic.ContainsKey(State.Skill);
             skillCoolTimeRegain = 0;
             //if (CanUseSkillFirst)
             //    skillCoolTimeRegain = CharacterAbility.SkillCoolTIme;

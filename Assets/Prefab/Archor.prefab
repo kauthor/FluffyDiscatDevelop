@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorStates:
-  - {fileID: 0}
   - {fileID: 2692830750054053425}
   - {fileID: 4223689980479670448}
   - {fileID: 7784789426580376306}
@@ -57,27 +56,6 @@ MonoBehaviour:
   CharacterClass: 1
   hpBar: {fileID: 7833410055138495987}
   CanUseSkillFirst: 0
-  table: {fileID: 11400000, guid: be3533cb0530ef941bfecbb5a50af44f, type: 2}
-  characterAbility:
-    HpMax: 90
-    MoveSpeed: 1
-    Range: 6
-    SkillCoolTIme: 20
-    AttackCoolTime: 3
-    Atk: 0
-    phyDef: 0
-    magDef: 0
-    hpRegen: 0
-    hpAbsolve: 0
-    crit: 0
-    critDam: 0
-    atkSpeed: 0
-    dodge: 0
-    moveSpeedNew: 0
-    atkIncrease: 0
-    damageDecrease: 0
-    AOEArea: 0
-    accuracy: 0
 --- !u!114 &2692830750054053425
 MonoBehaviour:
   m_ObjectHideFlags: 0

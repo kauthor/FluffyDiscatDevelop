@@ -98,8 +98,8 @@ namespace FluffyDisket
             {
                 if (mem<playerTestPrefab.Length)
                 {
-                    var pl = playerTestPrefab[mem];
-                    playerList.Add(Instantiate(pl));
+                    var pl = Instantiate(playerTestPrefab[mem]);
+                    playerList.Add(pl);
                     pl.gameObject.SetActive(false);
                     var baseStat = ExcelManager.GetInstance().CharT.GetCharData(0).GetCharacterDataAsStat();
                     var levelData = new LevelAdditionalStat(0.0f, 0, 0, 0, 1);

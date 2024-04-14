@@ -352,7 +352,7 @@ namespace FluffyDisket
         protected virtual void OnDead()
         {
             BattleManager.GetInstance().currentView.ReceiveLog(
-                $"{CharacterClassPublic}가 쓰러졌다! 1972년 11월 21일...");
+                $"{CharacterClassPublic}가 쓰러졌다!");
             OnDeadCb?.Invoke();
         }
 

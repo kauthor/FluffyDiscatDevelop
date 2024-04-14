@@ -25,7 +25,8 @@ namespace FluffyDisket
             }
 
             float dam = owner.AbilityDatas.Atk > 0 ? owner.AbilityDatas.Atk : damage;
-            dam /= 2.0f;
+            dam -=receivedParam.target.AbilityDatas?.phyDef?? 0;
+            dam = dam <= 0 ? 0 : dam;
             
             coolRegain += Time.deltaTime;
             if (coolRegain >= owner.AbilityDatas.atkSpeed*0.03f)

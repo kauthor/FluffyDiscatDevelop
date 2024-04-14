@@ -119,8 +119,9 @@ namespace FluffyDisket
             var monsterGT = excel.MonsterGroupT;
             var monsterT = excel.MonsterT;
             
-            var useFixedFirstStage = stageT.firstStageType == 2;
-            var startMonsters = monsterGT.GetMonsterGroupData(stageT.GetMonsterGroupByRatio(true));
+            
+            var startMonsters = 
+                 monsterGT.GetMonsterGroupData(stageT.GetMonsterGroupByRatio(true));
             
             var monList = new List<MonsterData>();
 
@@ -132,25 +133,23 @@ namespace FluffyDisket
                     monList.Add(monData);
                 }
             }
-            
             var startStage = new StageNode(StageType.Battle, monList.ToArray());
+            var bossDepth = Random.Range(stageT.minStage, stageT.maxStage);
+            bossDepth /= 5;
+            bossDepth *= 5;
+            var bossList = new List<MonsterData>();
 
-            var bossData = new MonsterData();
-            int bossDepth = Random.Range(4,8);
-            bossData.statData = new CharacterStat()
+            var bossMonster = monsterGT.GetMonsterGroupData(stageT.bossMapGroup);
+            foreach (var par in bossMonster.parties)
             {
-                HpMax = 400,
-                AttackCoolTime = 0.8f,
-                MoveSpeed = 2,
-                Range = 5,
-                //SkillCoolTIme = 0
-            };
-            var bossPool = new MonsterData[1]
-            {
-                bossData
-            };
+                for (int i = 0; i < par.monsterCount; i++)
+                {
+                    var monData = monsterT.GetMonsterData(par.monsterId);
+                    bossList.Add(monData);
+                }
+            }
             
-            var bossStage=new StageNode(StageType.Boss, bossPool);
+            var bossStage=new StageNode(StageType.Boss, bossList.ToArray());
             StageNode prev=startStage;
             StageNode current = null;
             stageTree.Add(startStage);

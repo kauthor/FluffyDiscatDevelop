@@ -52,7 +52,6 @@ MonoBehaviour:
   - {fileID: 1356204837335736561}
   - {fileID: 640744567883530116}
   - {fileID: 3138126350774073186}
-  HPMax: 150
   CharacterClass: 0
   hpBar: {fileID: 2615390016843759745}
   CanUseSkillFirst: 0

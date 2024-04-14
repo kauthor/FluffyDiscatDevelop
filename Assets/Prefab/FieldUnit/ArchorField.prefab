@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   job: 1
-  table: {fileID: 11400000, guid: be3533cb0530ef941bfecbb5a50af44f, type: 2}
+  id: 1
 --- !u!61 &2633163315293528963
 BoxCollider2D:
   m_ObjectHideFlags: 0

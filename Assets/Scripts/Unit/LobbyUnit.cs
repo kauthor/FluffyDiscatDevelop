@@ -9,7 +9,9 @@ namespace FluffyDisket
     public class LobbyUnit:IUnit
     {
         [SerializeField] private Job job;
-        [SerializeField] private PlayerSubTable table;
+
+        [SerializeField] private int id;
+        //[SerializeField] private PlayerSubTable table;
 
         private Vector3 destination;
 
@@ -37,7 +39,7 @@ namespace FluffyDisket
 
         private void OnMouseDown()
         {
-            UIHeroInfoPopup.OpenPopup(job, table);
+            UIHeroInfoPopup.OpenPopup(job, id);
         }
     }
 }

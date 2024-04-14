@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Tables;
 using Tables.Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +8,12 @@ namespace FluffyDisket.UI
 {
     public class UIHeroInfoPopup:PopupMonoBehavior
     {
-        public static void OpenPopup(Job job, PlayerSubTable table)
+        public static void OpenPopup(Job job, int id)
         {
             var pop = PopupManager.GetInstance().GetPopup(PopupType.PlayerInfo);
             if (pop is UIHeroInfoPopup heroPop)
             {
-                heroPop.Init(job, table);
+                heroPop.Init(job, id);
                 heroPop.gameObject.SetActive(true);
             }
         }
@@ -36,7 +37,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Text heroAcc;
         [SerializeField] private Text heroAtk;
 
-        public void Init(Job job, PlayerSubTable table)
+        public void Init(Job job, int id)
         {
             switch (job)
             {
@@ -51,23 +52,25 @@ namespace FluffyDisket.UI
                     break;
             }
 
-            heroHp.text = table.stat.HpMax.ToString();
-            heroSpeed.text = table.stat.MoveSpeed.ToString();
-            heroRange.text = table.stat.Range.ToString();
-            heroAtkCool.text = table.stat.AttackCoolTime.ToString();
-            heroPhyDef.text = table.stat.phyDef.ToString();
+            var stat = ExcelManager.GetInstance().CharT.GetCharData(id).GetCharacterDataAsStat();
+            
+            heroHp.text = stat.HpMax.ToString();
+            heroSpeed.text = stat.MoveSpeed.ToString();
+            heroRange.text = stat.Range.ToString();
+            heroAtkCool.text = stat.AttackCoolTime.ToString();
+            heroPhyDef.text = stat.phyDef.ToString();
             heroClass.text = job.ToString();
-            heroMagDef.text = table.stat.magDef.ToString();
-            heroCrit.text = table.stat.crit.ToString();
-            heroCritDam.text = table.stat.critDam.ToString();
-            heroDodge.text = table.stat.dodge.ToString();
-            heroRegen.text = table.stat.hpRegen.ToString();
-            heroAbs.text = table.stat.hpAbsolve.ToString();
-            heroInc.text = table.stat.atkIncrease.ToString();
-            heroDec.text = table.stat.damageDecrease.ToString();
-            heroAOE.text = table.stat.AOEArea.ToString();
-            heroAcc.text = table.stat.accuracy.ToString();
-            heroAtk.text = table.stat.Atk.ToString();
+            heroMagDef.text = stat.magDef.ToString();
+            heroCrit.text = stat.crit.ToString();
+            heroCritDam.text = stat.critDam.ToString();
+            heroDodge.text = stat.dodge.ToString();
+            heroRegen.text = stat.hpRegen.ToString();
+            heroAbs.text = stat.hpAbsolve.ToString();
+            heroInc.text = stat.atkIncrease.ToString();
+            heroDec.text = stat.damageDecrease.ToString();
+            heroAOE.text = stat.AOEArea.ToString();
+            heroAcc.text = stat.accuracy.ToString();
+            heroAtk.text = stat.Atk.ToString();
         }
     }
 }

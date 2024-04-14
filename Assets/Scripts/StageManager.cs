@@ -137,6 +137,7 @@ namespace FluffyDisket
             var bossDepth = Random.Range(stageT.minStage, stageT.maxStage);
             bossDepth /= 5;
             bossDepth *= 5;
+            bossDepth--;
             var bossList = new List<MonsterData>();
 
             var bossMonster = monsterGT.GetMonsterGroupData(stageT.bossMapGroup);

@@ -91,7 +91,7 @@ namespace FluffyDisket.UI
                     
                     newNode.Init(n.Cleared,n , selectable, OnSelectNode);
                     newNode.transform.SetParent(mapDisplayArea);
-                    newNode.transform.localPosition = new Vector3(-350 + depth * 120, 0, 0);
+                    newNode.transform.localPosition = new Vector3(-200 + depth * 120, 0, 0);
                     MadeNode.Add(newNode);
                     if (n.StageType != StageType.Boss)
                     {
@@ -100,7 +100,7 @@ namespace FluffyDisket.UI
                             : Instantiate(mpaLinePrefab);
                         
                         newImage.transform.SetParent(lineDisplayArea);
-                        newImage.transform.localPosition = new Vector3(-290 + depth * 120, 0, 0);
+                        newImage.transform.localPosition = new Vector3(-140 + depth * 120, 0, 0);
                         MadeLines.Add(newImage);
                     }
 

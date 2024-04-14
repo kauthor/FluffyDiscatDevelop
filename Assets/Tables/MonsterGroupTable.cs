@@ -28,7 +28,7 @@ namespace Tables
         public MonsterGroupData GetMonsterGroupData(int index)
         {
             if (index-1 >= _monsterGroupData.Length)
-                return new MonsterGroupData();
+                return _monsterGroupData[0];
 
             return _monsterGroupData[index-1];
         }

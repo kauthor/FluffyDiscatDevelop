@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using FluffyDisket.UI;
 using Tables;
 using Random = UnityEngine.Random;
 
@@ -78,7 +79,7 @@ namespace FluffyDisket
 
         public void CallStageCleared()
         {
-            AccountManager.GetInstance().CallStageClearToAccount();
+            AccountManager.GetInstance().CallStageClearToAccount(UIBattleLevelUpPopup.OpenPopup);
             currentStage.CallCleared();
         }
         

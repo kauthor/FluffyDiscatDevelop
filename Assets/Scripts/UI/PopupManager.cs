@@ -6,7 +6,8 @@ namespace FluffyDisket.UI
     public enum PopupType
     {
         NONE=-1,
-        PlayerInfo=0
+        PlayerInfo=0,
+        BattleLevelUp=1
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

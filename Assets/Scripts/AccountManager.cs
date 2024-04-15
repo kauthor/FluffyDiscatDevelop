@@ -102,7 +102,7 @@ namespace FluffyDisket
             else characterOwned.Add((int)type, get);
         }
 
-        public void CallStageClearToAccount()
+        public void CallStageClearToAccount(Action<Dictionary<int,int>> onLevelDeltaCB=null)
         {
             if (currentMonsterLevel <= 0)
                 currentMonsterLevel = 1;
@@ -124,13 +124,16 @@ namespace FluffyDisket
                     ExcelManager.GetInstance().MonsterLevelT.GetMonsterLevelData(currentMonsterLevel-1);
             }
             
-            TryAddExpToCurrentBattlePlayers();
+            TryAddExpToCurrentBattlePlayers(onLevelDeltaCB);
         }
 
-        private void TryAddExpToCurrentBattlePlayers()
+        private void TryAddExpToCurrentBattlePlayers(Action<Dictionary<int,int>> onLevelDeltaCB=null)
         {
             if (currentBattlePlayers == null || currentBattlePlayers.Count <= 0)
                 return;
+
+            var levelDelta = new Dictionary<int, int>();
+            
             foreach (var playerId in currentBattlePlayers)
             {
                 if (!characterOwned.ContainsKey(playerId) || !characterOwned[playerId])
@@ -167,14 +170,20 @@ namespace FluffyDisket
                         nextExp -= ExcelManager.GetInstance().ExpT.GetExpData(destiLevel - 1).reqExp;
                     }
                 }
-                
 
-                if(destiLevel!=currentLevel)
+
+                if (destiLevel != currentLevel)
+                {
+                    int currentLevelDelta = destiLevel - currentLevel;
+                    levelDelta.Add(playerId, currentLevelDelta);
                     characterLevels[playerId] = destiLevel;
+                }
 
                 if (addedExp != 0)
                     characterCurrentExp[playerId] = nextExp;
             }
+            
+            onLevelDeltaCB?.Invoke(levelDelta);
         }
     }
 }

@@ -111,6 +111,16 @@ namespace FluffyDisket
             baseStat = bs;
         }
 
+        public int Level
+        {
+            get
+            {
+                if (levelStat == null)
+                    return 1;
+                return levelStat.Level;
+            }
+        }
+        
         public float HpMax
         {
             get

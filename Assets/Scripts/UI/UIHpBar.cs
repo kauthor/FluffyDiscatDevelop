@@ -6,6 +6,7 @@ namespace FluffyDisket.UI
     public class UIHpBar: MonoBehaviour
     {
         [SerializeField] private Image fillArea;
+        [SerializeField] private Text txtLevel;
 
         private BattleUnit owner;
 
@@ -13,6 +14,11 @@ namespace FluffyDisket.UI
         {
             fillArea.fillAmount = unit.isPlayer? unit.currentHp/unit.MaxHp : 1;
             owner = unit;
+            if (txtLevel)
+            {
+                int lv = unit.AbilityDatas?.Level ?? 1;
+                txtLevel.text = lv.ToString();
+            }
             gameObject.SetActive(true);
             owner.onOwnerUpdate -= OnOwnerUpdate;
             owner.onOwnerUpdate += OnOwnerUpdate;

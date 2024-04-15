@@ -9,11 +9,15 @@ namespace FluffyDisket
     public class AccountManager:CustomSingleton<AccountManager>
     {
         private Dictionary<int, bool> characterOwned;
+        private Dictionary<int, int> characterLevels;
+        private Dictionary<int, int> characterCurrentExp;
 
-        [SerializeField] private PlayerSubTable[] playerTables;
+        //[SerializeField] private PlayerSubTable[] playerTables;
         //이것은 추후 엑셀 매니저로 분기하자.
 
         public Dictionary<int, bool> CharacterOwned => characterOwned;
+        public Dictionary<int, int> CharacterLevels => characterLevels;
+        public Dictionary<int, int> CharacterCurrentExp => characterCurrentExp;
 
         private List<int> currentBattlePlayers;
 
@@ -63,6 +67,8 @@ namespace FluffyDisket
         private void Start()
         {
             characterOwned = new Dictionary<int, bool>();
+            characterLevels = new Dictionary<int, int>();
+            characterCurrentExp = new Dictionary<int, int>();
             currentBattlePlayers = new List<int>();
             var chars = ExcelManager.GetInstance().CharT.characterAmounts;
             
@@ -71,6 +77,8 @@ namespace FluffyDisket
             for(int i=0; i<chars; i++)
             {
                 characterOwned.Add(i,true);
+                characterLevels.Add(i,1);
+                characterCurrentExp.Add(i,0);
             }
         }
 
@@ -114,6 +122,58 @@ namespace FluffyDisket
                 currentMonsterLevel++;
                 currentMonsterLevelData = 
                     ExcelManager.GetInstance().MonsterLevelT.GetMonsterLevelData(currentMonsterLevel-1);
+            }
+            
+            TryAddExpToCurrentBattlePlayers();
+        }
+
+        private void TryAddExpToCurrentBattlePlayers()
+        {
+            if (currentBattlePlayers == null || currentBattlePlayers.Count <= 0)
+                return;
+            foreach (var playerId in currentBattlePlayers)
+            {
+                if (!characterOwned.ContainsKey(playerId) || !characterOwned[playerId])
+                {
+                    continue;
+                }
+
+                var currentLevel = characterLevels[playerId];
+                var curLevDiff2Mon = currentLevel - currentMonsterLevel;
+                int addedExp = 0;
+                if (curLevDiff2Mon >= 2 && curLevDiff2Mon <=4)
+                {
+                    addedExp = 1;
+                }
+                else if (curLevDiff2Mon >= -1 && curLevDiff2Mon <= 1)
+                {
+                    addedExp = 2;
+                }
+                else if (curLevDiff2Mon >= -4 && curLevDiff2Mon <= -2)
+                {
+                    addedExp = 3;
+                }
+                else if (curLevDiff2Mon <= -5)
+                    addedExp = 4;
+
+                var nextExp = characterCurrentExp[playerId] + addedExp;
+                //var expD = ExcelManager.GetInstance().ExpT.GetExpData(currentLevel - 1);
+                var destiLevel = currentLevel;
+
+                if (addedExp > 0)
+                {
+                    for (; nextExp >= ExcelManager.GetInstance().ExpT.GetExpData(destiLevel - 1).reqExp; destiLevel++)
+                    {
+                        nextExp -= ExcelManager.GetInstance().ExpT.GetExpData(destiLevel - 1).reqExp;
+                    }
+                }
+                
+
+                if(destiLevel!=currentLevel)
+                    characterLevels[playerId] = destiLevel;
+
+                if (addedExp != 0)
+                    characterCurrentExp[playerId] = nextExp;
             }
         }
     }

@@ -103,7 +103,7 @@ namespace FluffyDisket
                     playerList.Add(pl);
                     pl.gameObject.SetActive(false);
                     var baseStat = ExcelManager.GetInstance().CharT.GetCharData(0).GetCharacterDataAsStat();
-                    var levelData = new LevelAdditionalStat(0.0f, 0, 0, 0, 1);
+                    var levelData = new LevelAdditionalStat(0.0f, 0, 0, 0, AccountManager.GetInstance().CharacterLevels[mem]);
                     pl.SetStat(baseStat, levelData);
                 }
                 

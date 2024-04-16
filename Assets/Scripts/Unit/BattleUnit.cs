@@ -105,7 +105,7 @@ namespace FluffyDisket
             levelStat?.UpdateRuntimeData(levelDelta, atkDelta, pdDelta, mdDelta, hpDelta);
         }
 
-        public CharacterAbilityDatas(LevelAdditionalStat levels, CharacterStat bs)
+        public CharacterAbilityDatas(LevelAdditionalStat levels, CharacterStat bs, List<TraitData> trait)
         {
             levelStat = levels;
             baseStat = bs;
@@ -290,9 +290,9 @@ namespace FluffyDisket
         private CharacterAbilityDatas abilityDatas;
         public CharacterAbilityDatas AbilityDatas => abilityDatas;
 
-        private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev)
+        private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait)
         {
-            abilityDatas = new CharacterAbilityDatas(lev, baseStat);
+            abilityDatas = new CharacterAbilityDatas(lev, baseStat, trait);
         }
         
         
@@ -337,11 +337,11 @@ namespace FluffyDisket
             }
         }
 
-        public void SetStat(CharacterStat s, LevelAdditionalStat lev=null)
+        public void SetStat(CharacterStat s, LevelAdditionalStat lev=null, List<TraitData> trait=null)
         {
             //characterAbility = s;
             //HPMax = s.HpMax;
-            SetAbilityData(s,lev);
+            SetAbilityData(s,lev,trait);
             currentHp = MaxHp;
         }
 

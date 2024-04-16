@@ -1,4 +1,5 @@
 ﻿using System;
+using FluffyDisket;
 using UnityEngine;
 
 namespace Tables
@@ -23,11 +24,18 @@ namespace Tables
         public int rarity;
         public int sort;
         public int group;
-
     }
     
     public class TraitTable:ScriptableObject
     {
         [SerializeField] private TraitData[] traitDatas;
+        
+        public void SetTraitData(TraitData[] arr) => traitDatas = arr;
+        
+        public TraitData GetTraitDataById(int id)
+        {
+            var ret = Array.Find(traitDatas, t => t.id == id);
+            return ret;
+        }
     }
 }

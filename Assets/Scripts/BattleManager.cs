@@ -126,7 +126,23 @@ namespace FluffyDisket
                     mon.gameObject.SetActive(false);
                     var levData = new LevelAdditionalStat(m.id, m.statData.levelHp, m.statData.levelAtk,
                         m.statData.levelpd, m.statData.levelmd);
-                    mon.SetStat(m.statData, levData);
+                    if(m.traitId1==0)
+                       mon.SetStat(m.statData, levData);
+                    else
+                    {
+                        List<TraitData> traits = new List<TraitData>();
+                        traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId1));
+                        if(m.traitId2!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId2));
+                        if(m.traitId3!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId3));
+                        if(m.traitId4!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId4));
+                        if(m.traitId5!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId5));
+                        
+                        mon.SetStat(m.statData,levData,traits);
+                    }
                 }
             }
             else

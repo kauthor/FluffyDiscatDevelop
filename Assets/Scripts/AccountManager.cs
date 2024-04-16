@@ -6,11 +6,21 @@ using UnityEngine;
 
 namespace FluffyDisket
 {
+    public struct CharacterLevelupStat
+    {
+        public int atk;
+        public int hp;
+        public int phyd;
+        public int magd;
+    }
+    
+    
     public class AccountManager:CustomSingleton<AccountManager>
     {
         private Dictionary<int, bool> characterOwned;
         private Dictionary<int, int> characterLevels;
         private Dictionary<int, int> characterCurrentExp;
+        private Dictionary<int, CharacterLevelupStat> characterLevelUpStats;
 
         //[SerializeField] private PlayerSubTable[] playerTables;
         //이것은 추후 엑셀 매니저로 분기하자.
@@ -18,6 +28,7 @@ namespace FluffyDisket
         public Dictionary<int, bool> CharacterOwned => characterOwned;
         public Dictionary<int, int> CharacterLevels => characterLevels;
         public Dictionary<int, int> CharacterCurrentExp => characterCurrentExp;
+        public Dictionary<int, CharacterLevelupStat> CharacterLevelupStats => characterLevelUpStats;
 
         private List<int> currentBattlePlayers;
 
@@ -70,6 +81,7 @@ namespace FluffyDisket
             characterLevels = new Dictionary<int, int>();
             characterCurrentExp = new Dictionary<int, int>();
             currentBattlePlayers = new List<int>();
+            characterLevelUpStats = new Dictionary<int, CharacterLevelupStat>();
             var chars = ExcelManager.GetInstance().CharT.characterAmounts;
             
             //차후 계정 정보를 본격적으로 받아오면, 그때  제대로 초기화한다.
@@ -79,6 +91,13 @@ namespace FluffyDisket
                 characterOwned.Add(i,true);
                 characterLevels.Add(i,1);
                 characterCurrentExp.Add(i,0);
+                characterLevelUpStats.Add(i, new CharacterLevelupStat()
+                {
+                    hp = 0,
+                    atk = 0,
+                    magd = 0,
+                    phyd = 0
+                });
             }
         }
 
@@ -92,6 +111,19 @@ namespace FluffyDisket
             {
                 currentBattlePlayers.Add(pl);
             }
+        }
+
+        public void AddPlayerLevelUpStat(int id, int a, int h, int p, int m)
+        {
+            var before = characterLevelUpStats[id];
+            var newStat = new CharacterLevelupStat()
+            {
+                atk = a + before.atk,
+                hp = h + before.hp,
+                phyd = p + before.phyd,
+                magd = m + before.magd
+            };
+            characterLevelUpStats[id] = newStat;
         }
 
 

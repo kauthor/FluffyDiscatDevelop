@@ -11,7 +11,7 @@ namespace FluffyDisket.UI
 
         protected void Awake()
         {
-            BtnClose.onClick.AddListener(OnCloseClick);
+            BtnClose?.onClick.AddListener(OnCloseClick);
         }
 
         protected virtual void Dispose()

@@ -94,6 +94,7 @@ namespace FluffyDisket
         private IEnumerator TestImpl()
         {
             var playerList = new List<BattleUnit>();
+            var baseData = ExcelManager.GetInstance().BaseT;
             foreach (var mem in AccountManager.GetInstance().CurrentBattleMember)
             {
                 //이것은 문제가 있다. 추후 리소스 관리용 Addressable 등을 사용하게 되면 픽스해야한다.
@@ -103,7 +104,11 @@ namespace FluffyDisket
                     playerList.Add(pl);
                     pl.gameObject.SetActive(false);
                     var baseStat = ExcelManager.GetInstance().CharT.GetCharData(0).GetCharacterDataAsStat();
-                    var levelData = new LevelAdditionalStat(0.0f, 0, 0, 0, AccountManager.GetInstance().CharacterLevels[mem]);
+                    var currentLevelStatData = AccountManager.GetInstance().CharacterLevelupStats[mem];
+                    var levelData = new LevelAdditionalStat((float)currentLevelStatData.hp * baseData.GetBaseDataByIndex(23).data, 
+                        (float)currentLevelStatData.atk * baseData.GetBaseDataByIndex(24).data, 
+                        (float)currentLevelStatData.phyd * baseData.GetBaseDataByIndex(25).data, 
+                        (float)currentLevelStatData.magd * baseData.GetBaseDataByIndex(26).data, AccountManager.GetInstance().CharacterLevels[mem]);
                     pl.SetStat(baseStat, levelData);
                 }
                 

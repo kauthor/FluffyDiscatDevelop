@@ -15,6 +15,28 @@ namespace FluffyDisket
         Monster=100
     }
 
+    public enum StatType
+    {
+        NONE=0,
+        
+        ATTACK,
+        PHYSICALDEF,
+        MAGICALDEF,
+        HPMAX,
+        HPREGEN,
+        HPABSOLVE,
+        CRITICAL,
+        CRITICALDAMAGE,
+        ATTACKSPEED,
+        DODGE,
+        RANGE,
+        MOVESPEED,
+        ATTACKINCREASE,
+        DAMAGEDECREASE,
+        AOEAREA,
+        ACCURACY
+    }
+
     [Serializable]
     public class CharacterStat
     {
@@ -99,6 +121,8 @@ namespace FluffyDisket
     {
         private LevelAdditionalStat levelStat;
         private CharacterStat baseStat;
+        private Dictionary<StatType, int> absStatDelta;
+        private Dictionary<StatType, int> ratioStatDelta;
         
         public void UpdateRuntimeData(int levelDelta, float atkDelta, float pdDelta, float mdDelta, float hpDelta)
         {
@@ -109,6 +133,34 @@ namespace FluffyDisket
         {
             levelStat = levels;
             baseStat = bs;
+            absStatDelta = new Dictionary<StatType, int>();
+
+            ratioStatDelta = new Dictionary<StatType, int>();
+
+            if(trait!=null)
+            {
+                foreach (var t in trait)
+                {
+                    if (t.optionDatas.Length > 0)
+                    {
+                        foreach (var op in t.optionDatas)
+                        {
+                            if (op.battleOptionType >= 101 && op.battleOptionType <= 116)
+                            {
+                                StatType tp = (StatType)(op.battleOptionType-100);
+                                if (!absStatDelta.ContainsKey(tp))
+                                    absStatDelta.Add(tp, op.value1);
+                                else absStatDelta[tp] += op.value1;
+
+                                if (!ratioStatDelta.ContainsKey(tp))
+                                    ratioStatDelta.Add(tp, op.value2);
+                                else ratioStatDelta[tp] += op.value2;
+                            }
+                        }
+                    }
+                    
+                }
+            }
         }
 
         public int Level
@@ -127,7 +179,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 10;
-                return baseStat.HpMax + (levelStat?.HpMax ?? 0);
+
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.HPMAX, out val1);
+                ratioStatDelta.TryGetValue(StatType.HPMAX, out val2);
+                    
+                return (baseStat.HpMax + (levelStat?.HpMax ?? 0) + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float MoveSpeed
@@ -136,7 +194,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.MoveSpeed;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.MOVESPEED, out val1);
+                ratioStatDelta.TryGetValue(StatType.MOVESPEED, out val2);
+                
+                return (baseStat.MoveSpeed +val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
 
@@ -146,7 +210,14 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.Range;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.RANGE, out val1);
+                ratioStatDelta.TryGetValue(StatType.RANGE, out val2);
+                
+                
+                return (baseStat.Range+val1)* ((float)(100.0f+val2)/100.0f);
             }
         }
         
@@ -156,7 +227,12 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 5;
-                return baseStat.Atk + (levelStat?.Attack ?? 0);
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.ATTACK, out val1);
+                ratioStatDelta.TryGetValue(StatType.ATTACK, out val2);
+                return (baseStat.Atk + (levelStat?.Attack ?? 0) + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
 
@@ -166,7 +242,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.phyDef + (levelStat?.PhyDef ?? 0);
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.PHYSICALDEF, out val1);
+                ratioStatDelta.TryGetValue(StatType.PHYSICALDEF, out val2);
+                
+                return (baseStat.phyDef + (levelStat?.PhyDef ?? 0) + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float magDef
@@ -175,17 +257,28 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 0;
-                return baseStat.magDef + (levelStat?.MagicDef ?? 0);
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.MAGICALDEF, out val1);
+                ratioStatDelta.TryGetValue(StatType.MAGICALDEF, out val2);
+                
+                return (baseStat.magDef + (levelStat?.MagicDef ?? 0) + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
 
-        public int hpRegen
+        public float hpRegen
         {
             get
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.hpRegen;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.HPREGEN, out val1);
+                ratioStatDelta.TryGetValue(StatType.HPREGEN, out val2);
+                
+                return (baseStat.hpRegen + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float hpAbsolve
@@ -194,7 +287,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.hpAbsolve;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.HPABSOLVE, out val1);
+                ratioStatDelta.TryGetValue(StatType.HPABSOLVE, out val2);
+                
+                return (baseStat.hpAbsolve + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float crit
@@ -203,7 +302,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.crit;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.CRITICAL, out val1);
+                ratioStatDelta.TryGetValue(StatType.CRITICAL, out val2);
+                
+                return (baseStat.crit + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float critDam
@@ -212,7 +317,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.critDam;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.CRITICALDAMAGE, out val1);
+                ratioStatDelta.TryGetValue(StatType.CRITICALDAMAGE, out val2);
+                
+                return (baseStat.critDam + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float atkSpeed
@@ -221,16 +332,28 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.AttackCoolTime;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.ATTACKSPEED, out val1);
+                ratioStatDelta.TryGetValue(StatType.ATTACKSPEED, out val2);
+                
+                return (baseStat.AttackCoolTime + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
-        public int dodge
+        public float dodge
         {
             get
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.dodge;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.DODGE, out val1);
+                ratioStatDelta.TryGetValue(StatType.DODGE, out val2);
+                
+                return (baseStat.dodge + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         
@@ -240,7 +363,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.atkIncrease;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.ATTACKINCREASE, out val1);
+                ratioStatDelta.TryGetValue(StatType.ATTACKINCREASE, out val2);
+                
+                return (baseStat.atkIncrease + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float damageDecrease
@@ -249,7 +378,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.damageDecrease;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.DAMAGEDECREASE, out val1);
+                ratioStatDelta.TryGetValue(StatType.DAMAGEDECREASE, out val2);
+                
+                return (baseStat.damageDecrease + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
         public float AOEArea
@@ -258,7 +393,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.AOEArea;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.AOEAREA, out val1);
+                ratioStatDelta.TryGetValue(StatType.AOEAREA, out val2);
+                
+                return (baseStat.AOEArea + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
 
@@ -268,7 +409,13 @@ namespace FluffyDisket
             {
                 if (baseStat == null)
                     return 1;
-                return baseStat.accuracy;
+                
+                int val1 = 0;
+                int val2 = 0;
+                absStatDelta.TryGetValue(StatType.ACCURACY, out val1);
+                ratioStatDelta.TryGetValue(StatType.ACCURACY, out val2);
+                
+                return (baseStat.accuracy + val1) * ((float)(100.0f+val2)/100.0f);
             }
         }
     }

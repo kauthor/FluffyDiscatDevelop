@@ -1,0 +1,889 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf7cd0e7ddc41daa680f029b65fb462, type: 3}
+  m_Name: TraitTable
+  m_EditorClassIdentifier: 
+  traitDatas:
+  - id: 22
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 23
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: -3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 24
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: -1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 25
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: 1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 26
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: 3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 27
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 101
+      value1: 4
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 2
+  - id: 28
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 29
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: -3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 30
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: -1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 31
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: 1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 32
+    traitType: 1
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: 3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 33
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 102
+      value1: 4
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 3
+  - id: 34
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 35
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: -3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 36
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: -1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 37
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: 1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 38
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: 3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 39
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 103
+      value1: 4
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 4
+  - id: 40
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: -20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 41
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: -10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 42
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 43
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: 5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 44
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: 10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 45
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 104
+      value1: 20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 5
+  - id: 48
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: 50
+      value2: 0
+    - battleOptionType: 109
+      value1: 0
+      value2: -50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 0
+  - id: 49
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: -50
+      value2: 0
+    - battleOptionType: 109
+      value1: 0
+      value2: 50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 0
+  - id: 51
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: -3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 52
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: -2
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 53
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: -1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 54
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: 1
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 55
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: 2
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 56
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 105
+      value1: 3
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 6
+  - id: 57
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: -50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 58
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: -30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 59
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: -10
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 60
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: 10
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 61
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: 30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 62
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 107
+      value1: 0
+      value2: 50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 7
+  - id: 63
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: -50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 64
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: -30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 65
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: -10
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 66
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: 10
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 67
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: 30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 68
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 108
+      value1: 0
+      value2: 50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 8
+  - id: 69
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: -20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 70
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: -10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 71
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 72
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: 5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 73
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: 10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 74
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 110
+      value1: 20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 9
+  - id: 75
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: -80
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 76
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: -50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 77
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: -30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 78
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: 30
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 79
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: 50
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 80
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 112
+      value1: 0
+      value2: 80
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 10
+  - id: 81
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: -20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11
+  - id: 82
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: -10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11
+  - id: 83
+    traitType: 2
+    traitCondition: 0
+    traitVive: 0
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: -5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11
+  - id: 84
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: 5
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11
+  - id: 85
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: 10
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11
+  - id: 86
+    traitType: 2
+    traitCondition: 0
+    traitVive: 1
+    type: 1
+    optionDatas:
+    - battleOptionType: 116
+      value1: 20
+      value2: 0
+    conditionType: 0
+    conditionValue: 0
+    rarity: 0
+    sort: 0
+    group: 11

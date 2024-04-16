@@ -51,3 +51,4 @@ MonoBehaviour:
   _monsterLevelTable: {fileID: 11400000, guid: 147feefaf201ac54eb8edf0d1235979e, type: 2}
   _monsterTable: {fileID: 11400000, guid: ae768d6dabc45cd4a87d4efcc33894ac, type: 2}
   _stageTable: {fileID: 11400000, guid: 5ef12b042059bda41af286ee31f73351, type: 2}
+  _traitTable: {fileID: 11400000, guid: 0cbab415689ed384d9fb12df22fedd32, type: 2}

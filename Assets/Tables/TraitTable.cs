@@ -17,10 +17,12 @@ namespace Tables
     {
         public int id;
         public int traitType;
-        public bool traitCondition;
-        public int traitVive;
+        public int traitCondition;
+        public bool traitVive;
         public int type;
         public TraitOptionData[] optionDatas;
+        public int conditionType;
+        public int conditionValue;
         public int rarity;
         public int sort;
         public int group;

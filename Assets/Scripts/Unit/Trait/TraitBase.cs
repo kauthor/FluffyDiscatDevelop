@@ -38,7 +38,12 @@ namespace FluffyDisket.Trait
             MakeCommandByData();
         }
 
-        public void MakeCommandByData()
+        private void MakeCommandByData()
+        {
+            owner.BattleEventSyetem?.AddEvent(OptionType.NONE, OnOptionInvoked);
+        }
+
+        protected virtual void OnOptionInvoked(BattleEventParam param)
         {
             
         }

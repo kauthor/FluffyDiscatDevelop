@@ -486,6 +486,8 @@ namespace FluffyDisket
 
         public EventSystem BattleEventSyetem;
 
+        private List<TraitBase> managedTrait;
+
         private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait)
         {
             abilityDatas = new CharacterAbilityDatas(lev, baseStat, trait);
@@ -586,6 +588,7 @@ namespace FluffyDisket
             //currentHp = MaxHp;
             onOwnerUpdate = null;
             FiniteStateMachineDic = new Dictionary<State, BattleState>();
+            managedTrait = new List<TraitBase>();
             if (inspectorStates.Length > 0)
             {
                 foreach (var st in inspectorStates)
@@ -673,7 +676,16 @@ namespace FluffyDisket
             ChangeState(State.Find, param);
         }
 
-        
+        public virtual void StageTrait(TraitData data)
+        {
+            var tra = new TraitBase();
+            tra.Init(this, data);
+            if (managedTrait == null)
+                managedTrait = new List<TraitBase>();
+            managedTrait.Add(tra);
+            
+            
+        }
         
     }
     

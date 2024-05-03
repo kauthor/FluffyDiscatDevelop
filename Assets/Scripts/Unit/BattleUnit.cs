@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FluffyDisket.Trait;
 using Tables;
 using Tables.Player;
 using UnityEngine;
@@ -36,6 +37,52 @@ namespace FluffyDisket
         AOEAREA,
         ACCURACY
     }
+
+    public class BattleEventParam
+    {
+        public IUnit eventMaker;
+        public IUnit target;
+        public OptionType optionType;
+    }
+
+    public class EventSystem
+    {
+        private Dictionary<OptionType, Action<BattleEventParam>> events;
+
+        public virtual void Init()
+        {
+            events = new Dictionary<OptionType, Action<BattleEventParam>>();
+            for (int i = 0; i < 5; i++)
+            {
+                events.Add((OptionType)i, null);
+            }
+        }
+
+        public void AddEvent(OptionType type, Action<BattleEventParam> ev)
+        {
+            if (events.TryGetValue(type, out Action<BattleEventParam> act))
+            {
+                act += ev;
+            }
+        }
+
+        public void RemoveEvent(OptionType type, Action<BattleEventParam> ev)
+        {
+            if (events.TryGetValue(type, out Action<BattleEventParam> act))
+            {
+                act -= ev;
+            }
+        }
+
+        public void FireEvent(OptionType type, BattleEventParam param)
+        {
+            if (events.TryGetValue(type, out Action<BattleEventParam> act))
+            {
+                act?.Invoke(param);
+            }
+        }
+    }
+    
 
     [Serializable]
     public class CharacterStat
@@ -437,6 +484,10 @@ namespace FluffyDisket
         private CharacterAbilityDatas abilityDatas;
         public CharacterAbilityDatas AbilityDatas => abilityDatas;
 
+        public EventSystem BattleEventSyetem;
+
+        private List<TraitBase> managedTrait;
+
         private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait)
         {
             abilityDatas = new CharacterAbilityDatas(lev, baseStat, trait);
@@ -537,6 +588,7 @@ namespace FluffyDisket
             //currentHp = MaxHp;
             onOwnerUpdate = null;
             FiniteStateMachineDic = new Dictionary<State, BattleState>();
+            managedTrait = new List<TraitBase>();
             if (inspectorStates.Length > 0)
             {
                 foreach (var st in inspectorStates)
@@ -556,6 +608,9 @@ namespace FluffyDisket
             skillCoolTimeRegain = 0;
             //if (CanUseSkillFirst)
             //    skillCoolTimeRegain = CharacterAbility.SkillCoolTIme;
+
+            BattleEventSyetem = new EventSystem();
+            BattleEventSyetem.Init();
         }
 
         public void ChangeState(State nextState, StateParam param =null)
@@ -621,7 +676,16 @@ namespace FluffyDisket
             ChangeState(State.Find, param);
         }
 
-        
+        public virtual void StageTrait(TraitData data)
+        {
+            var tra = new TraitBase();
+            tra.Init(this, data);
+            if (managedTrait == null)
+                managedTrait = new List<TraitBase>();
+            managedTrait.Add(tra);
+            
+            
+        }
         
     }
     

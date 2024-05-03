@@ -79,7 +79,7 @@ namespace FluffyDisket
 
         public void CallStageCleared()
         {
-            AccountManager.GetInstance().CallStageClearToAccount(UIBattleLevelUpPopup.OpenPopup);
+            //AccountManager.GetInstance().CallStageClearToAccount(UIBattleLevelUpPopup.OpenPopup);
             currentStage.CallCleared();
         }
         

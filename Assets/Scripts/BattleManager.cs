@@ -143,6 +143,27 @@ namespace FluffyDisket
                         
                         mon.SetStat(m.statData,levData,traits);
                     }
+                    /*else
+                    {
+                        List<TraitData> traits = new List<TraitData>();
+                        traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId1));
+                        if(m.traitId2!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId2));
+                        if(m.traitId3!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId3));
+                        if(m.traitId4!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId4));
+                        if(m.traitId5!=0)
+                            traits.Add(ExcelManager.GetInstance().TraitT.GetTraitDataById(m.traitId5));
+
+                        foreach (var tr in traits)
+                        {
+                            mon.StageTrait(tr);
+                        }
+                    }*/
+                    
+                     
+    
                 }
             }
             else

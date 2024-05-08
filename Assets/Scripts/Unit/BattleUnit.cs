@@ -42,23 +42,23 @@ namespace FluffyDisket
     {
         public IUnit eventMaker;
         public IUnit target;
-        public OptionType optionType;
+        public virtual OptionCaseType optType => OptionCaseType.NONE;
     }
 
     public class EventSystem
     {
-        private Dictionary<OptionType, Action<BattleEventParam>> events;
+        private Dictionary<OptionCaseType, Action<BattleEventParam>> events;
 
         public virtual void Init()
         {
-            events = new Dictionary<OptionType, Action<BattleEventParam>>();
+            events = new Dictionary<OptionCaseType, Action<BattleEventParam>>();
             for (int i = 0; i < 5; i++)
             {
-                events.Add((OptionType)i, null);
+                events.Add((OptionCaseType)i, null);
             }
         }
 
-        public void AddEvent(OptionType type, Action<BattleEventParam> ev)
+        public void AddEvent(OptionCaseType type, Action<BattleEventParam> ev)
         {
             if (events.TryGetValue(type, out Action<BattleEventParam> act))
             {
@@ -66,7 +66,7 @@ namespace FluffyDisket
             }
         }
 
-        public void RemoveEvent(OptionType type, Action<BattleEventParam> ev)
+        public void RemoveEvent(OptionCaseType type, Action<BattleEventParam> ev)
         {
             if (events.TryGetValue(type, out Action<BattleEventParam> act))
             {
@@ -74,7 +74,7 @@ namespace FluffyDisket
             }
         }
 
-        public void FireEvent(OptionType type, BattleEventParam param)
+        public void FireEvent(OptionCaseType type, BattleEventParam param)
         {
             if (events.TryGetValue(type, out Action<BattleEventParam> act))
             {
@@ -550,6 +550,12 @@ namespace FluffyDisket
             currentHp += delta;
             if(IsDead)
                 OnDead();
+        }
+
+        public void Kill()
+        {
+            SetHpPercent(0);
+            OnDead();
         }
 
         public void SetHpPercent(float per)

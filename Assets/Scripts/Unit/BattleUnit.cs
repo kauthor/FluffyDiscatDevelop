@@ -170,6 +170,20 @@ namespace FluffyDisket
         private CharacterStat baseStat;
         private Dictionary<StatType, int> absStatDelta;
         private Dictionary<StatType, int> ratioStatDelta;
+
+
+        public void SetIncreasedAbility(StatType type, int amount)
+        {
+            if (ratioStatDelta.ContainsKey(type))
+            {
+                ratioStatDelta[type] += amount;
+            }
+            else
+            {
+                ratioStatDelta.Add(type,amount);
+            }
+        }
+        
         
         public void UpdateRuntimeData(int levelDelta, float atkDelta, float pdDelta, float mdDelta, float hpDelta)
         {

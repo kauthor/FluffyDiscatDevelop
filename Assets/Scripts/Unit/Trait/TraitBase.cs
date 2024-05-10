@@ -57,6 +57,7 @@ namespace FluffyDisket.Trait
     public class AttackParam : BattleEventParam
     {
         public override OptionCaseType optType => OptionCaseType.Attack;
+        public int damage;
     }
     
     public class CriticalParam : BattleEventParam

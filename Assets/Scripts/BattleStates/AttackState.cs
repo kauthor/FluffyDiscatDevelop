@@ -1,4 +1,5 @@
 ﻿using System;
+using FluffyDisket.Trait;
 using FluffyDisket.UI;
 using UnityEngine;
 
@@ -27,10 +28,21 @@ namespace FluffyDisket
             float dam = owner.AbilityDatas.Atk > 0 ? owner.AbilityDatas.Atk : damage;
             dam -=receivedParam.target.AbilityDatas?.phyDef?? 0;
             dam = dam <= 0 ? 0 : dam;
+            owner.BattleEventSyetem.FireEvent(OptionCaseType.Attack, new AttackParam()
+            {
+                target = receivedParam.target,
+                eventMaker = owner,
+                damage = (int)dam
+            });
             
             coolRegain += Time.deltaTime;
             if (coolRegain >= owner.AbilityDatas.atkSpeed*0.03f)
             {
+                receivedParam.target.BattleEventSyetem.FireEvent(OptionCaseType.UnderAttacked, new UnderAttackParam()
+                {
+                    target = receivedParam.target,
+                    eventMaker = owner
+                });
                 receivedParam.target.SetHp(-dam);
                 BattleManager.GetInstance().currentView.ReceiveLog(
                     $"{owner.CharacterClassPublic}가 {receivedParam.target.CharacterClassPublic}에게 공격! {dam} 데미지");

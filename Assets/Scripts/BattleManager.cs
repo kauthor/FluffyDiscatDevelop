@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FluffyDisket.Trait;
 using FluffyDisket.UI;
 using Tables;
 using UnityEngine;
@@ -222,6 +223,11 @@ namespace FluffyDisket
                     continue;
                 PlayerTeam.members[i].transform.position = pos;
                 PlayerTeam.members[i].gameObject.SetActive(true);
+                PlayerTeam.members[i].BattleEventSyetem.FireEvent(OptionCaseType.BattleStart, new BattleStartParam()
+                {
+                    target = PlayerTeam.members[i],
+                    eventMaker = PlayerTeam.members[i]
+                });
             }
 
             int j = 0;
@@ -239,6 +245,11 @@ namespace FluffyDisket
 
                 EnemyTeam.members[i].transform.position = enp[i];
                 EnemyTeam.members[i].gameObject.SetActive(true);
+                EnemyTeam.members[i].BattleEventSyetem.FireEvent(OptionCaseType.BattleStart, new BattleStartParam()
+                {
+                    target = EnemyTeam.members[i],
+                    eventMaker = EnemyTeam.members[i]
+                });
             }
             
             InBattle = true;

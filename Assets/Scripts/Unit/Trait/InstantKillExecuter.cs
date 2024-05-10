@@ -2,7 +2,8 @@
 {
     public class InstantKillExecuter:SkillOptionExecuter
     {
-        //override 
+        public override OptionType option => OptionType.InstantKill;
+
         public override void Execute()
         {
             base.Execute();

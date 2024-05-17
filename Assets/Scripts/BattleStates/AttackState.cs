@@ -28,16 +28,17 @@ namespace FluffyDisket
             float dam = owner.AbilityDatas.Atk > 0 ? owner.AbilityDatas.Atk : damage;
             dam -=receivedParam.target.AbilityDatas?.phyDef?? 0;
             dam = dam <= 0 ? 0 : dam;
-            owner.BattleEventSyetem.FireEvent(OptionCaseType.Attack, new AttackParam()
-            {
-                target = receivedParam.target,
-                eventMaker = owner,
-                damage = (int)dam
-            });
+            
             
             coolRegain += Time.deltaTime;
             if (coolRegain >= owner.AbilityDatas.atkSpeed*0.03f)
             {
+                owner.BattleEventSyetem.FireEvent(OptionCaseType.Attack, new AttackParam()
+                {
+                    target = receivedParam.target,
+                    eventMaker = owner,
+                    damage = (int)dam
+                });
                 receivedParam.target.BattleEventSyetem.FireEvent(OptionCaseType.UnderAttacked, new UnderAttackParam()
                 {
                     target = receivedParam.target,

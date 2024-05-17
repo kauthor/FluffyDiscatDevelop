@@ -11,10 +11,27 @@ namespace Tables.Player
         public int gameGroup;
         public int gender;
         public int tribe;
+        public int chrType;
+        public int job;
         public int maxHp;
         public int atk;
         public int armor;
         public int magicArmor;
+        public int hpRegen;
+        public int hpAbsolve;
+        public int critical;
+        public int critDamage;
+        public int attackCoolTime;
+        public int dodge;
+        public int range;
+        public int moveSpeed;
+        public int damIncrease;
+        public int damDecrease;
+        public int aeo;
+        public int accuracy;
+        public int startItemGroup;
+        public int startTraitGroup;
+        
 
         public CharacterStat GetCharacterDataAsStat()
         {
@@ -22,25 +39,25 @@ namespace Tables.Player
             return new CharacterStat()
             {
                 HpMax = maxHp,
-                MoveSpeed = def.GetBaseDataByIndex(15).data,
-                Range = def.GetBaseDataByIndex(16).data,
+                MoveSpeed = this.moveSpeed,
+                Range = this.range,
                 //SkillCoolTIme = 0,
-                AttackCoolTime = def.GetBaseDataByIndex(13).data*100,
+                AttackCoolTime = this.attackCoolTime,
                 Atk = atk,
                 phyDef = armor,
                 magDef = magicArmor,
 
-                hpRegen = def.GetBaseDataByIndex(9).data,
-                hpAbsolve = def.GetBaseDataByIndex(10).data,
-                crit = def.GetBaseDataByIndex(11).data,
-                critDam = def.GetBaseDataByIndex(12).data,
+                hpRegen = this.hpRegen,
+                hpAbsolve = this.hpAbsolve,
+                crit = this.critical,
+                critDam = this.critDamage,
                 //atkSpeed = ,
-                dodge = def.GetBaseDataByIndex(14).data,
+                dodge = this.dodge,
                 //moveSpeedNew = 0,
-                atkIncrease = def.GetBaseDataByIndex(17).data,
-                damageDecrease = def.GetBaseDataByIndex(18).data,
-                AOEArea = def.GetBaseDataByIndex(19).data,
-                accuracy = def.GetBaseDataByIndex(20).data
+                atkIncrease = this.damIncrease,
+                damageDecrease = this.damDecrease,
+                AOEArea = this.aeo,
+                accuracy = this.accuracy
             };
         }
     }

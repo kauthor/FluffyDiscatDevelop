@@ -160,6 +160,22 @@ namespace Editor
                                 string data6 = result.Tables[i].Rows[j][5].ToString();
                                 string data7 = result.Tables[i].Rows[j][6].ToString();
                                 string data8 = result.Tables[i].Rows[j][7].ToString();
+                                string data9 = result.Tables[i].Rows[j][8].ToString();
+                                string data10 = result.Tables[i].Rows[j][9].ToString();
+                                string data11 = result.Tables[i].Rows[j][10].ToString();
+                                string data12 = result.Tables[i].Rows[j][11].ToString();
+                                string data13 = result.Tables[i].Rows[j][12].ToString();
+                                string data14 = result.Tables[i].Rows[j][13].ToString();
+                                string data15 = result.Tables[i].Rows[j][14].ToString();
+                                string data16 = result.Tables[i].Rows[j][15].ToString();
+                                string data17 = result.Tables[i].Rows[j][16].ToString();
+                                string data18 = result.Tables[i].Rows[j][17].ToString();
+                                string data19 = result.Tables[i].Rows[j][18].ToString();
+                                string data20 = result.Tables[i].Rows[j][19].ToString();
+                                string data21 = result.Tables[i].Rows[j][20].ToString();
+                                string data22 = result.Tables[i].Rows[j][21].ToString();
+                                string data23 = result.Tables[i].Rows[j][22].ToString();
+                                string data24 = result.Tables[i].Rows[j][23].ToString();
                                 
                                 int data1Parse = Int32.Parse(data1);
                                 int data2Parse = Int32.Parse(data2);
@@ -169,16 +185,49 @@ namespace Editor
                                 int data6Parse = Int32.Parse(data6);
                                 int data7Parse = Int32.Parse(data7);
                                 int data8Parse = Int32.Parse(data8);
+                                int data9Parse = Int32.Parse(data9);
+                                int data10Parse = Int32.Parse(data10);
+                                int data11Parse = Int32.Parse(data11);
+                                int data12Parse = Int32.Parse(data12);
+                                int data13Parse = Int32.Parse(data13);
+                                int data14Parse = Int32.Parse(data14);
+                                int data15Parse = Int32.Parse(data15);
+                                int data16Parse = Int32.Parse(data16);
+                                int data17Parse = Int32.Parse(data17);
+                                int data18Parse = Int32.Parse(data18);
+                                int data19Parse = Int32.Parse(data19);
+                                int data20Parse = Int32.Parse(data20);
+                                int data21Parse = Int32.Parse(data21);
+                                int data22Parse = Int32.Parse(data22);
+                                int data23Parse = Int32.Parse(data23);
+                                int data24Parse = Int32.Parse(data24);
+                                
                                 CharacterData newB = new CharacterData()
                                 {
                                     id=data1Parse,
                                     gameGroup=data2Parse,
                                     gender=data3Parse,
                                     tribe=data4Parse,
-                                    maxHp=data5Parse,
-                                    atk=data6Parse,
-                                    armor=data7Parse,
-                                    magicArmor=data8Parse
+                                    chrType = data5Parse,
+                                    job=data6Parse,
+                                    maxHp=data7Parse,
+                                    atk=data8Parse,
+                                    armor=data9Parse,
+                                    magicArmor=data10Parse,
+                                    hpRegen = data11Parse,
+                                    hpAbsolve = data12Parse,
+                                    critical = data13Parse,
+                                    critDamage = data14Parse,
+                                    attackCoolTime = data15Parse,
+                                    dodge = data16Parse,
+                                    range = data17Parse,
+                                    moveSpeed = data18Parse,
+                                    damIncrease = data19Parse,
+                                    damDecrease = data20Parse,
+                                    aeo = data21Parse,
+                                    accuracy = data22Parse,
+                                    startItemGroup = data23Parse,
+                                    startTraitGroup = data24Parse
                                 };
                                 baseArr[j-1] = newB;
                             }

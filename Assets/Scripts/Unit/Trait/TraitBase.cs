@@ -144,7 +144,51 @@ namespace FluffyDisket.Trait
 
         protected virtual void OnOptionInvoked(BattleEventParam param)
         {
-            
+            foreach (var d in tData.optionDatas)
+            {
+                SkillOptionExecuter executer = null;
+                switch ((OptionType)d.battleOptionType)
+                {
+                    case OptionType.Attack:
+                        executer = new AttackOptionExecuter()
+                        {
+                            param = param
+                        };
+                        break;
+                    case OptionType.AbilityIncrease:
+                        executer = new AbilityIncreaseExecuter()
+                        {
+                            param = param
+                        };
+                        break;
+                    case OptionType.AdditionalDamage:
+                        executer = new AdditionalDamage()
+                        {
+                            param = param
+                        };
+                        break;
+                    case OptionType.DamageIncrease:
+                        executer = new DamageIncreaseExecuter()
+                        {
+                            param = param
+                        };
+                        break;
+                    case OptionType.InstantKill:
+                        executer = new InstantKillExecuter()
+                        {
+                            param = param
+                        };
+                        break;
+                    default:
+                        executer = new SkillOptionExecuter()
+                        {
+                            param = param
+                        };
+                        break;
+                }
+                
+                executer?.Execute();
+            }
         }
     }
 }

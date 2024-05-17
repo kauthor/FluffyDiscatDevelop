@@ -223,6 +223,21 @@ namespace FluffyDisket
                     continue;
                 PlayerTeam.members[i].transform.position = pos;
                 PlayerTeam.members[i].gameObject.SetActive(true);
+                //임시
+                PlayerTeam.members[i].StageTrait(new TraitData()
+                {
+                    conditionType = 4,
+                    conditionValue = 100,
+                    optionDatas = new TraitOptionData[]
+                    {
+                        new TraitOptionData()
+                        {
+                            battleOptionType = 1
+                        }
+                    }
+                });
+                
+                
                 PlayerTeam.members[i].BattleEventSyetem.FireEvent(OptionCaseType.BattleStart, new BattleStartParam()
                 {
                     target = PlayerTeam.members[i],

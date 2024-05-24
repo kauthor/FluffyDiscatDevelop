@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FluffyDisket.Substance;
 using FluffyDisket.Trait;
 using Tables;
 using Tables.Player;
@@ -480,6 +481,33 @@ namespace FluffyDisket
             }
         }
     }
+
+
+    public class SubstanceInfo
+    {
+        private Dictionary<int, bool> substanceExist;
+        private Dictionary<int, BaseSubstance> substanceCache;
+
+        public void Init()
+        {
+            substanceCache = new Dictionary<int, BaseSubstance>();
+            substanceExist = new Dictionary<int, bool>();
+
+            for (int i = 0; i < (int)SubstanceType.MAX; i++)
+            {
+                substanceExist.Add(i,false);
+            }
+        }
+
+        public void SetSubstance(BaseSubstance newSub)
+        {
+            if (substanceExist[(int)newSub.tpye])
+            {
+                var old = substanceCache[(int)newSub.tpye];
+                
+            }
+        }
+    }
     
     public class BattleUnit : IUnit
     {
@@ -493,6 +521,7 @@ namespace FluffyDisket
         //[SerializeField] private CharacterStat characterAbility;
 
         private float skillCoolTimeRegain;
+        public SubstanceInfo substanceInfo { get; private set; }
         public float SkillCoolRegain => skillCoolTimeRegain;
         //public CharacterStat CharacterAbility => table? table.stat: characterAbility;
         private CharacterAbilityDatas abilityDatas;
@@ -608,6 +637,7 @@ namespace FluffyDisket
             //currentHp = MaxHp;
             onOwnerUpdate = null;
             FiniteStateMachineDic = new Dictionary<State, BattleState>();
+            substanceInfo = new SubstanceInfo();
             managedTrait = new List<TraitBase>();
             if (inspectorStates.Length > 0)
             {
@@ -665,6 +695,7 @@ namespace FluffyDisket
 
                 skillCoolTimeRegain += Time.deltaTime;
                 onOwnerUpdate?.Invoke(this);
+                BattleEventSyetem?.FireEvent(OptionCaseType.UPDATE, new BattleEventParam());
                 if (CanUseSkill())
                 {
                     skillCoolTimeRegain = 0;

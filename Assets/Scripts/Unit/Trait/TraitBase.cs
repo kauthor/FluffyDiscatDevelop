@@ -4,7 +4,8 @@ namespace FluffyDisket.Trait
 {
     public enum OptionCaseType
     {
-        NONE=0,
+        NONE=-1,
+        UPDATE=0,
         UnderAttacked=1,
         Time,
         BattleStart, //조건 값이 있다면 시작 후 몇초 뒤 발동

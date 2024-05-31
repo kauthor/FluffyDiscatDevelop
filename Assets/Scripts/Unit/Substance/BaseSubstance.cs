@@ -47,11 +47,16 @@ namespace FluffyDisket.Substance
         public EffectOptionType EffectOptionType;
         public EffectType effectType;
         public ResetType resetType;
-        public float duration;
-        public float value1;
+
+        public float duration => subOpData.duration;
+        //차후 배열을 전부 적용하게 바꾸자.
+        public float value1 => subOpData.options[0].value1;
         public float value2;
         public int id { get; protected set; }
 
+        private TraitOptionData opData;
+        private SubstanceOption subOpData;
+        private SubstanceEffectOption subEfOp;
         protected float current;
         public BattleUnit Owner { get; private set; }
 
@@ -83,6 +88,7 @@ namespace FluffyDisket.Substance
         {
             id = data.value1;
             Owner = target;
+            opData = data;
             Start();
         }
 
@@ -90,17 +96,18 @@ namespace FluffyDisket.Substance
         {
             var type = (SubstanceType)data.value1;
             BaseSubstance ret;
+            var dat = ExcelManager.GetInstance().SubstanceT.GetSubstanceOption(data.value1);
+            
             switch (type)
             {
                 case SubstanceType.Poison:
                 default:
                     ret = new PoisonSubstance()
                     {
-                        duration = 3,
                         id = data.value1,
                         EffectOptionType = EffectOptionType.TickDamageAbs,
                         effectType = EffectType.Private,
-                        value1 = 5
+                        subOpData = dat
                     };
                     ret.Init(data, target);
                     break;

@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using ExcelDataReader;
 using FluffyDisket;
+using FluffyDisket.Substance;
 using Tables;
 using Tables.Player;
 using MonsterData = Tables.MonsterData;
@@ -35,6 +36,7 @@ namespace Editor
             string path8 = "/Plan/Table/Live_Data/08.Monster_Level_Table.xlsx";
             string path9 = "/Plan/Table/Live_Data/09.Monster_Table.xlsx";
             string path10 = "/Plan/Table/Live_Data/10.Monster_Group_Table.xlsx";
+            string path11 = "/Plan/Table/Live_Data/17.Status_Effect_Table.xlsx";
             
             //scrip = EditorGUILayout.ObjectField("Scriptable Object", scrip, typeof(ScriptableObject), true)
              //   as BaseTable;
@@ -799,6 +801,117 @@ namespace Editor
                         }
                         
                         AssetDatabase.CreateAsset(monGT, "Assets/Tables/MonsterGroupTable.asset");
+                        AssetDatabase.SaveAssets();
+                    }
+                }
+            }
+            
+            if (GUILayout.Button("Substance Table Export"))
+            {
+                SubstanceTable subT = ScriptableObject.CreateInstance<SubstanceTable>();
+                using (var stream = File.Open(pathProj+ path11, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    {
+                        var result = reader.AsDataSet();
+
+                        
+                        //시트 개수만큼 반복
+                        for (int i = 0; i < result.Tables.Count; i++)
+                        {
+                            SubstanceOption[] baseArr = new SubstanceOption[result.Tables[i].Rows.Count-1];
+                            //해당 시트의 행데이터(한줄씩)로 반복
+                            for (int j = 1; j < result.Tables[i].Rows.Count; j++)
+                            {
+                                //해당행의 0,1,2 셀의 데이터 파싱
+                                string data1 = result.Tables[i].Rows[j][0].ToString();
+                                string data2 = result.Tables[i].Rows[j][1].ToString();
+                                string data3 = result.Tables[i].Rows[j][2].ToString();
+                                string data4 = result.Tables[i].Rows[j][3].ToString();
+                                string data5 = result.Tables[i].Rows[j][4].ToString();
+                                string data6 = result.Tables[i].Rows[j][5].ToString();
+                                string data7 = result.Tables[i].Rows[j][6].ToString();
+                                string data8 = result.Tables[i].Rows[j][7].ToString();
+                                string data9 = result.Tables[i].Rows[j][8].ToString();
+                                string data10 = result.Tables[i].Rows[j][9].ToString();
+                                string data11 = result.Tables[i].Rows[j][10].ToString();
+                                string data12 = result.Tables[i].Rows[j][11].ToString();
+                                string data13 = result.Tables[i].Rows[j][12].ToString();
+                                //string data14 = result.Tables[i].Rows[j][13].ToString();
+                                //string data15 = result.Tables[i].Rows[j][14].ToString();
+                                //string data16 = result.Tables[i].Rows[j][15].ToString();
+                                //string data17 = result.Tables[i].Rows[j][16].ToString();
+                                //string data18 = result.Tables[i].Rows[j][17].ToString();
+                                //string data19 = result.Tables[i].Rows[j][18].ToString();
+                                //string data20 = result.Tables[i].Rows[j][19].ToString();
+                                //string data21 = result.Tables[i].Rows[j][20].ToString();
+                                //string data22 = result.Tables[i].Rows[j][21].ToString();
+                                
+                                int data1Parse = Int32.Parse(data1);
+                                int data2Parse = Int32.Parse(data2);
+                                int data3Parse = Int32.Parse(data3);
+                                int data4Parse = Int32.Parse(data4);
+                                int data5Parse = Int32.Parse(data5);
+                                int data6Parse = Int32.Parse(data6);
+                                int data7Parse = Int32.Parse(data7);
+                                int data8Parse = Int32.Parse(data8);
+                                int data9Parse = Int32.Parse(data9);
+                                int data10Parse = Int32.Parse(data10);
+                                int data11Parse = Int32.Parse(data11);
+                                int data12Parse = Int32.Parse(data12);
+                                int data13Parse = Int32.Parse(data13);
+                                //int data14Parse = Int32.Parse(data14);
+                                //int data15Parse = Int32.Parse(data15);
+                                //int data16Parse = Int32.Parse(data16);
+                                //int data17Parse = Int32.Parse(data17);
+                                //int data18Parse = Int32.Parse(data18);
+                                //int data19Parse = Int32.Parse(data19);
+                                //int data20Parse = Int32.Parse(data20);
+                                //int data21Parse = Int32.Parse(data21);
+                                //int data22Parse = Int32.Parse(data22);
+
+                                List<SubstanceEffectOption> opL = new List<SubstanceEffectOption>();
+
+                                if (data6Parse != 0)
+                                {
+                                    opL.Add(new SubstanceEffectOption()
+                                    {
+                                        type = data6Parse,
+                                        value1 = data7Parse,
+                                        value2 = data8Parse
+                                    });
+                                }
+                                if (data9Parse != 11)
+                                {
+                                    opL.Add(new SubstanceEffectOption()
+                                    {
+                                        type = data9Parse,
+                                        value1 = data10Parse,
+                                        value2 = data11Parse
+                                    });
+                                }
+                                
+
+                                var arr = opL.ToArray();
+
+                                SubstanceOption newB = new SubstanceOption()
+                                {
+                                    id = data1Parse,
+                                    nameId = data2Parse,
+                                    effectType = (EffectType)data3Parse,
+                                    resetType = (ResetType)data4Parse,
+                                    duration = data5Parse,
+                                    options = arr,
+                                    parentEffect = data12Parse,
+                                    @group = data13Parse
+                                };
+                                baseArr[j-1] = newB;
+                            }
+
+                            subT.SetSubstanceData(baseArr);
+                        }
+                        
+                        AssetDatabase.CreateAsset(subT, "Assets/Tables/SubstanceTable.asset");
                         AssetDatabase.SaveAssets();
                     }
                 }

@@ -1,0 +1,715 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cac6e8d91da4bfb864e3e5cef7ea8e0, type: 3}
+  m_Name: SubstanceTable
+  m_EditorClassIdentifier: 
+  substanceOptions:
+  - id: 1
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 2
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 3
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 4
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 5
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 6
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 7
+    nameId: 99999
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 1
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 1
+  - id: 8
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 9
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 10
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 11
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 12
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 13
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 14
+    nameId: 99998
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 2
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 2
+  - id: 15
+    nameId: 99997
+    effectType: 3
+    resetType: 2
+    duration: 0
+    options:
+    - type: 3
+      value1: 1000
+      value2: 1
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 0
+  - id: 16
+    nameId: 99996
+    effectType: 3
+    resetType: 2
+    duration: 0
+    options:
+    - type: 4
+      value1: 1000
+      value2: 1
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 0
+  - id: 17
+    nameId: 99995
+    effectType: 2
+    resetType: 2
+    duration: 0
+    options:
+    - type: 5
+      value1: 0
+      value2: 5
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 18
+    group: 3
+  - id: 18
+    nameId: 99995
+    effectType: 2
+    resetType: 2
+    duration: 0
+    options:
+    - type: 5
+      value1: 0
+      value2: 15
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 19
+    group: 3
+  - id: 19
+    nameId: 99995
+    effectType: 2
+    resetType: 2
+    duration: 0
+    options:
+    - type: 5
+      value1: 0
+      value2: 35
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 3
+  - id: 20
+    nameId: 99994
+    effectType: 2
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 6
+      value1: 0
+      value2: 20
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 21
+    group: 4
+  - id: 21
+    nameId: 99994
+    effectType: 2
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 6
+      value1: 0
+      value2: 50
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 22
+    group: 4
+  - id: 22
+    nameId: 99994
+    effectType: 2
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 7
+      value1: 0
+      value2: 0
+    - type: 99
+      value1: 6000
+      value2: 0
+    parentEffect: 0
+    group: 4
+  - id: 23
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 24
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 25
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 26
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 27
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 28
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 29
+    nameId: 99995
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 8
+      value1: 0
+      value2: 30
+    - type: 9
+      value1: 0
+      value2: 30
+    parentEffect: 0
+    group: 5
+  - id: 30
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 31
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 32
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 33
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 34
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 35
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 36
+    nameId: 99994
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 10
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 6
+  - id: 37
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 38
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 39
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 40
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 41
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 42
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 43
+    nameId: 99993
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 12
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 7
+  - id: 44
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 500
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 45
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 1000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 46
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 2000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 47
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 3000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 48
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 5000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 49
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 10000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8
+  - id: 50
+    nameId: 99992
+    effectType: 1
+    resetType: 1
+    duration: 999000
+    options:
+    - type: 11
+      value1: 0
+      value2: 0
+    - type: 0
+      value1: 0
+      value2: 0
+    parentEffect: 0
+    group: 8

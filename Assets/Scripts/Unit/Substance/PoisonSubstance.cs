@@ -21,6 +21,7 @@ namespace FluffyDisket.Substance
             if (damageDuration >= 1)
             {
                 //데미지 주는 부분
+                Owner.SetHp(-value1);
                 damageDuration = 0;
             }
         }

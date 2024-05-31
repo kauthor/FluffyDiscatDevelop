@@ -18,7 +18,8 @@ namespace Tables
         [SerializeField] private MonsterTable _monsterTable;
         [SerializeField] private StageTable _stageTable;
         [SerializeField] private TraitTable _traitTable;
-        
+
+        [SerializeField] private SubstanceTable _substanceTable;
         //public void SetCharTable
 
         public BaseTable BaseT => _baseTable;
@@ -31,5 +32,7 @@ namespace Tables
         public StageTable StageT => _stageTable;
 
         public TraitTable TraitT => _traitTable;
+
+        public SubstanceTable SubstanceT => _substanceTable;
     }
 }

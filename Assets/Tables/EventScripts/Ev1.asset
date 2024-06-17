@@ -78,5 +78,13 @@ MonoBehaviour:
   GetDamageArticles:
   - Id: 16
     damage: 0
+  checkGoldArticles:
+  - Id: 3
+    trueJump: 7
+    falseJump: 4
+  gachaArticles:
+  - Id: 18
+  getItemArticles:
+  - Id: 19
   EndArticles:
   - Id: 24

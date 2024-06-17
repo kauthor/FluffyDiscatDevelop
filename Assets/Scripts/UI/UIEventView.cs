@@ -85,6 +85,11 @@ namespace FluffyDisket.UI
                         int buttonNum = i;
                         btnSelects[i].onClick.AddListener(() =>
                         {
+                            foreach (var btnSelect in btnSelects)
+                            {
+                                btnSelect.gameObject.SetActive(false);
+                            }
+
                             OpenDialogue(cho.buttons[buttonNum].jumpId-1);
                         });
                         txtSelects[i].text = $"Dialogue/{cho.buttons[i].dialogueId}";
@@ -93,6 +98,8 @@ namespace FluffyDisket.UI
                     break;
                 case EventArticleType.GetDamage:
                 case EventArticleType.GetGold:
+                case EventArticleType.Gacha:
+                case EventArticleType.GetItem:
                     btnNext.onClick.AddListener(() =>
                     {
                         OpenDialogue(id+1);
@@ -117,6 +124,11 @@ namespace FluffyDisket.UI
                         }
                     }
                     OpenDialogue(rand.jumpTo[eventId]-1);
+                    break;
+                case EventArticleType.CheckGold:
+                    var chg = currentEvent as CheckGoldArticle;
+                    //일단 True로 보낸다.
+                    OpenDialogue(chg.trueJump-1);
                     break;
                 case EventArticleType.End:
                 default:

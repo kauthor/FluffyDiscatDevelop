@@ -14,6 +14,9 @@ namespace FluffyDisket.StageEvent
         GetGold,
         RandomCheck,
         GetDamage,
+        Gacha,
+        CheckGold,
+        GetItem,
         End
     }
     
@@ -91,6 +94,32 @@ namespace FluffyDisket.StageEvent
         //public int damage;
     }
     
+    [Serializable]
+    public class GachaArticle : EventArticle
+    {
+        public override EventArticleType ArticleType => EventArticleType.Gacha;
+
+        //public int damage;
+    }
+    [Serializable]
+    public class CheckGoldArticle : EventArticle
+    {
+        public override EventArticleType ArticleType => EventArticleType.CheckGold;
+
+        public int trueJump;
+        public int falseJump;
+
+        //public int damage;
+    }
+    
+    [Serializable]
+    public class GetItemArticle : EventArticle
+    {
+        public override EventArticleType ArticleType => EventArticleType.GetItem;
+
+        //public int damage;
+    }
+    
     [CreateAssetMenu]
     public class EventScript:ScriptableObject
     {
@@ -101,7 +130,11 @@ namespace FluffyDisket.StageEvent
         [SerializeField] private GetGoldArticle[] GetGoldArticles;
         [SerializeField] private RandomCheckArticle[] RandomCheckArticles;
         [SerializeField] private GetDamageArticle[] GetDamageArticles;
+        [SerializeField] private CheckGoldArticle[] checkGoldArticles;
+        [SerializeField] private GachaArticle[] gachaArticles;
+        [SerializeField] private GetItemArticle[] getItemArticles;
         [SerializeField] private EndArticle[] EndArticles;
+     
         
         private EventArticle[] eventArticles;
 
@@ -114,7 +147,8 @@ namespace FluffyDisket.StageEvent
                     var uni = eventArticles.Union(DialogueArticles);
                     uni = uni.Union(ChoiceArticles).Union(JumpArticles)
                         .Union(GetGoldArticles).Union(RandomCheckArticles).Union(GetGoldArticles)
-                        .Union(GetDamageArticles).Union(EndArticles);
+                        .Union(GetDamageArticles).Union(EndArticles)
+                        .Union(getItemArticles).Union(checkGoldArticles).Union(gachaArticles);
 
                     var ret = uni.ToArray();
                     ret = ret.OrderBy(_ => _.Id).ToArray();

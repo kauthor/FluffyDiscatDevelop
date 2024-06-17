@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3f35d7ff43440291e7f5ba871ce6cb, type: 3}
+  m_Name: Ev1
+  m_EditorClassIdentifier: 
+  DialogueArticles:
+  - Id: 1
+    dialogueId: 1
+    talker: 0
+    imageKey: 0
+  - Id: 4
+    dialogueId: 5
+    talker: 0
+    imageKey: 0
+  - Id: 9
+    dialogueId: 4
+    talker: 0
+    imageKey: 0
+  - Id: 12
+    dialogueId: 6
+    talker: 0
+    imageKey: 0
+  - Id: 15
+    dialogueId: 7
+    talker: 0
+    imageKey: 0
+  - Id: 20
+    dialogueId: 8
+    talker: 0
+    imageKey: 0
+  - Id: 22
+    dialogueId: 9
+    talker: 0
+    imageKey: 0
+  ChoiceArticles:
+  - Id: 2
+    buttons:
+    - dialogueId: 2
+      jumpId: 7
+    - dialogueId: 3
+      jumpId: 24
+  JumpArticles:
+  - Id: 5
+    jumpId: 26
+  - Id: 11
+    jumpId: 24
+  - Id: 14
+    jumpId: 24
+  - Id: 17
+    jumpId: 24
+  - Id: 21
+    jumpId: 24
+  - Id: 23
+    jumpId: 24
+  GetGoldArticles:
+  - Id: 6
+    amount: -20
+  - Id: 10
+    amount: 0
+  - Id: 13
+    amount: 0
+  RandomCheckArticles:
+  - Id: 7
+    randomRatios: 14000000140000003c000000
+    jumpTo: 090000000c00000008000000
+  - Id: 8
+    randomRatios: 210000002100000022000000
+    jumpTo: 0f0000001200000016000000
+  GetDamageArticles:
+  - Id: 16
+    damage: 0
+  EndArticles:
+  - Id: 24

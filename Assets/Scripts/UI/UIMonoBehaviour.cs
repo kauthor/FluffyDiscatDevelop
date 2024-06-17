@@ -11,7 +11,7 @@ namespace FluffyDisket.UI
         MapSelect=2,
         LobbyTeamSelect=3,
         Lobby=4,
-        Event
+        Event=5
     }
 
     public class UIViewParam

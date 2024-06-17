@@ -82,9 +82,10 @@ namespace FluffyDisket.UI
                         
                         btnSelects[i].gameObject.SetActive(true);
                         btnSelects[i].onClick.RemoveAllListeners();
+                        int buttonNum = i;
                         btnSelects[i].onClick.AddListener(() =>
                         {
-                            OpenDialogue(cho.buttons[i].jumpId-1);
+                            OpenDialogue(cho.buttons[buttonNum].jumpId-1);
                         });
                         txtSelects[i].text = $"Dialogue/{cho.buttons[i].dialogueId}";
                     }
@@ -126,7 +127,11 @@ namespace FluffyDisket.UI
 
         private void EndView()
         {
-            UIManager.GetInstance().ChangeView(UIType.Formation).Init(new UIViewParam());
+            var isFirst = StageManager.GetInstance()?.IsFirstStage()?? false;
+            UIManager.GetInstance().ChangeView(UIType.MapSelect).Init(new UIMapSelectParam()
+            {
+                isFirstMap = isFirst
+            });
         }
     }
 }

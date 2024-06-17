@@ -117,11 +117,7 @@ namespace FluffyDisket.UI
 
         private void OnClickOpenButton()
         {
-            var isFirst = StageManager.GetInstance()?.IsFirstStage()?? false;
-            UIManager.GetInstance().ChangeView(UIType.MapSelect).Init(new UIMapSelectParam()
-            {
-                isFirstMap = isFirst
-            });
+            UIManager.GetInstance().ChangeView(UIType.Event).Init(new EventUiParam());
         }
 
         private Coroutine startAni = null;

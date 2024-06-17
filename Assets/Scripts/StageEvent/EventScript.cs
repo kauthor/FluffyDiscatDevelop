@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace FluffyDisket.StageEvent
@@ -90,9 +91,38 @@ namespace FluffyDisket.StageEvent
         //public int damage;
     }
     
-    [Serializable]
+    [CreateAssetMenu]
     public class EventScript:ScriptableObject
     {
-        [SerializeField] public EventArticle[] EventArticles;
+        //[SerializeField] public EventArticle[] EventArticles;
+        [SerializeField] private DialogueArticle[] DialogueArticles;
+        [SerializeField] private ChoiceArticle[] ChoiceArticles;
+        [SerializeField] private JumpArticle[] JumpArticles;
+        [SerializeField] private GetGoldArticle[] GetGoldArticles;
+        [SerializeField] private RandomCheckArticle[] RandomCheckArticles;
+        [SerializeField] private GetDamageArticle[] GetDamageArticles;
+        [SerializeField] private EndArticle[] EndArticles;
+        
+        private EventArticle[] eventArticles;
+
+        public EventArticle[] EventArticles
+        {
+            get
+            {
+                if (eventArticles.Length == 0)
+                {
+                    var uni = eventArticles.Union(DialogueArticles);
+                    uni = uni.Union(ChoiceArticles).Union(JumpArticles)
+                        .Union(GetGoldArticles).Union(RandomCheckArticles).Union(GetGoldArticles)
+                        .Union(GetDamageArticles).Union(EndArticles);
+
+                    var ret = uni.ToArray();
+                    ret = ret.OrderBy(_ => _.Id).ToArray();
+                    eventArticles = ret;
+                }
+
+                return eventArticles;
+            }
+        }
     }
 }

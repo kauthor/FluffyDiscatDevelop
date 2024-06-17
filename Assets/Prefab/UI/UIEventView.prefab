@@ -825,7 +825,7 @@ MonoBehaviour:
   - {fileID: 2251151912935162743}
   txtDialogue: {fileID: 2251151911983492032}
   imgBg: {fileID: 0}
-  scriptData: {fileID: 0}
+  scriptData: {fileID: 11400000, guid: c8ba0713d6f8db04d8fbe715000ac6c6, type: 2}
 --- !u!1 &2251151912700778613
 GameObject:
   m_ObjectHideFlags: 0

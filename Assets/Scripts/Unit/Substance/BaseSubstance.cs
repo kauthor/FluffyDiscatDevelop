@@ -12,6 +12,7 @@ namespace FluffyDisket.Substance
         Bleed,
         Poison,
         Burn,
+        Sleep,
         MAX
     }
 
@@ -59,13 +60,16 @@ namespace FluffyDisket.Substance
         private SubstanceEffectOption subEfOp;
         protected float current;
         public BattleUnit Owner { get; private set; }
+        
+        public bool IsFinished { get; private set; }
 
         protected abstract void OnExecute();
 
         public virtual void Start()
         {
-            Owner?.BattleEventSyetem.AddEvent(OptionCaseType.UPDATE, Execute);
+            //Owner?.BattleEventSyetem.AddEvent(OptionCaseType.UPDATE, Execute);
             current = 0;
+            IsFinished = false;
         }
 
         public void Execute(BattleEventParam param)
@@ -81,7 +85,15 @@ namespace FluffyDisket.Substance
 
         public void Finish()
         {
-            Owner?.BattleEventSyetem.RemoveEvent(OptionCaseType.UPDATE,Execute);
+            //Owner?.BattleEventSyetem.RemoveEvent(OptionCaseType.UPDATE,Execute);
+            OnFinish();
+            IsFinished = true;
+            //Owner.substanceInfo
+        }
+
+        protected virtual void OnFinish()
+        {
+            
         }
 
         private void Init(TraitOptionData data, BattleUnit target)
@@ -100,6 +112,16 @@ namespace FluffyDisket.Substance
             
             switch (type)
             {
+                case SubstanceType.Bleed:
+                    ret = new BloodSubstance()
+                    {
+                        id = data.value1,
+                        EffectOptionType = EffectOptionType.TickDamageAbs,
+                        effectType = EffectType.Private,
+                        subOpData = dat
+                    };
+                    ret.Init(data, target);
+                    break;
                 case SubstanceType.Poison:
                 default:
                     ret = new PoisonSubstance()
@@ -112,6 +134,8 @@ namespace FluffyDisket.Substance
                     ret.Init(data, target);
                     break;
             }
+            
+            target.substanceInfo.SetSubstance(ret);
             return ret;
         }
     }

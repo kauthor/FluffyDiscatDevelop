@@ -486,26 +486,56 @@ namespace FluffyDisket
     public class SubstanceInfo
     {
         private Dictionary<int, bool> substanceExist;
-        private Dictionary<int, BaseSubstance> substanceCache;
+        private List<BaseSubstance> substanceCache;
 
-        public void Init()
+
+        private BattleUnit Owner;
+        public bool Is(SubstanceType type) =>
+            substanceExist[(int)type];
+
+        public bool IsCC => Is(SubstanceType.Stun) || Is(SubstanceType.Sleep);
+
+        public bool IsDotAdded => Is(SubstanceType.Bleed) || Is(SubstanceType.Burn) || Is(SubstanceType.Poison);
+
+        public void Init(BattleUnit owner)
         {
-            substanceCache = new Dictionary<int, BaseSubstance>();
+            substanceCache = new List<BaseSubstance>();
             substanceExist = new Dictionary<int, bool>();
 
             for (int i = 0; i < (int)SubstanceType.MAX; i++)
             {
                 substanceExist.Add(i,false);
             }
+
+            Owner = owner;
+            owner.BattleEventSyetem.AddEvent(OptionCaseType.UPDATE, UpdateSubstances);
         }
 
+        private void UpdateSubstances(BattleEventParam param)
+        {
+            if(substanceCache.Count>0)
+                foreach (var sub in substanceCache)
+                {
+                    sub.Execute(param);
+                    substanceExist[(int)sub.tpye] = false;
+                }
+
+            substanceCache.RemoveAll(_ => _.IsFinished);
+        }
+        
         public void SetSubstance(BaseSubstance newSub)
         {
             if (substanceExist[(int)newSub.tpye])
             {
-                var old = substanceCache[(int)newSub.tpye];
+                var old = substanceCache.Find(_=>_.tpye == newSub.tpye);
+                //중첩 가능 상태이상에 대한 설정을 해줘야...
                 
+                old.Finish();
+                substanceCache.Remove(old);
             }
+
+            substanceExist[(int)newSub.tpye] = true;
+            substanceCache.Add(newSub);
         }
     }
     
@@ -637,7 +667,7 @@ namespace FluffyDisket
             //currentHp = MaxHp;
             onOwnerUpdate = null;
             FiniteStateMachineDic = new Dictionary<State, BattleState>();
-            substanceInfo = new SubstanceInfo();
+            
             managedTrait = new List<TraitBase>();
             if (inspectorStates.Length > 0)
             {
@@ -661,6 +691,9 @@ namespace FluffyDisket
 
             BattleEventSyetem = new EventSystem();
             BattleEventSyetem.Init();
+            
+            substanceInfo = new SubstanceInfo();
+            substanceInfo.Init(this);
         }
 
         public void ChangeState(State nextState, StateParam param =null)

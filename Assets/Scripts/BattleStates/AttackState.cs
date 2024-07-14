@@ -31,7 +31,7 @@ namespace FluffyDisket
             
             
             coolRegain += Time.deltaTime;
-            if (coolRegain >= owner.AbilityDatas.atkSpeed*0.03f)
+            if (coolRegain >= owner.AbilityDatas.atkSpeed)
             {
                 owner.BattleEventSyetem.FireEvent(OptionCaseType.Attack, new AttackParam()
                 {

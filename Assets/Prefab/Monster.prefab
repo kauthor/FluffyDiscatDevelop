@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3391036526868526805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 10}
   m_Children: []
   m_Father: {fileID: 887616701855736535}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: aadb0e477505f4b40ad9beee351930d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,16 +163,9 @@ MonoBehaviour:
   - {fileID: 8303010681234210908}
   - {fileID: 4210236494760082591}
   - {fileID: 2715273846833349150}
-  HPMax: 100
   CharacterClass: 0
   hpBar: {fileID: 127432339245341116}
   CanUseSkillFirst: 0
-  characterAbility:
-    HpMax: 0
-    MoveSpeed: 0.8
-    Range: 2
-    SkillCoolTIme: 0
-    AttackCoolTime: 5
 --- !u!114 &4210236494760082591
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,15 +53,15 @@ MonoBehaviour:
   - {fileID: 6700611773804220875, guid: ccdbcce6280850c48af20b89b224e390, type: 3}
   playerPosition:
     position:
-    - {x: -5, y: 2, z: 0}
-    - {x: -5, y: 0, z: 0}
-    - {x: -5, y: -2, z: 0}
-    - {x: -3.5, y: 2, z: 0}
-    - {x: -3.5, y: 0, z: 0}
-    - {x: -3.5, y: -2, z: 0}
     - {x: -2, y: 2, z: 0}
     - {x: -2, y: 0, z: 0}
     - {x: -2, y: -2, z: 0}
+    - {x: -0.5, y: 2, z: 0}
+    - {x: -0.5, y: 0, z: 0}
+    - {x: -0.5, y: -2, z: 0}
+    - {x: 1, y: 2, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: -2, z: 0}
   enemyPosition:
     position:
     - {x: 5, y: 2, z: 0}

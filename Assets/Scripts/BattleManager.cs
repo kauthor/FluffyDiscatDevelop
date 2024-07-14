@@ -224,7 +224,7 @@ namespace FluffyDisket
                 PlayerTeam.members[i].transform.position = pos;
                 PlayerTeam.members[i].gameObject.SetActive(true);
                 //임시
-                PlayerTeam.members[i].StageTrait(new TraitData()
+                /*PlayerTeam.members[i].StageTrait(new TraitData()
                 {
                     conditionType = 4,
                     conditionValue = 100,
@@ -235,7 +235,7 @@ namespace FluffyDisket
                             battleOptionType = 1
                         }
                     }
-                });
+                });*/
                 
                 
                 PlayerTeam.members[i].BattleEventSyetem.FireEvent(OptionCaseType.BattleStart, new BattleStartParam()

@@ -27,6 +27,12 @@ namespace FluffyDisket.UI
         [SerializeField] private Transform logArea;
         [SerializeField] private UILogSentence logPrefab;
 
+        [SerializeField] private UIBattleUnitInfoParts heroInfoPartsPrefab;
+
+        [SerializeField] private Transform heroInfoSlot;
+
+        private List<UIBattleUnitInfoParts> cachedInfoParts;
+        
         private List<UIHpBar> bars;
         private Queue<UIHpBar> barPool;
         private List<UILogSentence> managedLog;
@@ -53,6 +59,8 @@ namespace FluffyDisket.UI
             BattleManager.OnBattleEnd -= OnBattleEnd;
             BattleManager.OnBattleEnd += OnBattleEnd;
             //autoOn.gameObject.SetActive(GameManager.GetInstance().IsAuto);
+            if (cachedInfoParts == null)
+                cachedInfoParts = new List<UIBattleUnitInfoParts>();
             
             btnMap.gameObject.SetActive(false);
             btnBackToLobby.gameObject.SetActive(false);
@@ -63,9 +71,21 @@ namespace FluffyDisket.UI
                 return;
             }
 
+            int listNumber = 0;
             foreach (var pl in battleP.players)
             {
                 if(pl.IsDead) continue;
+                UIBattleUnitInfoParts part;
+                if (cachedInfoParts != null && cachedInfoParts.Count > listNumber)
+                    part = cachedInfoParts[listNumber];
+                else
+                {
+                    part = GameObject.Instantiate(heroInfoPartsPrefab, heroInfoSlot);
+                    cachedInfoParts.Add(part);
+                }
+
+                listNumber++;
+                
                 if (barPool.Count <= 0)
                 {
                     var hpbar = Instantiate(hpbarPrefab).GetComponent<UIHpBar>();
@@ -87,6 +107,9 @@ namespace FluffyDisket.UI
                         bars.Add(hpbar);
                     }
                 }
+                
+                part.gameObject.SetActive(true);
+                part.Init(pl);
             }
 
             foreach (var en in battleP.enemies)
@@ -171,6 +194,11 @@ namespace FluffyDisket.UI
             {
                 bar.gameObject.SetActive(false);
                 barPool.Enqueue(bar);
+            }
+
+            foreach (var c in cachedInfoParts)
+            {
+                c.gameObject.SetActive(false);
             }
             //AutoButton.onClick.RemoveAllListeners();
         }

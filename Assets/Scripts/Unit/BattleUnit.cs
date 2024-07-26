@@ -529,6 +529,17 @@ namespace FluffyDisket
             {
                 var old = substanceCache.Find(_=>_.tpye == newSub.tpye);
                 //중첩 가능 상태이상에 대한 설정을 해줘야...
+                if (old is ISubstateStackable stackable)
+                {
+                    stackable.StackThis();
+                    return;
+                }
+                
+                if (old.remain >= newSub.duration)
+                {
+                    newSub.Finish();
+                    return;
+                }
                 
                 old.Finish();
                 substanceCache.Remove(old);

@@ -13,6 +13,11 @@ namespace FluffyDisket.Substance
         Poison,
         Burn,
         Sleep,
+        Freeze,
+        Curse,
+        Terror,
+        Frenzy,
+        Dumb,
         MAX
     }
 
@@ -40,6 +45,13 @@ namespace FluffyDisket.Substance
         RestoreWhenStageEnd,
         Remain
     }
+
+    interface ISubstateStackable
+    {
+        int MaxStack { get; }
+        int CurrentStack { get; }
+        void StackThis();
+    }
     
     
     public abstract class BaseSubstance
@@ -49,7 +61,7 @@ namespace FluffyDisket.Substance
         public EffectType effectType;
         public ResetType resetType;
 
-        public float duration => subOpData.duration;
+        public virtual float duration => subOpData.duration;
         //차후 배열을 전부 적용하게 바꾸자.
         public float value1 => subOpData.options[0].value1;
         public float value2;
@@ -59,6 +71,8 @@ namespace FluffyDisket.Substance
         private SubstanceOption subOpData;
         private SubstanceEffectOption subEfOp;
         protected float current;
+
+        public float remain => duration - current;
         public BattleUnit Owner { get; private set; }
         
         public bool IsFinished { get; private set; }

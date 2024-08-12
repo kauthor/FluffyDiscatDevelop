@@ -707,6 +707,11 @@ namespace FluffyDisket
             substanceInfo.Init(this);
         }
 
+        public void InitTrait()
+        {
+            //var trait = ExcelManager.GetInstance().CharT.get
+        }
+
         public void ChangeState(State nextState, StateParam param =null)
         {
             if (!FiniteStateMachineDic.TryGetValue(currentState, out BattleState current))

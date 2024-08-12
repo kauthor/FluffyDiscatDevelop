@@ -35,7 +35,7 @@ namespace FluffyDisket.UI
 
         private void OnOwnerUpdate(BattleUnit unit)
         {
-            transform.position = Camera.main.WorldToScreenPoint(unit.transform.position + new Vector3(0, 1.2f, 0));
+            transform.position = Camera.main.WorldToScreenPoint(unit.transform.position + new Vector3(0, 0.6f, 0));
         }
 
         private void OnOwnerDead()

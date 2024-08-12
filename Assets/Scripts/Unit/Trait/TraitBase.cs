@@ -1,4 +1,5 @@
-﻿using Tables;
+﻿using System;
+using Tables;
 
 namespace FluffyDisket.Trait
 {
@@ -23,6 +24,7 @@ namespace FluffyDisket.Trait
         EnemyHpPercent
     }
 
+    [Serializable]
     public enum OptionType
     {
         NONE=0,
@@ -191,5 +193,59 @@ namespace FluffyDisket.Trait
                 executer?.Execute();
             }
         }
+        
+#if UNITY_EDITOR
+        public static void OptionInvokeEditor(OptionType op, BattleUnit caster, BattleUnit target)
+        {
+            SkillOptionExecuter executer = null;
+            var param = new BattleEventParam()
+            {
+                eventMaker = caster,
+                target = target
+            };
+            switch ((OptionType)op)
+            {
+                
+                case OptionType.Attack:
+                    executer = new AttackOptionExecuter()
+                    {
+                        param = param
+                    };
+                    break;
+                case OptionType.AbilityIncrease:
+                    executer = new AbilityIncreaseExecuter()
+                    {
+                        param = param
+                    };
+                    break;
+                case OptionType.AdditionalDamage:
+                    executer = new AdditionalDamage()
+                    {
+                        param = param
+                    };
+                    break;
+                case OptionType.DamageIncrease:
+                    executer = new DamageIncreaseExecuter()
+                    {
+                        param = param
+                    };
+                    break;
+                case OptionType.InstantKill:
+                    executer = new InstantKillExecuter()
+                    {
+                        param = param
+                    };
+                    break;
+                default:
+                    executer = new SkillOptionExecuter()
+                    {
+                        param = param
+                    };
+                    break;
+            }
+                
+            executer?.Execute();
+        }
+#endif
     }
 }

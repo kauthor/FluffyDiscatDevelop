@@ -571,6 +571,12 @@ namespace FluffyDisket
         public EventSystem BattleEventSyetem;
 
         private List<TraitBase> managedTrait;
+        
+        public bool TargetToNear { get; private set; }
+
+        public void TargetTo(bool near = true)
+            => TargetToNear = near;
+        
 
         private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait)
         {

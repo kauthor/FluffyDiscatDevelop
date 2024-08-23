@@ -21,7 +21,35 @@ namespace FluffyDisket.Trait
         AttackPer,
         AttackToSubstance,
         Stuck,
-        EnemyHpPercent
+        EnemyHpPercent,
+        OnDamageCalculate,
+        DamageEnd,
+    }
+
+    public enum TraitCondition
+    {
+        NONE=0,
+        EverySecond,
+        AfterSecond,
+        CriticalAttack,
+        EquipedDetail,
+        EquipedCategory,
+        Extra,
+        HpLower,
+        EquipedExceptWeapon,
+        Kill,
+        EveryAttackCount,
+        MyAttackMissed,
+        EnemyHpPercentLower,
+        PartyEquiped,
+        PartyEquipedCategory,
+        CriticalUnderAttacked,
+        EnemyAttackMissed,
+        UnderAttacked,
+        Substate,
+        EnemyHpPercentUpper,
+        SkillUse,
+        OnDead
     }
 
     [Serializable]
@@ -45,6 +73,7 @@ namespace FluffyDisket.Trait
     public class UnderAttackParam : BattleEventParam
     {
         public override OptionCaseType optType => OptionCaseType.UnderAttacked;
+        public DamageWrapper wrapper;
     }
 
     public class TimeEventParam : BattleEventParam
@@ -120,7 +149,7 @@ namespace FluffyDisket.Trait
     
     public class TraitBase
     {
-        public OptionCaseType caseType => (OptionCaseType)tData.conditionType;
+        public TraitCondition caseType => (TraitCondition)tData.traitCondition;
         public int ID;
         //public OptionType optionType;
         private BattleUnit owner;
@@ -142,7 +171,7 @@ namespace FluffyDisket.Trait
 
         private void MakeCommandByData()
         {
-            owner.BattleEventSyetem?.AddEvent(caseType, OnOptionInvoked);
+            owner.BattleEventSyetem?.AddEvent(TraitConditionToOpCase(caseType), OnOptionInvoked);
         }
 
         protected virtual void OnOptionInvoked(BattleEventParam param)
@@ -192,6 +221,12 @@ namespace FluffyDisket.Trait
                 
                 executer?.Execute();
             }
+        }
+
+
+        public static OptionCaseType TraitConditionToOpCase(TraitCondition con)
+        {
+            return OptionCaseType.NONE;
         }
         
 #if UNITY_EDITOR

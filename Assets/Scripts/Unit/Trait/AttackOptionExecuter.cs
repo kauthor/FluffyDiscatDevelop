@@ -1,5 +1,11 @@
 ﻿namespace FluffyDisket.Trait
 {
+    public class DamageWrapper
+    {
+        public float damage;
+        public bool isMissed;
+    }
+    
     public class AttackOptionExecuter:SkillOptionExecuter
     {
         public override OptionType option => OptionType.Attack;
@@ -17,13 +23,20 @@
                 target = target,
                 eventMaker = attacker
             });
-            
+
+            var wrap = new DamageWrapper()
+            {
+                damage = dam,
+                isMissed = false
+            };
             target.BattleEventSyetem.FireEvent(OptionCaseType.UnderAttacked, new UnderAttackParam()
             {
                 target = target,
-                eventMaker = attacker
+                eventMaker = attacker,
+                wrapper = wrap,
             });
-            target.SetHp(dam);
+            if(!wrap.isMissed)
+                target.SetHp(wrap.damage);
         }
     }
 }

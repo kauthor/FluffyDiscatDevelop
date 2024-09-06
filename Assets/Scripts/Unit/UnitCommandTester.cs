@@ -11,6 +11,8 @@ namespace FluffyDisket
         public bool casterIsPlayer;
         public int casterNumber;
         
+        //[]
+        
         [SerializeField] public bool targetIsPlayer;
         [SerializeField] public int targetNumber;
 

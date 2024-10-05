@@ -4,7 +4,7 @@ using UnityEngine;
 namespace FluffyDisket
 {
     [CustomEditor(typeof(UnitCommandTester))]
-    public class TestInspector:Editor
+    public class TestInspector:UnityEditor.Editor
     {
 
         [MenuItem("Fluffy Extension/Unit Trait Tester _F9")]

@@ -15,7 +15,7 @@ namespace FluffyDisket
     }
     
     
-    public class AccountManager:CustomSingleton<AccountManager>
+    public partial class AccountManager:CustomSingleton<AccountManager>
     {
         private Dictionary<int, bool> characterOwned;
         private Dictionary<int, int> characterLevels;
@@ -99,6 +99,8 @@ namespace FluffyDisket
                     phyd = 0
                 });
             }
+            
+            ItemDataInit();
         }
 
         public void SetCurrentBattlePlayer(List<int> playerList)

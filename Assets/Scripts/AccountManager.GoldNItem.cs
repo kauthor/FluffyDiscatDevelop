@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.OleDb;
+//using System.Data.OleDb;
 using Tables;
 
 namespace FluffyDisket
@@ -34,6 +34,10 @@ namespace FluffyDisket
 
         private Dictionary<ItemType, List<ItemInventoryData>> invenTypeDic;
 
+        public Dictionary<ItemType, List<ItemInventoryData>> GetInventory => invenTypeDic;
+
+        public event Action OnAccountSync;
+
         private int Gold
         {
             get => gold;
@@ -48,7 +52,7 @@ namespace FluffyDisket
         /// </summary>
         public void Sync()
         {
-            
+            OnAccountSync?.Invoke();
         }
 
         private void AccountSyncRequest(Action onEnd)

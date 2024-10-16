@@ -9,6 +9,7 @@ namespace FluffyDisket.UI
         PlayerInfo=0,
         BattleLevelUp=1,
         Inventory=2,
+        ItemDescription=3,
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

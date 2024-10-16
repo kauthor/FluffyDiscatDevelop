@@ -28,5 +28,10 @@ namespace FluffyDisket.UI
         {
             PopupManager.GetInstance().ClosePopup(type);
         }
+
+        public void Close()
+        {
+            OnCloseClick();
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace FluffyDisket.UI.Inven
 {
     public class UIInvenPopup:PopupMonoBehavior
     {
-        public static void OpenPopup(Job job, int id)
+        public static void OpenPopup()
         {
             var pop = PopupManager.GetInstance().GetPopup(PopupType.Inventory);
             if (pop is UIInvenPopup inven)

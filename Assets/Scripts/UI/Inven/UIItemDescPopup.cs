@@ -1,4 +1,7 @@
-﻿namespace FluffyDisket.UI.Inven
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+namespace FluffyDisket.UI.Inven
 {
     public class UIItemDescPopup:PopupMonoBehavior
     {
@@ -16,9 +19,17 @@
         }
         public override PopupType type => PopupType.ItemDescription;
 
+        [SerializeField] private Image imgItemIcon;
+        [SerializeField] private Text txtItemName;
+        [SerializeField] private Text txtItemDesc;
+
+        private ItemInventoryData currentData = null;
+
         private void Init(ItemInventoryData data)
         {
-            
+            currentData = data;
+            txtItemName.text = data.ItemId.ToString();
+            txtItemDesc.text = data.ItemId.ToString();
         }
     }
 }

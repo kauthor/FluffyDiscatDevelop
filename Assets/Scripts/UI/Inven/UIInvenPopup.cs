@@ -22,6 +22,8 @@ namespace FluffyDisket.UI.Inven
         private UIItemComponent[] _itemComponents;
         [SerializeField] private Transform itemsParent;
 
+        private UIItemComponent touchedComp = null;
+
         protected override void Awake()
         {
             base.Awake();
@@ -61,10 +63,16 @@ namespace FluffyDisket.UI.Inven
                         _itemComponents[i].Clear();
                     else
                     {
-                        _itemComponents[i].Init(allItems[i]);
+                        _itemComponents[i].Init(allItems[i], OnTouchItemComponent);
                     }
                 }
             }
+        }
+
+        private void OnTouchItemComponent(UIItemComponent comp)
+        {
+            touchedComp?.ClosePopup();
+            touchedComp = comp;
         }
     }
 }

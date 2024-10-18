@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 //using System.Data.OleDb;
 using Tables;
+using Tables.Player;
+using UnityEngine;
 
 namespace FluffyDisket
 {
@@ -27,6 +29,21 @@ namespace FluffyDisket
 
         public int UniqueId { get; private set; }
     }
+
+
+    [Serializable]
+    public class AccountOfflineSaveInfo
+    {
+        public InventoryInfoSaveData[] invenDatas;
+    }
+
+    [Serializable]
+    public class InventoryInfoSaveData
+    {
+        public int itemId;
+        public int itemCount;
+        public int ownedCharId;
+    }
     
     public partial class AccountManager : CustomSingleton<AccountManager>
     {
@@ -35,6 +52,10 @@ namespace FluffyDisket
         private Dictionary<ItemType, List<ItemInventoryData>> invenTypeDic;
 
         public Dictionary<ItemType, List<ItemInventoryData>> GetInventory => invenTypeDic;
+
+        private Dictionary<int, List<ItemInventoryData>> heroInventory;
+
+        public Dictionary<int, List<ItemInventoryData>> HeroInventory => heroInventory;
 
         public event Action OnAccountSync;
 
@@ -57,12 +78,19 @@ namespace FluffyDisket
 
         private void AccountSyncRequest(Action onEnd)
         {
+            LoadOfflineMode();
+            onEnd?.Invoke();
+        }
+
+        private void LoadOfflineMode()
+        {
             
         }
 
         private void ItemDataInit()
         {
             invenTypeDic = new Dictionary<ItemType, List<ItemInventoryData>>();
+            heroInventory = new Dictionary<int, List<ItemInventoryData>>();
             gold = 0;
             
             //본래라면 서버로  Sync를 요청해야한다.

@@ -22,6 +22,8 @@ namespace FluffyDisket
         private Dictionary<int, int> characterCurrentExp;
         private Dictionary<int, CharacterLevelupStat> characterLevelUpStats;
 
+        private Dictionary<int, int[]> characterEquiped;
+
         //[SerializeField] private PlayerSubTable[] playerTables;
         //이것은 추후 엑셀 매니저로 분기하자.
 
@@ -29,6 +31,8 @@ namespace FluffyDisket
         public Dictionary<int, int> CharacterLevels => characterLevels;
         public Dictionary<int, int> CharacterCurrentExp => characterCurrentExp;
         public Dictionary<int, CharacterLevelupStat> CharacterLevelupStats => characterLevelUpStats;
+
+        public Dictionary<int, int[]> CharacterEquiped => characterEquiped;
 
         private List<int> currentBattlePlayers;
 
@@ -82,6 +86,7 @@ namespace FluffyDisket
             characterCurrentExp = new Dictionary<int, int>();
             currentBattlePlayers = new List<int>();
             characterLevelUpStats = new Dictionary<int, CharacterLevelupStat>();
+            characterEquiped = new Dictionary<int, int[]>();
             var chars = ExcelManager.GetInstance().CharT.characterAmounts;
             
             //차후 계정 정보를 본격적으로 받아오면, 그때  제대로 초기화한다.
@@ -89,6 +94,7 @@ namespace FluffyDisket
             for(int i=0; i<chars; i++)
             {
                 characterOwned.Add(i,true);
+                characterEquiped.Add(i, new int[4]);
                 characterLevels.Add(i,1);
                 characterCurrentExp.Add(i,0);
                 characterLevelUpStats.Add(i, new CharacterLevelupStat()

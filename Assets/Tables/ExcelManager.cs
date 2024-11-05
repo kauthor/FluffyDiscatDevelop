@@ -20,8 +20,10 @@ namespace Tables
         [SerializeField] private TraitTable _traitTable;
 
         [SerializeField] private SubstanceTable _substanceTable;
+        [SerializeField] private ItemTable _itemTable;
         //public void SetCharTable
 
+        public ItemTable ItemT => _itemTable;
         public BaseTable BaseT => _baseTable;
         public CharacterTable CharT => _charTable;
         public CharNameTable CharNameT => _charNameTable;

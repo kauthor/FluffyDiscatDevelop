@@ -19,7 +19,7 @@ namespace FluffyDisket.UI.Inven
         
         public void Init(ItemInventoryData data, Action<UIItemComponent> onTouch=null)
         {
-            txtAmount.text = data.ItemCount.ToString();
+            //txtAmount.text = data.ItemCount.ToString();
             currentData = data;
             OnItemShow = onTouch;
         }
@@ -32,7 +32,7 @@ namespace FluffyDisket.UI.Inven
         public void OnPointerEnter(PointerEventData eventData)
         {
             OnItemShow?.Invoke(this);
-            _popup = UIItemDescPopup.OpenPopup(currentData);
+            //_popup = UIItemDescPopup.OpenPopup(currentData);
         }
 
         public void OnPointerExit(PointerEventData eventData)

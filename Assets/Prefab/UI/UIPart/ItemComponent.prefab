@@ -87,6 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b40d4a20ae447d4a4931bd583bf9562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgItem: {fileID: 0}
+  imgItem: {fileID: 7909021085751118212}
   txtAmount: {fileID: 0}
   btnOnClicked: {fileID: 0}

@@ -63,12 +63,12 @@ namespace FluffyDisket.UI
                     }
                     //todo 배경 이미지 수정 구문 추가해야함
                     txtDialogue.text = $"Dialogue/{currentEvent.Id}"; 
-                    btnNext.onClick.RemoveAllListeners();
+                    /*btnNext.onClick.RemoveAllListeners();
                     btnNext.gameObject.SetActive(true);
                     btnNext.onClick.AddListener(() =>
                     {
                         OpenDialogue(id+1);
-                    });
+                    });*/
                     break;
                 case EventArticleType.Choice:
                     var cho = currentEvent as ChoiceArticle;
@@ -94,16 +94,16 @@ namespace FluffyDisket.UI
                         });
                         txtSelects[i].text = $"Dialogue/{cho.buttons[i].dialogueId}";
                     }
-                    btnNext.gameObject.SetActive(false);
+                    //btnNext.gameObject.SetActive(false);
                     break;
                 case EventArticleType.GetDamage:
                 case EventArticleType.GetGold:
                 case EventArticleType.Gacha:
                 case EventArticleType.GetItem:
-                    btnNext.onClick.AddListener(() =>
+                    /*btnNext.onClick.AddListener(() =>
                     {
                         OpenDialogue(id+1);
-                    });
+                    });*/
                     break;
                 case EventArticleType.Jump:
                     var jump = currentEvent as JumpArticle;

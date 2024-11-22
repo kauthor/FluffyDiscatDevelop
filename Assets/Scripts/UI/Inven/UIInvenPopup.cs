@@ -27,14 +27,17 @@ namespace FluffyDisket.UI.Inven
         protected override void Awake()
         {
             base.Awake();
-            _itemComponents = itemsParent.GetComponents<UIItemComponent>();
+            
         }
 
         private void Init()
         {
+            _itemComponents = itemsParent.GetComponentsInChildren<UIItemComponent>();
             SyncItems();
             AccountManager.GetInstance().OnAccountSync -= SyncItems;
             AccountManager.GetInstance().OnAccountSync += SyncItems;
+            
+            
         }
 
         private void SyncItems()
@@ -57,7 +60,13 @@ namespace FluffyDisket.UI.Inven
             // 이 이하로 Ui 컴포넌트들 초기화
             if(_itemComponents!=null && _itemComponents.Length>0)
             {
-                for (int i = 0; i < _itemComponents.Length; i++)
+                //소비 아이템은 아마 등록하는 방식인데.. 일단 있는거대로 표기한다
+                for (int i = 0; i < 6; i++)
+                {
+                    _itemComponents[i].ClearThenShow();
+                }
+                
+                for (int i = 6; i < _itemComponents.Length; i++)
                 {
                     if(i >= allItems.Count)
                         _itemComponents[i].Clear();

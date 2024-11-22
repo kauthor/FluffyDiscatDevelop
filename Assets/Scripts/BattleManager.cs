@@ -44,6 +44,8 @@ namespace FluffyDisket
     public struct PlayerCurrent
     {
         public float remainHpPer;
+        public float maxHp;
+        public float currentHp;
         public bool retired;
     }
     
@@ -301,6 +303,8 @@ namespace FluffyDisket
                 AccountManager.GetInstance().AddOrLoseCharacter(mem.CharacterClassPublic, !mem.IsDead);
                 currentPlayerCondition.deadCount += mem.IsDead ? 1 : 0;
                 currentPlayerCondition.currentHpDatas[i].remainHpPer = mem.IsDead ? 0: mem.currentHp / mem.MaxHp;
+                currentPlayerCondition.currentHpDatas[i].maxHp = mem.MaxHp;
+                currentPlayerCondition.currentHpDatas[i].currentHp = mem.currentHp;
                 i++;
             }
             

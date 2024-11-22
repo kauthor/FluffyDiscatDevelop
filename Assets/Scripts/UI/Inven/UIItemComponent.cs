@@ -29,6 +29,11 @@ namespace FluffyDisket.UI.Inven
             gameObject.SetActive(false);
         }
 
+        public void ClearThenShow()
+        {
+            gameObject.SetActive(true);
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             OnItemShow?.Invoke(this);

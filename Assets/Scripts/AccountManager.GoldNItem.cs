@@ -23,6 +23,12 @@ namespace FluffyDisket
 
         public void DeltaItemCount(int delta)
             => ItemCount += delta;
+
+        public int ItemGauge;
+
+        public void DeltaItemGauge(int delta)
+            => ItemGauge += delta;
+        
         public int ItemId => rowData?.id ?? 0;
         public ItemType IType => rowData?.type ?? ItemType.Etc;
         public bool Stackable => rowData?.stackable ?? false;
@@ -54,6 +60,8 @@ namespace FluffyDisket
         public Dictionary<ItemType, List<ItemInventoryData>> GetInventory => invenTypeDic;
 
         private Dictionary<int, List<ItemInventoryData>> heroInventory;
+
+        private List<ItemInventoryData> DungeonHoldInventoty;
 
         public Dictionary<int, List<ItemInventoryData>> HeroInventory => heroInventory;
 
@@ -91,6 +99,7 @@ namespace FluffyDisket
         {
             invenTypeDic = new Dictionary<ItemType, List<ItemInventoryData>>();
             heroInventory = new Dictionary<int, List<ItemInventoryData>>();
+            DungeonHoldInventoty = new List<ItemInventoryData>();
             gold = 0;
             
             //본래라면 서버로  Sync를 요청해야한다.
@@ -125,6 +134,26 @@ namespace FluffyDisket
         public void UseItem()
         {
             
+        }
+
+        public ItemInventoryData TryGetPotion(int id)
+        {
+            var ret = DungeonHoldInventoty.Find(_ => _.ItemId == id);
+            return ret.IType == ItemType.Consume ? ret : null;
+        }
+
+        public void TryConsumePotion(int id, int amount)
+        {
+            var ret = DungeonHoldInventoty.Find(_ => _.ItemId == id);
+            if (ret != null)
+            {
+                ret.DeltaItemGauge(-amount);
+                if (ret.ItemGauge <= 0)
+                {
+                    DungeonHoldInventoty.Remove(ret);
+                    Sync();
+                }
+            }
         }
 
         public void GetGold(int g) => Gold += g;

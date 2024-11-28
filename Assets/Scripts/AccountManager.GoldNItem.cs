@@ -67,6 +67,8 @@ namespace FluffyDisket
 
         public event Action OnAccountSync;
 
+        public int GetOwnedGold() => gold;
+
         private int Gold
         {
             get => gold;

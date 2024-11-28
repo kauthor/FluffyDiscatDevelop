@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Mime;
+using Tables;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,8 @@ namespace FluffyDisket.UI
         [SerializeField] private Image playerIcon;
         [SerializeField] private Button btnArea;
         [SerializeField] private Transform panelArea;
+        [SerializeField] private Transform imgDisposed;
+        [SerializeField] private Transform imgSelected;
         [SerializeField] private Button btnSelect;
         [SerializeField] private Button btnCancel;
         
@@ -17,6 +21,12 @@ namespace FluffyDisket.UI
         [SerializeField] private Button btnResSelect;
         [SerializeField] private Button btnResCancel;
 
+
+        [SerializeField] private TextMeshProUGUI txtHp;
+        [SerializeField] private TextMeshProUGUI txtAtk;
+        [SerializeField] private TextMeshProUGUI txtPdef;
+        [SerializeField] private TextMeshProUGUI txtMdef;
+        
         private int playerNumber;
         public int PlayerNumber => playerNumber;
 
@@ -41,6 +51,8 @@ namespace FluffyDisket.UI
         {
             panelArea.gameObject.SetActive(false);
             onClickSettleEvent?.Invoke(this);
+            imgDisposed.gameObject.SetActive(false);
+            imgSelected.gameObject.SetActive(true);
             isInDeck = false;
         }
 
@@ -48,6 +60,8 @@ namespace FluffyDisket.UI
         {
             panelResArea.gameObject.SetActive(false);
             onClickResetEvent?.Invoke(this);
+            imgDisposed.gameObject.SetActive(true);
+            imgSelected.gameObject.SetActive(false);
             isInDeck = true;
         }
 
@@ -56,6 +70,8 @@ namespace FluffyDisket.UI
         {
             //일단 데모버전 아이콘 초기화
 
+            imgDisposed.gameObject.SetActive(true);
+            imgSelected.gameObject.SetActive(false);
             isInDeck = true;
             playerNumber = playerNum;
             switch (playerNum)
@@ -74,6 +90,13 @@ namespace FluffyDisket.UI
             onClickResetEvent = cbReset;
             onClickSettleEvent = cbSettle;
             onClickSelectEvent = cbSelect;
+            
+            var baseStat = ExcelManager.GetInstance().CharT.GetCharData(playerNum).GetCharacterDataAsStat();
+
+            txtHp.text = baseStat.HpMax.ToString();
+            txtAtk.text = baseStat.Atk.ToString();
+            txtMdef.text = baseStat.magDef.ToString();
+            txtPdef.text = baseStat.phyDef.ToString();
         }
 
         private void OnClickBtnArea()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluffyDisket.UI.Inven;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,6 +26,9 @@ namespace FluffyDisket.UI
         
         [SerializeField] private Button btnGoGame;
 
+        [SerializeField] private Button btnInven;
+        [SerializeField] private Text txtGold;
+
 
         private UILobbyPlayerSlot currentSelected;
         
@@ -34,6 +38,12 @@ namespace FluffyDisket.UI
                 managedSlots = new List<UILobbyPlayerSlot>();
             
             btnGoGame.onClick.AddListener(GoGame);
+            btnInven?.onClick.AddListener(OpenInven);
+        }
+
+        private void OpenInven()
+        {
+            UIInvenPopup.OpenPopup();
         }
 
         public override void Init(UIViewParam param)
@@ -94,6 +104,8 @@ namespace FluffyDisket.UI
                     
                 }
             }
+
+            txtGold.text = AccountManager.GetInstance()?.GetOwnedGold().ToString() ?? "0";
         }
 
         protected override void Dispose()
@@ -107,7 +119,7 @@ namespace FluffyDisket.UI
 
         private void SettleIcon(UILobbyPlayerSlot slot)
         {
-            slot.transform.SetParent(reserveArea);
+            
             deckPlayerList.Remove(slot.PlayerNumber);
             reservedPlayerList.Add(slot.PlayerNumber);
 
@@ -129,7 +141,7 @@ namespace FluffyDisket.UI
 
         private void ResetIcon(UILobbyPlayerSlot slot)
         {
-            slot.transform.SetParent(deckArea);
+            
             deckPlayerList.Add(slot.PlayerNumber);
             reservedPlayerList.Remove(slot.PlayerNumber);
 

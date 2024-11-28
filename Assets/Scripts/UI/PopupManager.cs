@@ -38,7 +38,8 @@ namespace FluffyDisket.UI
             {
                 var newPop = Instantiate(pop);
                 popupStack.Push(newPop);
-                pop.gameObject.SetActive(false);
+                newPop.gameObject.SetActive(false);
+                newPop.transform.SetParent(transform);
                 return newPop;
             }
 

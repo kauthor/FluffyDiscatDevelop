@@ -8,10 +8,13 @@ namespace FluffyDisket.UI
     {
         public virtual PopupType type { get; }
         [SerializeField] private Button BtnClose;
+        [SerializeField] private Button BtnOutClose;
 
         protected virtual void Awake()
         {
-            BtnClose?.onClick.AddListener(OnCloseClick);
+            BtnClose.onClick.AddListener(OnCloseClick);
+            if(BtnOutClose!=null)
+               BtnOutClose.onClick.AddListener(OnCloseClick);
         }
 
         protected virtual void Dispose()

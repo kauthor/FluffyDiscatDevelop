@@ -22,6 +22,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Button btnResCancel;
 
 
+        [SerializeField] private TextMeshProUGUI txtName;
         [SerializeField] private TextMeshProUGUI txtHp;
         [SerializeField] private TextMeshProUGUI txtAtk;
         [SerializeField] private TextMeshProUGUI txtPdef;
@@ -54,6 +55,11 @@ namespace FluffyDisket.UI
             imgDisposed.gameObject.SetActive(false);
             imgSelected.gameObject.SetActive(true);
             isInDeck = false;
+            txtHp.color = Color.black;
+            txtAtk.color = Color.black;
+            txtMdef.color = Color.black;
+            txtPdef.color = Color.black;
+            txtName.color = Color.black;
         }
 
         private void OnClickReset()
@@ -63,6 +69,11 @@ namespace FluffyDisket.UI
             imgDisposed.gameObject.SetActive(true);
             imgSelected.gameObject.SetActive(false);
             isInDeck = true;
+            txtHp.color = Color.white;
+            txtAtk.color = Color.white;
+            txtMdef.color = Color.white;
+            txtPdef.color = Color.white;
+            txtName.color = Color.white;
         }
 
         public void Init(int playerNum, Action<UILobbyPlayerSlot> cbSettle, Action<UILobbyPlayerSlot> cbReset
@@ -97,6 +108,12 @@ namespace FluffyDisket.UI
             txtAtk.text = baseStat.Atk.ToString();
             txtMdef.text = baseStat.magDef.ToString();
             txtPdef.text = baseStat.phyDef.ToString();
+            
+            txtHp.color = Color.white;
+            txtAtk.color = Color.white;
+            txtMdef.color = Color.white;
+            txtPdef.color = Color.white;
+            txtName.color = Color.white;
         }
 
         private void OnClickBtnArea()

@@ -29,6 +29,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Button btnInven;
         [SerializeField] private Text txtGold;
 
+        [SerializeField] private Button btnPub; 
 
         private UILobbyPlayerSlot currentSelected;
         
@@ -39,11 +40,18 @@ namespace FluffyDisket.UI
             
             btnGoGame.onClick.AddListener(GoGame);
             btnInven?.onClick.AddListener(OpenInven);
+            btnPub.onClick.RemoveAllListeners();
+            btnPub.onClick.AddListener(OpenPub);
         }
 
         private void OpenInven()
         {
             UIInvenPopup.OpenPopup();
+        }
+
+        private void OpenPub()
+        {
+            UIPubPopup.OpenPopup();
         }
 
         public override void Init(UIViewParam param)

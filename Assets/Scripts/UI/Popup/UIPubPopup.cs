@@ -92,6 +92,7 @@ public class UIPubPopup : PopupMonoBehavior
         {
             currentIndex += prev ? -1 : 1;
             toggleCharacter[currentIndex].Select();
+            toggleCharacter[currentIndex].isOn = true;
             btnNext.enabled = length > currentIndex + 1;
             btnPrev.enabled = currentIndex != 0;
         }
@@ -128,5 +129,6 @@ public class UIPubPopup : PopupMonoBehavior
         btnNext.enabled = LobbyData.Count > 1;
         btnPrev.enabled = false;
         toggleCharacter[0].Select();
+        toggleCharacter[0].isOn = true;
     }
 }

@@ -358,9 +358,8 @@ GameObject:
   - component: {fileID: 2251151912531858582}
   - component: {fileID: 2251151912531858583}
   - component: {fileID: 2251151912531858568}
-  - component: {fileID: 2251151912531858569}
   m_Layer: 5
-  m_Name: UIPubView
+  m_Name: UIPubPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,32 +453,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &2251151912531858569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2251151912531858571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eafeef9bc0964b0db9df5842e2300c1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnNext: {fileID: 0}
-  btnSelects:
-  - {fileID: 2251151911514225694}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  txtSelects:
-  - {fileID: 2251151911793404790}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  txtDialogue: {fileID: 0}
-  imgBg: {fileID: 0}
-  scriptData: {fileID: 11400000, guid: c8ba0713d6f8db04d8fbe715000ac6c6, type: 2}
 --- !u!1 &2251151912700778613
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ namespace FluffyDisket.UI
         public override void Init(UIViewParam param)
         {
             base.Init(param);
+            AccountManager.GetInstance().SyncLobby();
             btnGoGame.enabled = false;
             currentSelected = null;
             if (ownedPlayers == null)

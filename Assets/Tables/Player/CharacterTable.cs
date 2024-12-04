@@ -31,6 +31,7 @@ namespace Tables.Player
         public int accuracy;
         public int startItemGroup;
         public int startTraitGroup;
+        public int Price => 10;
         
 
         public CharacterStat GetCharacterDataAsStat()

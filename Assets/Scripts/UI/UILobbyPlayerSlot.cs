@@ -113,7 +113,8 @@ namespace FluffyDisket.UI
             txtAtk.color = Color.white;
             txtMdef.color = Color.white;
             txtPdef.color = Color.white;
-            txtName.color = Color.white;
+            if(txtName)
+               txtName.color = Color.white;
         }
 
         private void OnClickBtnArea()

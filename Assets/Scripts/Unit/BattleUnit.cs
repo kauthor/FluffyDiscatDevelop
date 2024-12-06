@@ -114,6 +114,19 @@ namespace FluffyDisket
         public float levelpd;
         public float levelmd;
 
+
+        public void Duplicate(CharacterStat from)
+        {
+            hpRegen += from.hpRegen;
+            hpAbsolve += from.hpAbsolve;
+            crit += from.crit;
+            critDam += from.critDam;
+            dodge += from.dodge;
+            atkIncrease += from.atkIncrease;
+            damageDecrease += from.damageDecrease;
+            AOEArea += from.AOEArea;
+            accuracy += from.accuracy;
+        }
     }
 
     public class LevelAdditionalStat
@@ -191,10 +204,14 @@ namespace FluffyDisket
             levelStat?.UpdateRuntimeData(levelDelta, atkDelta, pdDelta, mdDelta, hpDelta);
         }
 
-        public CharacterAbilityDatas(LevelAdditionalStat levels, CharacterStat bs, List<TraitData> trait)
+        public CharacterAbilityDatas(LevelAdditionalStat levels, CharacterStat bs, List<TraitData> trait, JobData job)
         {
             levelStat = levels;
             baseStat = bs;
+            if (job != null)
+            {
+                baseStat.Duplicate(job.GetCharacterDataAsStat());
+            }
             absStatDelta = new Dictionary<StatType, int>();
 
             ratioStatDelta = new Dictionary<StatType, int>();
@@ -578,9 +595,9 @@ namespace FluffyDisket
             => TargetToNear = near;
         
 
-        private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait)
+        private void SetAbilityData(CharacterStat baseStat, LevelAdditionalStat lev, List<TraitData> trait, JobData job)
         {
-            abilityDatas = new CharacterAbilityDatas(lev, baseStat, trait);
+            abilityDatas = new CharacterAbilityDatas(lev, baseStat, trait, job);
         }
         
         
@@ -625,11 +642,11 @@ namespace FluffyDisket
             }
         }
 
-        public void SetStat(CharacterStat s, LevelAdditionalStat lev=null, List<TraitData> trait=null)
+        public void SetStat(CharacterStat s, LevelAdditionalStat lev=null, List<TraitData> trait=null, JobData job=null)
         {
             //characterAbility = s;
             //HPMax = s.HpMax;
-            SetAbilityData(s,lev,trait);
+            SetAbilityData(s,lev,trait, job);
             currentHp = MaxHp;
         }
 

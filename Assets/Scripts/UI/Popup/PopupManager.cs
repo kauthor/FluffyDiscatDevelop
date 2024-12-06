@@ -11,7 +11,8 @@ namespace FluffyDisket.UI
         Inventory=2,
         ItemDescription=3,
         HeroInven=4,
-        Pub=5
+        Pub=5,
+        Inn=6
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

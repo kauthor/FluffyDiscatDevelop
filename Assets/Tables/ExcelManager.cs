@@ -23,6 +23,8 @@ namespace Tables
         [SerializeField] private ItemTable _itemTable;
 
         [SerializeField] private GachaTable _gachaTable;
+
+        [SerializeField] private JobTable jobTable;
         //public void SetCharTable
 
         public ItemTable ItemT => _itemTable;
@@ -38,6 +40,8 @@ namespace Tables
         public TraitTable TraitT => _traitTable;
 
         public SubstanceTable SubstanceT => _substanceTable;
+
+        public JobTable JobTable => jobTable;
         
         public GachaTableDatas GachaDatas { get; private set; }
 

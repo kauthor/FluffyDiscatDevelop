@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FluffyDisket.UI.Inven;
+using UI.Popup;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,6 +31,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Text txtGold;
 
         [SerializeField] private Button btnPub; 
+        [SerializeField] private Button btnInn; 
 
         private UILobbyPlayerSlot currentSelected;
         
@@ -42,6 +44,9 @@ namespace FluffyDisket.UI
             btnInven?.onClick.AddListener(OpenInven);
             btnPub.onClick.RemoveAllListeners();
             btnPub.onClick.AddListener(OpenPub);
+            
+            btnInn.onClick.RemoveAllListeners();
+            btnInn.onClick.AddListener(OpenInn);
         }
 
         private void OpenInven()
@@ -52,6 +57,11 @@ namespace FluffyDisket.UI
         private void OpenPub()
         {
             UIPubPopup.OpenPopup();
+        }
+
+        private void OpenInn()
+        {
+            UIInnPopup.OpenPopup();
         }
 
         public override void Init(UIViewParam param)

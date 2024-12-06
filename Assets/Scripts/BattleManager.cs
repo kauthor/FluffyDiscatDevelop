@@ -107,6 +107,8 @@ namespace FluffyDisket
                     playerList.Add(pl);
                     pl.gameObject.SetActive(false);
                     var baseStat = ExcelManager.GetInstance().CharT.GetCharData(0).GetCharacterDataAsStat();
+                    var jobStat = ExcelManager.GetInstance().JobTable
+                        .GetJobData(ExcelManager.GetInstance().CharT.GetCharData(0).job);
                     var currentLevelStatData = AccountManager.GetInstance().CharacterLevelupStats[mem];
                     var levelData = new LevelAdditionalStat((float)currentLevelStatData.hp * baseData.GetBaseDataByIndex(23).data, 
                         (float)currentLevelStatData.atk * baseData.GetBaseDataByIndex(24).data, 

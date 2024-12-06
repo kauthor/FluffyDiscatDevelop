@@ -94,12 +94,14 @@ namespace UI.Popup
                         var current = _portraitsPool[idx];
                         current.gameObject.SetActive(true);
                         current.Init(pair.Key, OnClickCard);
+                        current.InitHandler(null, OnClickInven);
                     }
                     else
                     {
                         var newcard = GameObject.Instantiate(portPrefab, portraitParent);
                         newcard.gameObject.SetActive(true);
                         newcard.Init(pair.Key, OnClickCard);
+                        newcard.InitHandler(null, OnClickInven);
                     }
 
                     idx++;
@@ -111,8 +113,15 @@ namespace UI.Popup
 
         private void OnClickCard(CharacterData data)
         {
-            pnlHeroCards.gameObject.SetActive(false);
+            //pnlHeroCards.gameObject.SetActive(true);
             _informationPart.Init(data);
+            _informationPart.gameObject.SetActive(true);
+            pnlHeroCardInven.gameObject.SetActive(false);
+        }
+
+        private void OnClickInven(CharacterData data)
+        {
+            pnlHeroCards.gameObject.SetActive(false);
             pnlHeroCardInven.gameObject.SetActive(true);
         }
 

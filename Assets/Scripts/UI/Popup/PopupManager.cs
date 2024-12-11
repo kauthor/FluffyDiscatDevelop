@@ -12,7 +12,8 @@ namespace FluffyDisket.UI
         ItemDescription=3,
         HeroInven=4,
         Pub=5,
-        Inn=6
+        Inn=6,
+        Gym=7
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

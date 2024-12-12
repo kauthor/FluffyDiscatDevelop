@@ -1859,6 +1859,7 @@ MonoBehaviour:
   panelResArea: {fileID: 2756262940105448577}
   btnResSelect: {fileID: 6641279392577147929}
   btnResCancel: {fileID: 6071164767644705203}
+  txtName: {fileID: 2541270468455445699}
   txtHp: {fileID: 993169888619090364}
   txtAtk: {fileID: 785098692931182038}
   txtPdef: {fileID: 1282770826633372583}

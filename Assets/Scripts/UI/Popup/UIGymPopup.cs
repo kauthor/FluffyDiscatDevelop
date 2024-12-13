@@ -29,6 +29,8 @@ namespace FluffyDisket.UI
         
         private List<UIHeroGymCard> _portraitsPool;
 
+        private List<int> LobbyReservedCharacter;
+
         protected override void Awake()
         {
             base.Awake();
@@ -66,18 +68,25 @@ namespace FluffyDisket.UI
             
         }
 
-        public static void OpenPopup()
+        public static PopupMonoBehavior OpenPopup(List<int> reserved)
         {
             var pop = PopupManager.GetInstance().GetPopup(PopupType.Gym);
             if (pop is UIGymPopup inven)
             {
-                inven.Init();
+                inven.Init(true, reserved);
                 inven.gameObject.SetActive(true);
+                return inven;
             }
+
+            return null;
         }
 
-        private void Init()
+        private void Init(bool initForOpen, List<int> reservedCharacter=null)
         {
+            if (LobbyReservedCharacter == null)
+                LobbyReservedCharacter = new List<int>();
+            if (initForOpen && reservedCharacter != null)
+                LobbyReservedCharacter = reservedCharacter;
             if (_portraitsPool == null)
                 _portraitsPool = new List<UIHeroGymCard>();
 
@@ -87,7 +96,7 @@ namespace FluffyDisket.UI
             int idx = 0;
             foreach (var pair in owned)
             {
-                if (pair.Value)
+                if (pair.Value && !LobbyReservedCharacter.Contains(pair.Key))
                 {
                     
                     if (idx < _portraitsPool.Count)
@@ -134,7 +143,7 @@ namespace FluffyDisket.UI
             {
                 p.gameObject.SetActive(false);
             }
-            Init();
+            Init(false,null);
         }
 
         protected override void Dispose()

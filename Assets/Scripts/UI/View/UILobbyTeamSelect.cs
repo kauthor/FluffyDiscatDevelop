@@ -65,7 +65,13 @@ namespace FluffyDisket.UI
 
         private void OpenGym()
         {
-            UIGymPopup.OpenPopup();
+            UIGymPopup.OpenPopup(reservedPlayerList).SetOnCloseHandler(() =>
+            {
+                foreach (var man in managedSlots)
+                {
+                    man.SyncTrain();
+                }
+            });
         }
 
         private void OpenInn()

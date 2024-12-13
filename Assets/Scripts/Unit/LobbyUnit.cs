@@ -2,6 +2,7 @@
 using FluffyDisket.UI;
 using Tables.Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace FluffyDisket
@@ -39,6 +40,8 @@ namespace FluffyDisket
 
         private void OnMouseDown()
         {
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                return;
             UIHeroInfoPopup.OpenPopup(job, id);
         }
     }

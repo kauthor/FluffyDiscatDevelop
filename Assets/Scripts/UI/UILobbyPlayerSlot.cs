@@ -21,6 +21,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Button btnResSelect;
         [SerializeField] private Button btnResCancel;
 
+        [SerializeField] private Transform pnlTrainning;
 
         [SerializeField] private TextMeshProUGUI txtName;
         [SerializeField] private TextMeshProUGUI txtHp;
@@ -32,6 +33,8 @@ namespace FluffyDisket.UI
         public int PlayerNumber => playerNumber;
 
         private bool isInDeck;
+
+        private bool isTrainning;
 
         private Action<UILobbyPlayerSlot> onClickSettleEvent;
         private Action<UILobbyPlayerSlot> onClickResetEvent;
@@ -80,9 +83,11 @@ namespace FluffyDisket.UI
                           ,Action<UILobbyPlayerSlot> cbSelect)
         {
             //일단 데모버전 아이콘 초기화
+            isTrainning = false;
 
             imgDisposed.gameObject.SetActive(true);
             imgSelected.gameObject.SetActive(false);
+            pnlTrainning.gameObject.SetActive(false);
             isInDeck = true;
             playerNumber = playerNum;
             switch (playerNum)
@@ -119,10 +124,28 @@ namespace FluffyDisket.UI
 
         private void OnClickBtnArea()
         {
+            if (isTrainning)
+                return;
             onClickSelectEvent?.Invoke(this);
             if(isInDeck)
                panelArea.gameObject.SetActive(true);
             else panelResArea.gameObject.SetActive(true);
+        }
+
+        public void SyncTrain()
+        {
+            var acc = AccountManager.GetInstance();
+            if (!acc.IsTrainning(playerNumber))
+                return;
+            panelArea.gameObject.SetActive(false);
+            panelResArea.gameObject.SetActive(false);
+            pnlTrainning.gameObject.SetActive(true);
+            isTrainning = true;
+            txtHp.gameObject.SetActive(false);
+            txtAtk.gameObject.SetActive(false);
+            txtMdef.gameObject.SetActive(false);
+            txtPdef.gameObject.SetActive(false);
+            txtName.color = Color.black;
         }
 
         private void OnClickCancel()

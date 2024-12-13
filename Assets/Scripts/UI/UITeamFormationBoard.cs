@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluffyDisket;
 using FluffyDisket.UI;
 using UnityEngine;
@@ -19,6 +20,11 @@ namespace UI
         [SerializeField] private Button btnGoGame;
         private UITeamFormationIcon CurrentDrag;
 
+        
+        [SerializeField] private UIBattleUnitInfoParts heroInfoPartsPrefab;
+        [SerializeField] private Transform heroInfoSlot;
+        
+        private List<UIBattleUnitInfoParts> cachedInfoParts;
         private void Awake()
         {
             btnGoGame.onClick.RemoveAllListeners();
@@ -60,7 +66,8 @@ namespace UI
                 playerSlots[startPosition[i]].SetChild(currentSet);
                 i++;
             }
-            
+            if (cachedInfoParts == null)
+                cachedInfoParts = new List<UIBattleUnitInfoParts>();
             
         }
 

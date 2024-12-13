@@ -10,6 +10,7 @@ namespace FluffyDisket.UI
         [SerializeField] private Button BtnClose;
         [SerializeField] private Button BtnOutClose;
 
+        private Action OnCloseCb;
         protected virtual void Awake()
         {
             BtnClose.onClick.AddListener(OnCloseClick);
@@ -29,12 +30,18 @@ namespace FluffyDisket.UI
 
         protected virtual void OnCloseClick()
         {
+            OnCloseCb?.Invoke();
             PopupManager.GetInstance().ClosePopup(type);
         }
 
         public void Close()
         {
             OnCloseClick();
+        }
+
+        public void SetOnCloseHandler(Action cb)
+        {
+            OnCloseCb = cb;
         }
     }
 }

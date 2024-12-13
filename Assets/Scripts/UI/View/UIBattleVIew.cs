@@ -28,8 +28,8 @@ namespace FluffyDisket.UI
         [SerializeField] private UILogSentence logPrefab;
 
         [SerializeField] private UIBattleUnitInfoParts heroInfoPartsPrefab;
-
-        [SerializeField] private Transform heroInfoSlot;
+[SerializeField] private Transform heroInfoSlot;
+        
 
         private List<UIBattleUnitInfoParts> cachedInfoParts;
         
